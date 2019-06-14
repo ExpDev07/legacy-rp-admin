@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules>
+    <adult_community>
+        <rule>
+            <number>1.1</number>
+            <desc>Bullying</desc>
+        </rule>
+        <rule>
+            <number>1.2</number>
+            <desc>Discrimination/Sexism</desc>
+        </rule>
+        <rule>
+            <number>1.3</number>
+            <desc>Personally Directed Slur</desc>
+        </rule>
+        <rule>
+            <number>1.4</number>
+            <desc>Threat Toward Community Member</desc>
+        </rule>
+        <rule>
+            <number>1.5</number>
+            <desc>DDOS or Attempt to Harm Server</desc>
+        </rule>
+        <rule>
+            <number>1.6</number>
+            <desc>Overly Disruptive Behavior</desc>
+        </rule>
+        <rule>
+            <number>1.8</number>
+            <desc>Forcing Others to Break Rules</desc>
+        </rule>
+        <rule>
+            <number>1.9</number>
+            <desc>Providing False Information to Gain Whitelist Job</desc>
+        </rule>
+        <rule>
+            <number>1.9.1</number>
+            <desc>Providing Personally Identifying Information</desc>
+        </rule>
+    </adult_community>
+    <general_rules>
+        <rule>
+            <number>2.1.1</number>
+            <desc>Vehicle Death Match (VDM)</desc>
+        </rule>
+        <rule>
+            <number>2.2</number>
+            <desc>Random Death Match (RDM)</desc>
+        </rule>
+        <rule>
+            <number>2.3</number>
+            <desc>Fear RP / FearRP</desc>
+        </rule>
+        <rule>
+            <number>2.4</number>
+            <desc>Modding / Scripting</desc>
+        </rule>
+        <rule>
+            <number>2.5</number>
+            <desc>Exploiting</desc>
+        </rule>
+        <rule>
+            <number>2.6</number>
+            <desc>Combat Logging</desc>
+        </rule>
+        <rule>
+            <number>2.7</number>
+            <desc>Trolling (General)</desc>
+        </rule>
+        <rule>
+            <number>2.8</number>
+            <desc>FailRP in Voice Chat</desc>
+        </rule>
+        <rule>
+            <number>2.9</number>
+            <desc>Trading Real-Life Items for Ingame Items</desc>
+        </rule>
+        <rule>
+            <number>2.11</number>
+            <desc>Instanced / Side Server</desc>
+        </rule>
+        <rule>
+            <number>2.12</number>
+            <desc>Stealing Helicopter / Aircraft</desc>
+        </rule>
+        <rule>
+            <number>2.13</number>
+            <desc>Driving on Airstrip</desc>
+        </rule>
+        <rule>
+            <number>2.16</number>
+            <desc>Scamming</desc>
+        </rule>
+        <rule>
+            <number>2.17</number>
+            <desc>Stealing Emergency Vehicle</desc>
+        </rule>
+        <rule>
+            <number>2.18</number>
+            <desc>Kidnapping by Calling for Jobs</desc>
+        </rule>
+        <rule>
+            <number>2.19</number>
+            <desc>FailRP Driving</desc>
+        </rule>
+        <rule>
+            <number>2.22</number>
+            <desc>Advertising Other Communities</desc>
+        </rule>
+    </general_rules>
+    <roleplay_rules>
+        <rule>
+            <number>3.1</number>
+            <desc>General Powergaming</desc>
+        </rule>
+        <rule>
+            <number>3.2</number>
+            <desc>General FailRP</desc>
+        </rule>
+        <rule>
+            <number>3.5</number>
+            <desc>No Microphone</desc>
+        </rule>
+        <rule>
+            <number>3.6</number>
+            <desc>Failure to Hot Mic</desc>
+        </rule>
+        <rule>
+            <number>3.6.1</number>
+            <desc>Using Communications That Have Been Removed (FailRP)</desc>
+        </rule>
+        <rule>
+            <number>3.7</number>
+            <desc>Roleplaying a Sensitive / Bad Taste Character</desc>
+        </rule>
+        <rule>
+            <number>3.8</number>
+            <desc>General Baiting / Cop Baiting</desc>
+        </rule>
+        <rule>
+            <number>3.10</number>
+            <desc>Roleplaying a Nude Character</desc>
+        </rule>
+        <rule>
+            <number>3.11</number>
+            <desc>Roleplaying a Sexist Character</desc>
+        </rule>
+        <rule>
+            <number>3.13</number>
+            <desc>Asspulling / Ass pull / Arsepull</desc>
+        </rule>
+        <rule>
+            <number>3.15</number>
+            <desc>Blindfiring</desc>
+        </rule>
+    </roleplay_rules>
+    <metagaming_rules>
+        <rule>
+            <number>4.1</number>
+            <desc>General Metagaming</desc>
+        </rule>
+        <rule>
+            <number>4.2</number>
+            <desc>Using ID's to ID a person</desc>
+        </rule>
+        <rule>
+            <number>4.4</number>
+            <desc>Stream Sniping</desc>
+        </rule>
+    </metagaming_rules>
+    <newlife_rules>
+        <rule>
+            <number>5.1</number>
+            <desc>Remembers Events of Death</desc>
+        </rule>
+        <rule>
+            <number>5.4</number>
+            <desc>Returned to Combat Situation</desc>
+        </rule>
+        <rule>
+            <number>5.5</number>
+            <desc>Reengage in Combat Situation</desc>
+        </rule>
+        <rule>
+            <number>5.6</number>
+            <desc>Communicating While Down / Giving Tactical Information</desc>
+        </rule>
+    </newlife_rules>
+    <greenzone_rules>
+        <rule>
+            <number>6.2</number>
+            <desc>Running to Greenzone for Protection</desc>
+        </rule>
+        <rule>
+            <number>6.3</number>
+            <desc>Killing in a Greenzone</desc>
+        </rule>
+        <rule>
+            <number>6.4</number>
+            <desc>Robbing / Hostile Activity in Greenzone</desc>
+        </rule>
+        <rule>
+            <number>6.5</number>
+            <desc>Stealing Vehicle in Greenzone</desc>
+        </rule>
+        <rule>
+            <number>6.6</number>
+            <desc>Illegal Activities in Greenzone</desc>
+        </rule>
+        <rule>
+            <number>8.1.2</number>
+            <desc>Taking Negotiator Hostage</desc>
+        </rule>
+        <rule>
+            <number>8.1.2</number>
+            <desc>Shooting the Negotiator</desc>
+        </rule>
+        <rule>
+            <number>8.1.3</number>
+            <desc>More than 7 People for Bank Robbery</desc>
+        </rule>
+        <rule>
+            <number>8.2.1</number>
+            <desc>More than 4 People for Store Robbery</desc>
+        </rule>
+    </greenzone_rules>
+    <police_ems_rules>
+        <rule>
+            <number>9.2</number>
+            <desc>Trading Police Equipment with no Roleplay Reason</desc>
+        </rule>
+        <rule>
+            <number>9.4</number>
+            <desc>Using Police Privileges to Help Friends</desc>
+        </rule>
+        <rule>
+            <number>9.5</number>
+            <desc>Using Police Equipment while Off-Duty</desc>
+        </rule>
+        <rule>
+            <number>9.8</number>
+            <desc>Police Executing Citizens w/no Roleplay</desc>
+        </rule>
+    </police_ems_rules>
+    <whitelist_rules>
+        <rule>
+            <number>10.2</number>
+            <desc>Using EMS Equipment while Off-Duty</desc>
+        </rule>
+        <rule>
+            <number>10.3</number>
+            <desc>Using EMS Privilege to Help Friends</desc>
+        </rule>
+        <rule>
+            <number>12.1</number>
+            <desc>Exploiting a Job Spawn Point</desc>
+        </rule>
+        <rule>
+            <number>12.2.1</number>
+            <desc>Using a Non-Taxi Vehicle</desc>
+        </rule>
+        <rule>
+            <number>12.2.2</number>
+            <desc>Using Taxi Service to Target Victims</desc>
+        </rule>
+    </whitelist_rules>
+</rules>
