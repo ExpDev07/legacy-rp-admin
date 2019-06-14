@@ -15,12 +15,21 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <!-- Header to display on all the pages -->
         <header>
-            <h1>This header will be included on all pages.</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <img src="./img/logo.png" class="img-fluid py-3">
+                    </div>
+                    <div class="col-sm-3"></div>
+                </div>
+            </div>
         </header>
 
         <!-- Displaying of content -->

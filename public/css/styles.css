@@ -1,0 +1,43 @@
+body {
+    background: black url("../img/binding_dark.png") repeat;
+    color: white;
+}
+
+.box-round {
+    border-radius: 15px; padding: 15px;
+}
+
+.alert-info a {
+    color: blueviolet;
+    text-decoration:underline;
+}
+
+.content-box {
+    background-color:#2d5aac;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    box-shadow: 5px 10px 25px black;
+}
+
+.rules-box-outer {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: black;
+    font-weight: 500;
+}
+
+.rules-box-inner {
+    background-color: white;
+}
+
+.player-strike {
+    color: darkred;
+    font-weight: 700;
+}
+
+.player-commendation {
+    color: darkgreen;
+    font-weight: 700;
+}
