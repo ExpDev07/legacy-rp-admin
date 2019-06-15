@@ -1,5 +1,7 @@
-# Laravel ide helper
+# Laravel ide helpers
 _ide_helper.php
+ide_helper.php
+idehelper.php
 
 /node_modules
 /public/hot
