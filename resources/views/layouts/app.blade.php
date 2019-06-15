@@ -25,9 +25,25 @@
                 <div class="row">
                     <div class="col-sm-3"></div>
                     <div class="col-sm-6">
-                        <img src="./img/logo.png" class="img-fluid py-3">
+                        <img src="./img/logo.png" class="img-fluid py-3" alt="Site Logo">
                     </div>
                     <div class="col-sm-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <!-- Display information based on if user is authenticated or not -->
+                    @if (Auth::check())
+                        <!-- Display some basic user information -->
+                            <img src="{{Auth::user()->avatar}}" alt="Profile Image">
+                            <p>{{ Auth::user()->username }}</p>
+
+                            <!-- Display a logout button -->
+                            <a href="{{route('logout')}}">Logout</a>
+                    @else
+                        <!-- Display a login with steam button -->
+                            <a href="{{route('auth.steam')}}">Login with Steam</a>
+                        @endif
+                    </div>
                 </div>
             </div>
         </header>

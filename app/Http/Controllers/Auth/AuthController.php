@@ -45,6 +45,17 @@ class AuthController extends Controller
     }
 
     /**
+     * Logs the user out.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function logout()
+    {
+        // Logout and redirect user.
+        return redirect($this->redirectTo)->with(Auth::logout());
+    }
+
+    /**
      * Get user info and log in.
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -65,9 +76,8 @@ class AuthController extends Controller
             // Attempt to find the user or create them if they don't exist.
             $user = $this->findOrCreateUser($info);
 
-            // Login with remember and direct to
-            Auth::login($user, true);
-            return redirect($this->redirectTo);
+            // Login with remember and redirect them.
+            return redirect($this->redirectTo)->with(Auth::login($user, true));
         }
     }
 
