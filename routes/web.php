@@ -14,15 +14,14 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+// Render the index page for "/",
 Route::get('/', function () {
     return view('index');
-});
-
-Route::get('/profile', function () {
-    return view('profile');
 });
 
 // Use authentication for routes.
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Steam authentication
+Route::get('auth/steam', 'Auth\AuthController@redirectToSteam')->name('auth.steam');
+Route::get('auth/steam/handle', 'Auth\AuthController@handle')->name('auth.steam.handle');

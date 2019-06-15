@@ -7,7 +7,7 @@
             <div class="col-sm-12">
                 <div class="alert alert-info box-round" role="alert">
                     <p>Welcome to the LegacyRP Administration Section. This is a placeholder section</p>
-                    <strong><a href="/profile">Visit profile view.</a></strong>
+                    <strong><a href="/auth/steam">Login with steam.</a></strong>
                 </div>
             </div>
         </div>
