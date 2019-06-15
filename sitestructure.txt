@@ -1,10 +1,10 @@
 Home Page / Landing Page
         --> (Header Nav in no particular order)
-           ----> /Rules (Page)
-           ----> /About (Page)
+           ----> /Rules (Page) *Added to header /needs page
+           ----> /About (Page) *Added to header /needs page
            ----> /Discord (Could just be a url, but could be a separate page)
-           ----> Forums (Url)
-           ----> /How to Play (Page)
+           ----> Forums (Url) *Added to Header
+           ----> /How to Play (Page) *Added to Header /needs page
            ----> /Administration (if Staff == True)
 
 Administration

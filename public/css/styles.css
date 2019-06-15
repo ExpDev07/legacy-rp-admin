@@ -1,5 +1,4 @@
 body {
-    background: black url("../img/binding_dark.png") repeat;
     color: white;
 }
 
@@ -40,4 +39,14 @@ body {
 .player-commendation {
     color: darkgreen;
     font-weight: 700;
+}
+
+.nav-main a {
+    font-weight: 700
+    color: white;
+}
+
+.nav-desc {
+    font-weight: 300;
+    color: white;
 }
