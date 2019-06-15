@@ -1,0 +1,15 @@
+Home Page / Landing Page
+        --> (Header Nav in no particular order)
+           ----> Rules (Needs Separate Page)
+           ----> About (This will just be the landing page?)
+           ----> Discord (Could just be a url, but could be a separate page)
+           ----> Forums (Can just be a url)
+           ----> Administration (if Admin == True)
+
+Administration
+        --> (Header Nav)
+           ----> Home
+----> [Button] -> [Player Lookup] -> [Pulldown Div]
+----> [Button] -> [Submit Player Violation] -> [Pulldown Div]
+----> [Button] -> [Submit Player Appeal] -> [Pulldown Div]
+----> [Button] -> [Submit Player Appeal] -> [Pulldown Div]
