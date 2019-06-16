@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <?php
-$bg = array('bg01.jpg', 'bg03.jpg', 'bg04.jpg', 'bg06.jpg', 'bg011.jpg', 'bg012.jpg', 'bg013.jpg', 'bg015.jpg', 'bg016.jpg', 'bg017.jpg', 'bg018.jpg', 'bg019.jpg', 'bg020.png' ); // array of filenames
+$bg = array('bg04.jpg', 'bg019.jpg', 'bg020.png', 'bg021.png', 'bg022.png','bg023.png', 'bg024.png', 'bg025.png', 'bg026.png', 'bg027.png', 'bg028.png', 'bg029.png' ); // array of filenames
 
 $i = rand(0, count($bg)-1); // generate random number size of the array
 $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
@@ -38,7 +38,7 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-sm-2 py-2"><a href="/"><img src="./img/logo.png" class="img-fluid py-2" alt="Legacy RP"></a></div>
+                <div class="col-sm-2 py-3"><a href="/"><img src="./img/logo.png" style="max-height:120px;" class="img-fluid mw-100" alt="Legacy RP"></a></div>
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
