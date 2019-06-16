@@ -1,5 +1,6 @@
 body {
     color: white;
+    font-weight: 550;
 }
 
 .box-round {
@@ -7,11 +8,20 @@ body {
 }
 
 .content-box {
-    background-color:rgba(0,0,0,0.4);
+    background-color:rgba(40,40,40,.8);
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
 
+}
+
+.rules {
+    font-size: 13px;
+}
+
+.rules-button {
+    font-size:13px;
+    font-weight: 700;
 }
 
 .rules-box-outer {
@@ -48,4 +58,13 @@ a.nav-main,a:hover.nav-main,a:visited.nav-main  {
     color: white;
     font-size: 11px;
     max-width: 120px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid darkgray;
+    margin: 1em 0;
+    padding: 0;
 }

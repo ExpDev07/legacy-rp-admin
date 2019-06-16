@@ -38,7 +38,7 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-sm-2 py-2"><img src="./img/logo.png" class="img-fluid py-2" alt="Legacy RP"></div>
+                <div class="col-sm-2 py-2"><a href="/"><img src="./img/logo.png" class="img-fluid py-2" alt="Legacy RP"></a></div>
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
