@@ -9,7 +9,7 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
 <head>
     <style type="text/css">
         <!-- body {
-            background: url("img/<?php echo $selectedBg; ?>") center fixed;
+            background: url("img/<?= $selectedBg; ?>") center fixed;
             font-family: 'Roboto Condensed',
             sans-serif;
         }
