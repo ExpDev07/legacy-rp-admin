@@ -4,15 +4,25 @@ body {
 }
 
 .box-round {
-    border-radius: 15px; padding: 15px;
+    border-radius: 15px;
+    padding: 15px;
 }
 
 .content-box {
-    background-color:rgba(40,40,40,.8);
+    background-color: rgba(40, 40, 40, .8);
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
 
+}
+
+.content-box a {
+    color: white;
+    font-weight: 700;
+}
+
+.content-box a:hover {
+    text-decoration: underline;
 }
 
 .rules {
@@ -20,7 +30,7 @@ body {
 }
 
 .rules-button {
-    font-size:13px;
+    font-size: 13px;
     font-weight: 700;
 }
 
@@ -46,7 +56,7 @@ body {
     font-weight: 700;
 }
 
-a.nav-main,a:hover.nav-main,a:visited.nav-main  {
+a.nav-main {
     font-weight: 700;
     color: white;
     width: 100%;
@@ -58,6 +68,7 @@ a.nav-main,a:hover.nav-main,a:visited.nav-main  {
     color: white;
     font-size: 11px;
     max-width: 120px;
+    text-decoration: none;
 }
 
 hr {
