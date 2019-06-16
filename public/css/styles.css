@@ -39,6 +39,7 @@ body {
 a.nav-main,a:hover.nav-main,a:visited.nav-main  {
     font-weight: 700;
     color: white;
+    text-align: center;
 }
 
 .nav-desc {
@@ -46,5 +47,4 @@ a.nav-main,a:hover.nav-main,a:visited.nav-main  {
     color: white;
     font-size: 11px;
     max-width: 100px;
-    text-align: center;
 }

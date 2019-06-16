@@ -43,25 +43,25 @@
                 <div class="col-sm-2 py-2"><img src="./img/logo.png" class="img-fluid py-2" alt="Legacy RP"></div>
                     <div class="col-sm-10 py-3">
                         <div class="row">
-                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="About Legacy RP">About LegacyRP</a></p><p class="nav-desc">More information about legacy RP and our community</p></div>
-                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="Legacy RP Rules">LegacyRP Rules</a></p><p class="nav-desc">Learn the city rules and how to play on our community</p></div>
-                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="Rules and How to Play">How to Play</a></p><p class="nav-desc">Learn about commands, jobs, and get a printable cheat sheet</p></div>
-                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="City Forums">City Forums</a></p><p class="nav-desc">Get help and make suggestions in our city forums</p></div>
-                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="City Discord">City Discord</a></p><p class="nav-desc">Join in the discussion with thousands of citizens in our Discord</p></div>
-                            <div class="col-sm-2"><p>
+                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="About Legacy RP">About LegacyRP</p><p class="nav-desc d-none d-sm-block">More information about legacy RP and our community</p></a></div>
+                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="Legacy RP Rules">LegacyRP Rules</p><p class="nav-desc d-none d-sm-block">Learn the city rules and how to play on our community</p></a></div>
+                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="Rules and How to Play">How to Play</p><p class="nav-desc d-none d-sm-block">Learn about commands, jobs, and get a printable cheat sheet</p></a></div>
+                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="City Forums">City Forums</p><p class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</p></a></div>
+                            <div class="col-sm-2"><p><a href="#" class="nav-main" alt="City Discord">City Discord</p><p class="nav-desc d-none d-sm-block">Join in the discussion with thousands of citizens in our Discord</p></a></div>
+                            <div class="col-sm-2">
                                 <!-- Display information based on if user is authenticated or not -->
                             @if (Auth::check())
                                 <!-- Display some basic user information -->
-                                    <img src="{{Auth::user()->avatar}}" alt="Profile Image">
-                                    <p>{{ Auth::user()->username }}</p>
+                                    <img class="img-fluid rounded-circle d-none d-sm-block" style="max-height:40px;" src="{{Auth::user()->avatar}}" alt="Profile Image">
+                                    <p class="nav-desc d-none d-sm-block">{{ Auth::user()->username }}</p>
 
                                     <!-- Display a logout button -->
-                                    <a href=" class="nav-main"{{route('logout')}}">Logout</a>
+                                    <a href="{{route('logout')}}" class="nav-main">Logout</a>
                             @else
                                 <!-- Display a login with steam button -->
                                     <a href="{{route('auth.steam')}}" class="nav-main">Login with Steam</a></p>
+                                    <p class="nav-desc">Login with steam to (I can't think of a description)</p></div>
                                 @endif
-                            <p class="nav-desc">Login with steam to (I can't think of a description)</p></div>
                         </div>
                     </div>
             </div>
