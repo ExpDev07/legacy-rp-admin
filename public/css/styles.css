@@ -39,12 +39,13 @@ body {
 a.nav-main,a:hover.nav-main,a:visited.nav-main  {
     font-weight: 700;
     color: white;
-    text-align: center;
+    width: 100%;
+    margin: auto;
 }
 
 .nav-desc {
     font-weight: 500;
     color: white;
     font-size: 11px;
-    max-width: 100px;
+    max-width: 120px;
 }

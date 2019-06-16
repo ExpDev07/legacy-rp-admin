@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<?php
+$bg = array('bg01.jpg', 'bg03.jpg', 'bg04.jpg', 'bg06.jpg', 'bg011.jpg', 'bg012.jpg', 'bg013.jpg', 'bg015.jpg', 'bg016.jpg', 'bg017.jpg', 'bg018.jpg', 'bg019.jpg', 'bg020.png' ); // array of filenames
 
+$i = rand(0, count($bg)-1); // generate random number size of the array
+$selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
+?>
 <head>
-    <?php
-    $bg = array('bg01.jpg', 'bg03.jpg', 'bg04.jpg', 'bg06.jpg', 'bg011.jpg', 'bg012.jpg', 'bg013.jpg', 'bg015.jpg', 'bg016.jpg', 'bg017.jpg', 'bg018.jpg', 'bg019.jpg', 'bg020.png' ); // array of filenames
-
-    $i = rand(0, count($bg)-1); // generate random number size of the array
-    $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
-    ?>
     <style type="text/css">
         <!-- body {
             background: url("img/<?php echo $selectedBg; ?>") center fixed;
@@ -43,16 +42,16 @@
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">About LegacyRP</p><p class="nav-desc d-none d-sm-block">More information about legacy RP and our community</p></a>
+                            <a href="#" class="nav-main">About LegacyRP<p class="nav-desc d-none d-sm-block">More information about legacy RP and our community</p></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">LegacyRP Rules</p><p class="nav-desc d-none d-sm-block">Learn the city rules and how to play on our community</p></a>
+                            <a href="#" class="nav-main">LegacyRP Rules<p class="nav-desc d-none d-sm-block">Learn the city rules and how to play on our community</p></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">How to Play</p><p class="nav-desc d-none d-sm-block">Learn about commands, jobs, and get a printable cheat sheet</p></a>
+                            <a href="#" class="nav-main">How to Play<p class="nav-desc d-none d-sm-block">Learn about commands, jobs, and get a printable cheat sheet</p></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">City Forums</p><p class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</p></a>
+                            <a href="#" class="nav-main">City Forums<p class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</p></a>
                         </div>
                         <div class="col-sm-2">
                             <a href="#" class="nav-main">City Discord<p class="nav-desc d-none d-sm-block">Join in the discussion with thousands of citizens in our Discord</p></a>
