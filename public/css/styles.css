@@ -6,11 +6,6 @@ body {
     border-radius: 15px; padding: 15px;
 }
 
-.alert-info a {
-    color: blueviolet;
-    text-decoration:underline;
-}
-
 .content-box {
     background-color:#2d5aac;
     padding: 15px;
@@ -41,12 +36,15 @@ body {
     font-weight: 700;
 }
 
-.nav-main a {
-    font-weight: 700
+a.nav-main,a:hover.nav-main,a:visited.nav-main  {
+    font-weight: 700;
     color: white;
 }
 
 .nav-desc {
-    font-weight: 300;
+    font-weight: 500;
     color: white;
+    font-size: 11px;
+    max-width: 100px;
+    text-align: center;
 }

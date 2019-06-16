@@ -19,9 +19,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Use authentication for routes.
-Auth::routes();
-
 // Steam authentication
 Route::get('auth/steam', 'Auth\AuthController@redirectToSteam')->name('auth.steam');
 Route::get('auth/steam/handle', 'Auth\AuthController@handle')->name('auth.steam.handle');
+
+// Logging out
+Route::get('logout', 'Auth\AuthController@logout')->name('logout');
