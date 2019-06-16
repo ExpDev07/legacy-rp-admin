@@ -7,11 +7,11 @@ body {
 }
 
 .content-box {
-    background-color:#2d5aac;
+    background-color:rgba(0,0,0,0.4);
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
-    box-shadow: 5px 10px 25px black;
+
 }
 
 .rules-box-outer {

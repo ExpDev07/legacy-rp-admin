@@ -42,19 +42,19 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">About LegacyRP<p class="nav-desc d-none d-sm-block">More information about legacy RP and our community</p></a>
+                            <a href="/about" class="nav-main">About LegacyRP<p class="nav-desc d-none d-sm-block">More information about legacy RP and our community</p></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">LegacyRP Rules<p class="nav-desc d-none d-sm-block">Learn the city rules and how to play on our community</p></a>
+                            <a href="/rules" class="nav-main">LegacyRP Rules<p class="nav-desc d-none d-sm-block">Learn the city rules and how to play on our community</p></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">How to Play<p class="nav-desc d-none d-sm-block">Learn about commands, jobs, and get a printable cheat sheet</p></a>
+                            <a href="/howtoplay" class="nav-main">How to Play<p class="nav-desc d-none d-sm-block">Learn about commands, jobs, and get a printable cheat sheet</p></a>
                         </div>
                         <div class="col-sm-2">
                             <a href="#" class="nav-main">City Forums<p class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</p></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">City Discord<p class="nav-desc d-none d-sm-block">Join in the discussion with thousands of citizens in our Discord</p></a>
+                            <a href="/discord" class="nav-main">City Discord<p class="nav-desc d-none d-sm-block">Join in the discussion with thousands of citizens in our Discord</p></a>
                         </div>
                         <div class="col-sm-2">
                             <!-- Display information based on if user is authenticated or not -->
