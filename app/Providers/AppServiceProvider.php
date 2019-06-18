@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Support\Facades\View;                                       // <-- add this
+use kanalumaddela\LaravelSteamLogin\SteamLogin;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,10 +22,11 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      *
+     * @param SteamLogin $steam
      * @return void
      */
-    public function boot()
+    public function boot(SteamLogin $steam)
     {
-        //
+
     }
 }

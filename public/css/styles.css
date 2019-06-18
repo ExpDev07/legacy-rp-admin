@@ -1,6 +1,10 @@
+html, body, #app {
+    height: 100%;
+}
+
 body {
     color: white;
-    font-weight: 550;
+    font-weight: 600;
 }
 
 .box-round {
