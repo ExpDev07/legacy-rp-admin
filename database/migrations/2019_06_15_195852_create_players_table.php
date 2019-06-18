@@ -16,7 +16,16 @@ class CreatePlayersTable extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('identifier');
-            $table->timestamps();
+            $table->string('name');
+            $table->json('identifiers');
+            $table->integer('playtime');
+            $table->timestamp('seen');
+
+            // Characters
+            $table->integer('cid1')->nullable();
+            $table->integer('cid2')->nullable();
+            $table->integer('cid3')->nullable();
+            $table->integer('cid4')->nullable();
 
             // Keys
             // $table->foreign('identifier')->references('identifier')->on('characters');
