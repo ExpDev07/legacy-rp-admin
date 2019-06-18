@@ -15,7 +15,11 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('identifier');
             $table->timestamps();
+
+            // Keys
+            // $table->foreign('identifier')->references('identifier')->on('characters');
         });
     }
 

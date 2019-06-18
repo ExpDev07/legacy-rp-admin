@@ -29,7 +29,9 @@ class User extends Authenticatable
 
     public function player()
     {
-        return $this->hasOne(Player::class);
+        // return $this->hasOne('App\Phone', 'foreign_key', 'local_key');
+        // return $this->hasOne('Player::class', 'identifier', 'identifier');
+        return $this->hasOne(Player::class, 'identifier');
     }
 
 }

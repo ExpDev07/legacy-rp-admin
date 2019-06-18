@@ -34,11 +34,11 @@ class SteamLoginController extends AbstractSteamLoginController
      */
     public function authenticated(Request $request, SteamUser $steamUser)
     {
-        // Convert the steam64 to a hex with a "steam" prefix which is used in FiveM for identity.
-        $identifier = 'steam:' . $this->steam64ToHex($steamUser->steamId);
+        // Convert the steam64 to a steam identifier used in FiveM.
+        $id = $this->getSteamIdentifier($steamUser->steamId);
 
         // Find the user by their steam identifier in the database.
-        $user = User::where('identifier', $identifier)->first();
+        $user = User::where('identifier', $id)->first();
 
         // If the user doesn't exist, create them.
         if (!$user) {
@@ -46,7 +46,7 @@ class SteamLoginController extends AbstractSteamLoginController
             $info = $steamUser->getUserInfo();
 
             $user = User::create([
-                'identifier' => $identifier,
+                'identifier' => $id,
                 'avatar' => $info->avatar,
                 'username' => $info->name,
             ]);
@@ -57,15 +57,16 @@ class SteamLoginController extends AbstractSteamLoginController
     }
 
     /**
-     * Converts a steam64 identifier to hex which is more readable.
+     * Takes the given steam64 and converts it into a nice steam identifier that FiveM uses for
+     * identification purposes.
      *
      * @param $steam64
      * @return string
      */
-    private function steam64ToHex($steam64)
+    private function getSteamIdentifier($steam64)
     {
-        // Convert decimal to hexadecimal.
-        return dechex($steam64);
+        // Convert decimal to hexadecimal and prepend a steam prefix.
+        return 'steam' . ':' . dechex($steam64);
     }
 
 }
