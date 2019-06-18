@@ -30,6 +30,7 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="https://bootswatch.com/4/materia/bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
