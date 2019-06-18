@@ -30,8 +30,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // Macro for easier where like searches in the database.
         Builder::macro('whereLike', function($attributes, string $searchTerm) {
-            foreach(array_wrap($attributes) as $attribute) {
-                $this->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
+            if (!is_null($searchTerm)) {
+                foreach(array_wrap($attributes) as $attribute) {
+                    $this->orWhere($attribute, 'LIKE', "%{$searchTerm}%");
+                }
             }
             return $this;
         });
