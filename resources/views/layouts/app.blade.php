@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <?php
-$bg = array('bg04.jpg', 'bg019.jpg', 'bg020.png', 'bg021.png', 'bg022.png','bg023.png', 'bg024.png', 'bg025.png', 'bg026.png', 'bg027.png', 'bg028.png', 'bg029.png' ); // array of filenames
+$bg = array('bg04.jpg', 'bg021.png', 'bg022.png','bg023.png', 'bg025.png', 'bg026.png', 'bg027.png', 'bg028.png',); // array of filenames
 
 $i = rand(0, count($bg)-1); // generate random number size of the array
 $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
@@ -43,33 +43,31 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
-                            <a href="/about" class="nav-main">About LegacyRP<p class="nav-desc d-none d-sm-block">More information about legacy RP and our community</p></a>
+                            <a href="/about" class="nav-main">About</a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="/rules" class="nav-main">LegacyRP Rules<p class="nav-desc d-none d-sm-block">Learn the city rules and how to play on our community</p></a>
+                            <a href="https://legacyroleplay.online/server-rules" class="nav-main">Rules</a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="/howtoplay" class="nav-main">How to Play<p class="nav-desc d-none d-sm-block">Learn about commands, jobs, and get a printable cheat sheet</p></a>
+                            <a href="/how-to-play" class="nav-main">How to Play</a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">City Forums<p class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</p></a>
+                            <a href="#" class="nav-main">Forums</a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="/discord" class="nav-main">City Discord<p class="nav-desc d-none d-sm-block">Join in the discussion with thousands of citizens in our Discord</p></a>
+                            <a href="/discord" class="nav-main">Discord</a>
                         </div>
+                        <!-- Display information based on if user is authenticated or not -->
                         <div class="col-sm-2">
-                            <!-- Display information based on if user is authenticated or not -->
                             @if (Auth::check())
                                 <!-- Display some basic user information -->
-                                <img class="img-fluid rounded-circle d-none d-sm-block" style="max-height:40px;" src="{{Auth::user()->avatar}}" alt="Profile Image">
-                                <p class="nav-desc d-none d-sm-block">{{ Auth::user()->username }}</p>
+                                <a href="#" class="nav-main">{{ Auth::user()->username }}</a>
 
                                 <!-- Display a logout button -->
                                 <a href="{{route('logout')}}" class="nav-main">Logout</a>
                             @else
                                 <!-- Display a login with steam button -->
-                                <a href="{{route('auth.steam')}}" class="nav-main">Login with Steam</a>
-                                <p class="nav-desc">Login with steam to (I can't think of a description)</p>
+                                <a href="{{route('login.steam')}}" class="nav-main">Login</a>
                             @endif
                         </div>
                     </div>

@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('avatar');
             $table->rememberToken();
             $table->timestamps();
+
+            // Keys
+            // $table->foreign('identifier')->references('identifier')->on('players');
         });
     }
 

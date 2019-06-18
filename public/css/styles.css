@@ -1,6 +1,10 @@
+html, body, #app {
+    height: 100%;
+}
+
 body {
     color: white;
-    font-weight: 550;
+    font-weight: 600;
 }
 
 .box-round {
@@ -13,7 +17,6 @@ body {
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
-
 }
 
 .content-box a {
