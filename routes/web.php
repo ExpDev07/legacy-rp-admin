@@ -45,3 +45,6 @@ Route::get('logout', 'Auth\SteamLoginController@logout')->name('logout');
 
 // Steam authentication
 SteamLogin::routes(['controller' => SteamLoginController::class]);
+
+// Resource controllers
+Route::resource('players', 'PlayerController');
