@@ -43,31 +43,31 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
-                            <a href="/about" class="nav-main">About</a>
+                            <a href="/" class="nav-main">About<div class="nav-desc">More information about LegacyRP and our community</div></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="https://legacyroleplay.online/server-rules" class="nav-main">Rules</a>
+                            <a href="https://legacyroleplay.online/server-rules" class="nav-main">Rules<div class="nav-desc">Learn the city rules and how to play on our community</div></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="/how-to-play" class="nav-main">How to Play</a>
+                            <a href="/how-to-play" class="nav-main">How to Play<div class="nav-desc">Learn about commands, job and get a printable cheat sheet</div></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main">Forums</a>
+                            <a href="#" class="nav-main">Forums<div class="nav-desc">Get help and make suggestions in our city forums</div></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="/discord" class="nav-main">Discord</a>
+                            <a href="/discord" class="nav-main">Discord<div class="nav-desc">Join in the discussion with thousands of citizens in our Discord</div></a>
                         </div>
                         <!-- Display information based on if user is authenticated or not -->
                         <div class="col-sm-2">
                             @if (Auth::check())
                                 <!-- Display some basic user information -->
-                                <a href="#" class="nav-main">{{ Auth::user()->username }}</a>
+                                <p><a href="#" class="nav-main">{{ Auth::user()->username }}</a></p>
 
                                 <!-- Display a logout button -->
                                 <a href="{{route('logout')}}" class="nav-main">Logout</a>
                             @else
                                 <!-- Display a login with steam button -->
-                                <a href="{{route('login.steam')}}" class="nav-main">Login</a>
+                                <a href="{{route('login.steam')}}" class="nav-main">Login<div class="nav-desc">Login with Steam</div></a>
                             @endif
                         </div>
                     </div>
