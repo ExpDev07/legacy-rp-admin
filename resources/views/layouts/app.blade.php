@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <?php
-$bg = array('bg04.jpg', 'bg021.png', 'bg022.png','bg023.png', 'bg025.png', 'bg026.png', 'bg027.png', 'bg028.png',); // array of filenames
+$bg = array('bg021.jpg', 'bg022.jpg','bg023.jpg', 'bg025.jpg', 'bg026.jpg', 'bg027.jpg', 'bg028.jpg',); // array of filenames
 
 $i = rand(0, count($bg)-1); // generate random number size of the array
 $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen

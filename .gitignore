@@ -1,3 +1,5 @@
+composer.phar
+
 # Laravel ide helpers
 _ide_helper.php
 ide_helper.php

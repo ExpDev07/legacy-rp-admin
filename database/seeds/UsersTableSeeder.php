@@ -27,7 +27,7 @@ class UsersTableSeeder extends Seeder
             ]);
 
             // An IP address.
-            $ipAddress = $faker->ipv6;
+            $ipAddress = $faker->ipv4;
 
             // Create a player for this user.
             $user->player()->create([

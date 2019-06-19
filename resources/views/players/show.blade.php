@@ -3,28 +3,26 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
+                <div class="alert alert-primary" role="alert">
+                    <span class="lead">{{ $player->name }}</span> <br/>
+                    <span class="lead">{{ $player->playtime }} minutes played on LegacyRP</span>
+                </div>
+            </div>
+            <div class="col-sm-12">
                 <div class="alert alert-danger" role="alert">
-                    This is if ($player->banned) == true
-                    <h4>{{ $player->name }}</h4>
-                    <h3>BANNED</h3>
+                    <span class="lead">This player is banned for RDM</span>
                 </div>
             </div>
         </div>
+        <!--Truckster I need you to code a global boolean for $isStaff so we can make this Staff section conditional for staff members only. -->
+        <!--Staff Control Panel -->
         <div class="row">
-            <div class="col-sm-4">
-                <div class="alert alert-primary" role="alert">
-                    This is if ($player->banned) != true
-                    <h4>{{ $player->name }}</h4>
-                    <!--Is this playtime in minutes???? -->
-                    <h4>{{ $player->playtime }}</h4> <span class="muted">minutes played on LegacyRP</span>
-                </div>
-            </div>
-            <!--Truckster I need you to code a global boolean for $isStaff so we can make this Staff section conditional for staff members only. -->
-            <div class="col-sm-8">
-                <div class="alert card card-body mb-3 border-info" role="alert" ?>
-                    <h5 class="display-4 "><strong>Staff Control Panel</strong></h5>
-                    <span class="lead pb-2"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user: <span class="text-success">{{ $player->name }}</span></span>
+            <div class="col-sm-12">
+                <div class="alert card card-body mb-3 border-info" role="alert">
+                    <h5><strong>Staff Control Panel</strong></h5>
+                    <span class="lead pb-2"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user: <span
+                            class="text-success">{{ $player->name }}</span></span>
 
                     <div class="row">
                         <div class="col-sm-3">
@@ -72,6 +70,16 @@
                                     class="btn btn-outline-secondary btn-block muted">Subbmit Comment
                             </button>
                         </div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-3">
+                            <button data-toggle="collapse" href="#appealSubmit" type="button"
+                                    class="btn btn-outline-info btn-block mt-3">Submit Appeal
+                            </button>
+                        </div>
+                        <div class="col-sm-3"></div>
+
+
                     </div>
                 </div>
                 <!---Commendation Submission Drop Box -->
@@ -317,8 +325,9 @@
                     </div>
                 </div>
             </div>
-            <!---END STAFF ONLY SECTION!!!! ------->
         </div>
+        <!---END STAFF ONLY SECTION!!!! ------->
+
         <div class="row">
             <div class="col-sm-4">
                 <!--If the if $player->characterOne is found then display this button. -->
@@ -360,7 +369,7 @@
                     </div>
                 </div>
             </div>
-            <!---Here is Character Two!!!
+            <!---Here is Character Two!!! --->
             <!---If $player->characterTwo is Found Display this button to show the character card. -->
             <div class="col-sm-4">
                 <button data-toggle="collapse" href="#charTwo" role="button" aria-expanded="false"
@@ -502,5 +511,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

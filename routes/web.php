@@ -18,7 +18,7 @@ use kanalumaddela\LaravelSteamLogin\Facades\SteamLogin;
 // Render the index page for "/",
 Route::get('', function () {
     return view('index');
-});
+})->name('index');
 
 // Render the staff page for "/staff",
 Route::get('staff', function () {
