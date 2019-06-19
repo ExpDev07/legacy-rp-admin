@@ -24,14 +24,8 @@
             <div class="col-sm-8">
                 <div class="alert card card-body mb-3 border-info" role="alert" ?>
                     <h5 class="display-4 "><strong>Staff Control Panel</strong></h5>
-                    <H4>Hello</H4>
-                    <h5>{{ Auth::user()->username }}</h5>
-                    <ul>
-                        <!---Is it possible for staff to see their staff points displayed here? Shown from each server on a simple foreach loop? --->
-                        <li>You currently have { Auth::user()->username->isStaff->serverOneStaffPoints } (foreach
-                            loop)
-                        </li>
-                    </ul>
+                    <span class="lead pb-2"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user: <span class="text-success">{{ $player->name }}</span></span>
+
                     <div class="row">
                         <div class="col-sm-3">
                             <button data-toggle="collapse" href="#commendationLookup" type="button"
@@ -50,7 +44,7 @@
                         </div>
                         <div class="col-sm-3">
                             <button data-toggle="collapse" href="#commentLookup" type="button "
-                                    class="btn btn-secondary btn-block">Submit Comment
+                                    class="btn btn-secondary btn-block">Lookup Comment
                             </button>
                         </div>
                         <div class="col-sm-12 p-3">
@@ -74,8 +68,8 @@
                             </button>
                         </div>
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#appealSubmit" type="button"
-                                    class="btn btn-outline-secondary btn-block muted">Subbmit Appeal
+                            <button data-toggle="collapse" href="#commentSubmit" type="button"
+                                    class="btn btn-outline-secondary btn-block muted">Subbmit Comment
                             </button>
                         </div>
                     </div>
@@ -205,7 +199,9 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">URL of Appeal</span>
                         </div>
-                        <input type="text" class="form-control m-2" aria-label="Sizing example input" aria-describedby="URL of the Ban Appeal" placeholder="https://legacyroleplay.online/c/applications/ban-appeals">
+                        <input type="text" class="form-control m-2" aria-label="Sizing example input"
+                               aria-describedby="URL of the Ban Appeal"
+                               placeholder="https://legacyroleplay.online/c/applications/ban-appeals">
                     </div>
                     <div class="row">
                         <div class="col-sm-8"></div>
@@ -218,6 +214,39 @@
                     </div>
                 </div>
                 <!-- End appeal pulldown section -->
+                <!-- Begin  Comment Section -->
+                <div class="collapse col-sm-12 card card-body mb-4 pb-4" id="commentSubmit">
+                    <div align="right">
+                        <button data-toggle="collapse" href="#commentSubmit" type="button"
+                                class="btn btn-outline-secondary btn-sm mb-3">close window
+                        </button>
+                    </div>
+                    <h4 class="display-4 text-secondary">Submit Comment</h4>
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Staff Name</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="{{ Auth::user()->username }}"
+                               readonly="readonly" aria-label="Sizing example input"
+                               aria-describedby="inputGroup-sizing-sm">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Description</span>
+                        </div>
+                        <textarea class="form-control" aria-label="Description of Comment"></textarea>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-8"></div>
+                        <div class="col-sm-2">
+                            <button type="button btn-block" class="btn btn-success">Submit</button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button btn-block" class="btn btn-warning">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+                <!--- End Ban Pulldown Section-->
                 <div class="collapse" id="commendationLookup">
                     <div class="alert alert-light" role="alert">
                         <div align="right">
@@ -306,26 +335,27 @@
                 <!-- End If for character. All of this for this next block is for the rest of character one. Look for character two. --->
                 <div class="collapse" id="charOne">
                     <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{ $player->characterOne->firstname } <br>
-                                        { $player->characterOne->lastname} </h5>
-                                    <span class="card-text">DOB: { $player->characterOne->dob } Sex: [ $player->characterOne->gender }</span><br/>
-                                    <span class="card-text">Age: [ $player->characterOne->age } HGT: [ $player->characterOne->height }</span><br/>
-                                    <center><br/>
-                                        <p>
-                                            <button data-toggle="collapse" href="#charOneBackstory" role="button"
-                                                    aria-expanded="false"
-                                                    aria-control="charOnebackstory"
-                                                    type="button" class="btn btn-secondary btn-sm">Read Back Story
-                                                <span
-                                                    class="glyphicon glyphicon-triangle-bottom"
-                                                    aria-hidden="true"></span></button>
-                                    </center>
-                                    </p>
-                                </div>
+                        <div class="card-body">
+                            <div align="right">
+                                <button data-toggle="collapse" href="#charOne" type="button"
+                                        class="btn btn-outline-secondary btn-sm m-2">Close Window
+                                </button>
                             </div>
+                            <h5 class="card-title">{ $player->characterOne->firstname } <br>
+                                { $player->characterOne->lastname} </h5>
+                            <span class="card-text">DOB: { $player->characterOne->dob } Sex: [ $player->characterOne->gender }</span><br/>
+                            <span class="card-text">Age: [ $player->characterOne->age } HGT: [ $player->characterOne->height }</span><br/>
+                            <center><br/>
+                                <p>
+                                    <button data-toggle="collapse" href="#charOneBackstory" role="button"
+                                            aria-expanded="false"
+                                            aria-control="charOnebackstory"
+                                            type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                        <span
+                                            class="glyphicon glyphicon-triangle-bottom"
+                                            aria-hidden="true"></span></button>
+                            </center>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -346,25 +376,26 @@
                 <!-- Ignore this block of code for the time being. Move to character Three. --->
                 <div class="collapse" id="charTwo">
                     <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{ $player->characterTwo->firstname } <br>
-                                        { $player->characterTwo->lastname} </h5>
-                                    <span class="card-text">DOB: { $player->characterTwo->dob } Sex: [ $player->characterTwo->gender }</span><br/>
-                                    <span class="card-text">Age: [ $player->characterTwo->age } HGT: [ $player->characterTwo->height }</span><br/>
-                                    <center><br/>
-                                        <p>
-                                            <button data-toggle="collapse" href="#charTwoBackstory" role="button"
-                                                    aria-expanded="false"
-                                                    aria-control="#charTwoBackstory"
-                                                    type="button" class="btn btn-secondary btn-sm">Read Back Story
-                                                <span class="glyphicon glyphicon-triangle-bottom"
-                                                      aria-hidden="true"></span></button>
-                                    </center>
-                                    </p>
-                                </div>
+                        <div class="card-body">
+                            <div align="right">
+                                <button data-toggle="collapse" href="#charTwo" type="button"
+                                        class="btn btn-outline-secondary btn-sm m-2">Close Window
+                                </button>
                             </div>
+                            <h5 class="card-title">{ $player->characterTwo->firstname } <br>
+                                { $player->characterTwo->lastname} </h5>
+                            <span class="card-text">DOB: { $player->characterTwo->dob } Sex: [ $player->characterTwo->gender }</span><br/>
+                            <span class="card-text">Age: [ $player->characterTwo->age } HGT: [ $player->characterTwo->height }</span><br/>
+                            <center><br/>
+                                <p>
+                                    <button data-toggle="collapse" href="#charTwoBackstory" role="button"
+                                            aria-expanded="false"
+                                            aria-control="#charTwoBackstory"
+                                            type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                        <span class="glyphicon glyphicon-triangle-bottom"
+                                              aria-hidden="true"></span></button>
+                            </center>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -384,26 +415,27 @@
                 <button class="btn btn-secondary btn-lg btn-block">No Third Character</button>
                 <!---You can ignore this block of code for now --->
                 <div class="collapse" id="charThree">
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{ $player->characterThree->firstname } <br>
-                                        { $player->characterThree->lastname} </h5>
-                                    <span class="card-text">DOB: { $player->characterThree->dob } Sex: [ $player->characterThree->gender }</span><br/>
-                                    <span class="card-text">Age: [ $player->characterThree->age } HGT: [ $player->characterThree->height }</span><br/>
-                                    <center><br/>
-                                        <p>
-                                            <button data-toggle="collapse" href="#charThreeBackstory" role="button"
-                                                    aria-expanded="false"
-                                                    aria-control="charThreeBackstory"
-                                                    type="button" class="btn btn-secondary btn-sm">Read Back Story
-                                                <span class="glyphicon glyphicon-triangle-bottom"
-                                                      aria-hidden="true"></span></button>
-                                    </center>
-                                    </p>
-                                </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div align="right">
+                                <button data-toggle="collapse" href="#charThree" type="button"
+                                        class="btn btn-outline-secondary btn-sm m-2">Close Window
+                                </button>
                             </div>
+                            <h5 class="card-title">{ $player->characterThree->firstname } <br>
+                                { $player->characterThree->lastname} </h5>
+                            <span class="card-text">DOB: { $player->characterThree->dob } Sex: [ $player->characterThree->gender }</span><br/>
+                            <span class="card-text">Age: [ $player->characterThree->age } HGT: [ $player->characterThree->height }</span><br/>
+                            <center><br/>
+                                <p>
+                                    <button data-toggle="collapse" href="#charThreeBackstory" role="button"
+                                            aria-expanded="false"
+                                            aria-control="charThreeBackstory"
+                                            type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                        <span class="glyphicon glyphicon-triangle-bottom"
+                                              aria-hidden="true"></span></button>
+                            </center>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -416,6 +448,8 @@
                                     class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
+                        <h5>The Backstory of { $player->characterOne->firstname } { $player->characterOne->lastname
+                            }</h5>
                         <p>{ $player->characterOne->backstory }</p>
                         <div align="right">
                             <!---This button here is important if the steam owner is logged and owns these characters, then how about a wysiwyg form to allow them to edit in great detail their backstories? --->
@@ -435,6 +469,8 @@
                                     class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
+                        <h5>The Backstory of { $player->characterTwo->firstname } { $player->characterTwo->lastname
+                            }</h5>
                         <p>{ $player->characterTwo->backstory }</p>
                         <!---If the steam account logged in owns the characters - then allow them to edit the backstories. -->
                         <div align="right">
@@ -453,6 +489,8 @@
                                     class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
+                        <h5>The Backstory of { $player->characterThree->firstname } { $player->characterThree->lastname
+                            }</h5>
                         <p>{ $player->characterThree->backstory }</p>
                         <!---If the steam account logged in owns the characters - then allow them to edit the backstories. -->
                         <div align="right">
