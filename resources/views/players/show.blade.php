@@ -330,18 +330,18 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <!--If the if $player->characterOne is found then display this button. -->
-                <button data-toggle="collapse" href="#charOne" role="button" aria-expanded="false"
-                        aria-controls="{ $player->characterOne->firstname }_{ $player->characterOne->lastname }"
-                        type="button"
-                        class="btn btn-primary btn-lg btn-block">{ $player->characterOne->firstname }<br/>
-                    { $player->characterOne->lastname }<br/><span class="glyphicon glyphicon-triangle-bottom"
-                                                                  aria-hidden="true"></span>
-                </button>
-                <!-- End Display of $player->characterOne button --->
+                @if (!is_null($player->characterOne))
+                    <button data-toggle="collapse" href="#charOne" role="button" aria-expanded="false"
+                            type="button"
+                            class="btn btn-primary btn-lg btn-block">{{ $player->characterOne->firstname }} {{ $player->characterOne->lastname }}<br/><span class="glyphicon glyphicon-triangle-bottom"
+                                                                        aria-hidden="true"></span>
+                    </button>
+                    <!-- End Display of $player->characterOne button --->
+            @else
                 <!-- Else Display this button for "No First Character Found"-->
-                <button class="btn btn-secondary btn-lg btn-block">No First Character</button>
-                <!-- End If for character. All of this for this next block is for the rest of character one. Look for character two. --->
+                    <button class="btn btn-secondary btn-lg btn-block">No First Character</button>
+            @endif
+            <!-- End If for character. All of this for this next block is for the rest of character one. Look for character two. --->
                 <div class="collapse" id="charOne">
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="card-body">
@@ -350,10 +350,9 @@
                                         class="btn btn-outline-secondary btn-sm m-2">Close Window
                                 </button>
                             </div>
-                            <h5 class="card-title">{ $player->characterOne->firstname } <br>
-                                { $player->characterOne->lastname} </h5>
-                            <span class="card-text">DOB: { $player->characterOne->dob } Sex: [ $player->characterOne->gender }</span><br/>
-                            <span class="card-text">Age: [ $player->characterOne->age } HGT: [ $player->characterOne->height }</span><br/>
+                            <h5 class="card-title">{{ $player->characterOne->firstname }} {{ $player->characterOne->lastname}} </h5>
+                            <span class="card-text">DOB: {{ $player->characterOne->dob }} Sex: {{ $player->characterOne->gender }}</span><br/>
+                            <span class="card-text">Height: {{ $player->characterOne->height }}</span><br/>
                             <center><br/>
                                 <p>
                                     <button data-toggle="collapse" href="#charOneBackstory" role="button"
@@ -431,8 +430,7 @@
                                         class="btn btn-outline-secondary btn-sm m-2">Close Window
                                 </button>
                             </div>
-                            <h5 class="card-title">{ $player->characterThree->firstname } <br>
-                                { $player->characterThree->lastname} </h5>
+                            <h5 class="card-title">{ $player->characterThree->firstname } { $player->characterThree->lastname} </h5>
                             <span class="card-text">DOB: { $player->characterThree->dob } Sex: [ $player->characterThree->gender }</span><br/>
                             <span class="card-text">Age: [ $player->characterThree->age } HGT: [ $player->characterThree->height }</span><br/>
                             <center><br/>
@@ -457,9 +455,8 @@
                                     class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
-                        <h5>The Backstory of { $player->characterOne->firstname } { $player->characterOne->lastname
-                            }</h5>
-                        <p>{ $player->characterOne->backstory }</p>
+                        <h5>The Backstory of {{ $player->characterOne->firstname }} {{$player->characterOne->lastname }}</h5>
+                        <p>{{ $player->characterOne->story }}</p>
                         <div align="right">
                             <!---This button here is important if the steam owner is logged and owns these characters, then how about a wysiwyg form to allow them to edit in great detail their backstories? --->
                             <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
@@ -480,7 +477,7 @@
                         </div>
                         <h5>The Backstory of { $player->characterTwo->firstname } { $player->characterTwo->lastname
                             }</h5>
-                        <p>{ $player->characterTwo->backstory }</p>
+                        <p>{ $player->characterTwo->story }</p>
                         <!---If the steam account logged in owns the characters - then allow them to edit the backstories. -->
                         <div align="right">
                             <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
@@ -498,9 +495,8 @@
                                     class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
-                        <h5>The Backstory of { $player->characterThree->firstname } { $player->characterThree->lastname
-                            }</h5>
-                        <p>{ $player->characterThree->backstory }</p>
+                        <h5>The Backstory of { $player->characterThree->firstname } { $player->characterThree->lastname }</h5>
+                        <p>{ $player->characterThree->story }</p>
                         <!---If the steam account logged in owns the characters - then allow them to edit the backstories. -->
                         <div align="right">
                             <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
