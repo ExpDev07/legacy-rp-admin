@@ -19,7 +19,8 @@
             <div class="col-sm-12">
                 <div class="alert card card-body mb-3 border-info" role="alert">
                     <h5><strong>Staff Control Panel</strong></h5>
-                    <span class="lead pb-2"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user: <span class="text-success">{{ $player->name }}</span></span>
+                    <span class="lead"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user <span class="glyphicon glyphicon-chevron-down"></span></span>
+                    <span class="lead text-success pb-2">{{ $player->name }} | {{ $player->identifier }}</span>
                     <div class="row">
                         <!--Lookup Commendation Button -->
                         <div class="col-sm-3">
@@ -315,4 +316,5 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection
