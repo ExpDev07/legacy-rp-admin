@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.app') @section('content')
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
@@ -21,245 +19,77 @@
             <div class="col-sm-12">
                 <div class="alert card card-body mb-3 border-info" role="alert">
                     <h5><strong>Staff Control Panel</strong></h5>
-                    <span class="lead pb-2"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user: <span
-                            class="text-success">{{ $player->name }}</span></span>
-
+                    <span class="lead pb-2"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user: <span class="text-success">{{ $player->name }}</span></span>
                     <div class="row">
+                        <!--Lookup Commendation Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#commendationLookup" type="button"
-                                    class="btn btn-success btn-block">Lookup Commendations
-                            </button>
+                            <button data-toggle="collapse" href="#commendationLookup" type="button" class="btn btn-success btn-block">Lookup Commendations</button>
                         </div>
+                        <!--Lookup Warnings Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#warningLookup" type="button "
-                                    class="btn btn-warning btn-block">Lookup Warnings
-                            </button>
+                            <button data-toggle="collapse" href="#warningLookup" type="button " class="btn btn-warning btn-block">Lookup Warnings</button>
                         </div>
+                        <!--Lookup Bans and Appeals Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#banLookup" type="button "
-                                    class="btn btn-danger btn-block">Lookup Previous Bans and Appeals
-                            </button>
+                            <button data-toggle="collapse" href="#banLookup" type="button " class="btn btn-danger btn-block">Lookup Previous Bans and Appeals</button>
                         </div>
+                        <!--Lookup Staff Comments Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#commentLookup" type="button "
-                                    class="btn btn-secondary btn-block">Lookup Comment
-                            </button>
+                            <button data-toggle="collapse" href="#commentLookup" type="button " class="btn btn-secondary btn-block">Lookup Comment</button>
                         </div>
+                        <!--Lookup Everything Button -->
                         <div class="col-sm-12 p-3">
-                            <button data-toggle="collapse" href="#allLookup" type="button "
-                                    class="btn btn-success btn-block">Lookup All
-                            </button>
+                            <button data-toggle="collapse" href="#allLookup" type="button " class="btn btn-success btn-block">Lookup Everything</button>
                         </div>
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#commendationSubmit" type="button"
-                                    class="btn btn-outline-success btn-block">Submit Commendation
-                            </button>
+                            <!--Submit Commendation Button -->
+                            <a href="./comments/">
+                                <button type="button" class="btn btn-outline-success btn-block">Submit
+                                    Commendation
+                                </button>
+                            </a>
                         </div>
+                        <!--Submit Warning Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#warningSubmit" type="button"
-                                    class="btn btn-outline-warning btn-block">Submit Warning
-                            </button>
+                            <a href="./warnings/">
+                                <button type="button" class="btn btn-outline-warning btn-block">Submit
+                                    Warning
+                                </button>
+                            </a>
                         </div>
+                        <!--Submit Ban Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#banSubmit" type="button"
-                                    class="btn btn-outline-danger btn-block">Submit Ban
-                            </button>
+                            <a href="./bans/">
+                                <button type="button" class="btn btn-outline-danger btn-block">Submit
+                                    Ban
+                                </button>
+                            </a>
                         </div>
+                        <!--Submit Comment Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#commentSubmit" type="button"
-                                    class="btn btn-outline-secondary btn-block muted">Subbmit Comment
-                            </button>
+                            <a href="./comments/">
+                                <button type="button" class="btn btn-outline-secondary btn-block muted">
+                                    Submit Comment
+                                </button>
+                            </a>
                         </div>
                         <div class="col-sm-3"></div>
                         <div class="col-sm-3"></div>
-                        <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#appealSubmit" type="button"
-                                    class="btn btn-outline-info btn-block mt-3">Submit Appeal
-                            </button>
+                        <!--Submit Appeal Button -->
+                        <div class="col-sm-3 pt-3">
+                            <a href="./appeals/">
+                                <button type="button" class="btn btn-outline-info btn-block a.staffpanel">
+                                    Submit Appeal
+                                </button>
+                            </a>
                         </div>
                         <div class="col-sm-3"></div>
-
-
                     </div>
                 </div>
-                <!---Commendation Submission Drop Box -->
-                <div class="collapse col-sm-12 card card-body mb-4 pb-4" id="commendationSubmit">
-                    <div align="right">
-                        <button data-toggle="collapse" href="#commendationSubmit" type="button"
-                                class="btn btn-outline-secondary btn-sm mb-3">close window
-                        </button>
-                    </div>
-                    <h4 class="display-4 text-success">Submit Commendation</h4>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Staff Name</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="{{ Auth::user()->username }}"
-                               readonly="readonly" aria-label="Sizing example input"
-                               aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Description of Commendation"></textarea>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-sm-8"></div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-success">Submit</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-warning">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-                <!---End Comendation Box -->
-                <!---Warning Submission Box Drop Box -->
-                <div class="collapse col-sm-12 card card-body mb-4 pb-4" id="warningSubmit">
-                    <div align="right">
-                        <button data-toggle="collapse" href="#warningSubmit" type="button"
-                                class="btn btn-outline-secondary btn-sm mb-3">close window
-                        </button>
-                    </div>
-                    <h4 class="display-4 text-warning">Submit Warning</h4>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Staff Name</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="{{ Auth::user()->username }}"
-                               readonly="readonly" aria-label="Sizing example input"
-                               aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Description of Warning"></textarea>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-sm-8"></div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-success">Submit</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-warning">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Warning submission Drop Box -->
-                <!-- Begin Ban Pulldown Section -->
-                <div class="collapse col-sm-12 card card-body mb-4 pb-4" id="banSubmit">
-                    <div align="right">
-                        <button data-toggle="collapse" href="#banSubmit" type="button"
-                                class="btn btn-outline-secondary btn-sm mb-3">close window
-                        </button>
-                    </div>
-                    <h4 class="display-4 text-danger">Submit Ban</h4>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Staff Name</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="{{ Auth::user()->username }}"
-                               readonly="readonly" aria-label="Sizing example input"
-                               aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Description of Ban"></textarea>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-sm-8"></div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-success">Submit</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-warning">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-                <!--- End Ban Pulldown Section-->
-                <!-- Begin Appeal Pulldown Section -->
-                <div class="collapse col-sm-12 card card-body mb-4 pb-4" id="appealSubmit">
-                    <div align="right">
-                        <button data-toggle="collapse" href="#appealSubmit" type="button"
-                                class="btn btn-outline-secondary btn-sm mb-3">close window
-                        </button>
-                    </div>
-                    <h4 class="display-4 text-info">Submit Appeal</h4>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Staff Name</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="{{ Auth::user()->username }}"
-                               readonly="readonly" aria-label="Sizing example input"
-                               aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Description of Appeal"></textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">URL of Appeal</span>
-                        </div>
-                        <input type="text" class="form-control m-2" aria-label="Sizing example input"
-                               aria-describedby="URL of the Ban Appeal"
-                               placeholder="https://legacyroleplay.online/c/applications/ban-appeals">
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-8"></div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-success">Submit</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-warning">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- End appeal pulldown section -->
-                <!-- Begin  Comment Section -->
-                <div class="collapse col-sm-12 card card-body mb-4 pb-4" id="commentSubmit">
-                    <div align="right">
-                        <button data-toggle="collapse" href="#commentSubmit" type="button"
-                                class="btn btn-outline-secondary btn-sm mb-3">close window
-                        </button>
-                    </div>
-                    <h4 class="display-4 text-secondary">Submit Comment</h4>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Staff Name</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="{{ Auth::user()->username }}"
-                               readonly="readonly" aria-label="Sizing example input"
-                               aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Description</span>
-                        </div>
-                        <textarea class="form-control" aria-label="Description of Comment"></textarea>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-sm-8"></div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-success">Submit</button>
-                        </div>
-                        <div class="col-sm-2">
-                            <button type="button btn-block" class="btn btn-warning">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-                <!--- End Ban Pulldown Section-->
                 <div class="collapse" id="commendationLookup">
                     <div class="alert alert-light" role="alert">
                         <div align="right">
-                            <button data-toggle="collapse" href="#commendationLookup" type="button"
-                                    class="btn btn-outline-secondary btn-sm mb-3">close window
+                            <button data-toggle="collapse" href="#commendationLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
                             </button>
                         </div>
                         <ul>
@@ -270,8 +100,7 @@
                 <div class="collapse" id="warningLookup">
                     <div class="alert alert-light" role="alert">
                         <div align="right">
-                            <button data-toggle="collapse" href="#warningLookup" type="button"
-                                    class="btn btn-outline-secondary btn-sm mb-3">close window
+                            <button data-toggle="collapse" href="#warningLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
                             </button>
                         </div>
                         <ul>
@@ -282,8 +111,7 @@
                 <div class="collapse" id="banLookup">
                     <div class="alert alert-light" role="alert">
                         <div align="right">
-                            <button data-toggle="collapse" href="#banLookup" type="button"
-                                    class="btn btn-outline-secondary btn-sm mb-3">close window
+                            <button data-toggle="collapse" href="#banLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
                             </button>
                         </div>
                         <ul>
@@ -295,8 +123,7 @@
                 <div class="collapse" id="commentLookup">
                     <div class="alert alert-light" role="alert">
                         <div align="right">
-                            <button data-toggle="collapse" href="#commentLookup" type="button"
-                                    class="btn btn-outline-secondary btn-sm mb-3">close window
+                            <button data-toggle="collapse" href="#commentLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
                             </button>
                         </div>
                         <ul>
@@ -307,14 +134,12 @@
                 <div class="collapse" id="allLookup">
                     <div class="alert alert-light" role="alert">
                         <div align="right">
-                            <button data-toggle="collapse" href="#allLookup" type="button"
-                                    class="btn btn-outline-secondary btn-sm mb-3">close window
+                            <button data-toggle="collapse" href="#allLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
                             </button>
                         </div>
                         <li><span class="text-success"><strong>COMMENDATION | 03/05/2019 | by jackmcjack |</strong> for helping new players</span>
                         </li>
-                        <li><span
-                                class="text-warning"><strong>WARNING | 02/04/2019 | by Blanket |</strong> for fearrp</span>
+                        <li><span class="text-warning"><strong>WARNING | 02/04/2019 | by Blanket |</strong> for fearrp</span>
                         </li>
                         <li><span class="text-danger"><strong>BAN | 03/10/2019 | by Emily Kate |</strong> for mass rdm with a vehicle</span>
                         </li>
@@ -327,132 +152,116 @@
             </div>
         </div>
         <!---END STAFF ONLY SECTION!!!! ------->
-
         <div class="row">
-            <div class="col-sm-4">
+            <!-- Character Card for characterOne --->
+            <div class="col-sm-3">
                 @if (!is_null($player->characterOne))
-                    <button data-toggle="collapse" href="#charOne" role="button" aria-expanded="false"
-                            type="button"
-                            class="btn btn-primary btn-lg btn-block">{{ $player->characterOne->firstname }} {{ $player->characterOne->lastname }}<br/><span class="glyphicon glyphicon-triangle-bottom"
-                                                                        aria-hidden="true"></span>
+                    <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
+                        {{ $player->characterOne->firstname }} {{ $player->characterOne->lastname }}
+                        <br/><span class="glyphicon glyphicon glyphicon-user"
+                                   aria-hidden="true"></span>
                     </button>
-                    <!-- End Display of $player->characterOne button --->
-            @else
-                <!-- Else Display this button for "No First Character Found"-->
-                    <button class="btn btn-secondary btn-lg btn-block">No First Character</button>
-            @endif
-            <!-- End If for character. All of this for this next block is for the rest of character one. Look for character two. --->
-                <div class="collapse" id="charOne">
                     <div class="card mb-3" style="max-width: 540px;">
-                        <div class="card-body">
-                            <div align="right">
-                                <button data-toggle="collapse" href="#charOne" type="button"
-                                        class="btn btn-outline-secondary btn-sm m-2">Close Window
-                                </button>
-                            </div>
-                            <h5 class="card-title">{{ $player->characterOne->firstname }} {{ $player->characterOne->lastname}} </h5>
-                            <span class="card-text">DOB: {{ $player->characterOne->dob }} Sex: {{ $player->characterOne->gender }}</span><br/>
-                            <span class="card-text">Height: {{ $player->characterOne->height }}</span><br/>
+                        <div class="card-body card-text">
+                            DOB: {{ $player->characterOne->dob }}<br/>
+                            Sex: {{ $player->characterOne->gender }}<br/>
+                            Height: {{ $player->characterOne->height }}<br/>
                             <center><br/>
-                                <p>
-                                    <button data-toggle="collapse" href="#charOneBackstory" role="button"
-                                            aria-expanded="false"
-                                            aria-control="charOnebackstory"
-                                            type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
                                         <span
-                                            class="glyphicon glyphicon-triangle-bottom"
+                                            class="glyphicon glyphicon-list-alt"
                                             aria-hidden="true"></span></button>
                             </center>
                             </p>
                         </div>
                     </div>
-                </div>
+                @else
+                    <button class="btn btn-secondary btn-lg btn-block">No First Character</button> @endif
             </div>
-            <!---Here is Character Two!!! --->
-            <!---If $player->characterTwo is Found Display this button to show the character card. -->
-            <div class="col-sm-4">
-                <button data-toggle="collapse" href="#charTwo" role="button" aria-expanded="false"
-                        aria-controls="{ $player->characterTwo->firstname } { $player->characterTwo->lastname }"
-                        type="button"
-                        class="btn btn-primary btn-lg btn-block">{ $player->characterTwo->firstname }<br/>
-                    { $player->characterTwo->lastname }<br/><span class="glyphicon glyphicon-triangle-bottom"
-                                                                  aria-hidden="true"></span>
-                </button>
-                <!-- End the button block of code-->
-                <!-- Otherwise show this button to say "No Secondary character found" -->
-                <button class="btn btn-secondary btn-lg btn-block">No Secondary Character</button>
-                <!-- Ignore this block of code for the time being. Move to character Three. --->
-                <div class="collapse" id="charTwo">
+            <!--End Character Card for characterOne -->
+            <!-- Character Card for characterTwo --->
+            <div class="col-sm-3">
+                @if (!is_null($player->characterTwo))
+                    <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
+                        {{ $player->characterTwo->firstname }} {{ $player->characterTwo->lastname }}
+                        <br/><span class="glyphicon glyphicon glyphicon-user"
+                                   aria-hidden="true"></span>
+                    </button>
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="card-body">
-                            <div align="right">
-                                <button data-toggle="collapse" href="#charTwo" type="button"
-                                        class="btn btn-outline-secondary btn-sm m-2">Close Window
-                                </button>
-                            </div>
-                            <h5 class="card-title">{ $player->characterTwo->firstname } <br>
-                                { $player->characterTwo->lastname} </h5>
-                            <span class="card-text">DOB: { $player->characterTwo->dob } Sex: [ $player->characterTwo->gender }</span><br/>
-                            <span class="card-text">Age: [ $player->characterTwo->age } HGT: [ $player->characterTwo->height }</span><br/>
+                            DOB: {{ $player->characterTwo->dob }}<br/>
+                            Sex: {{ $player->characterTwo->gender }}<br/>
+                            Height: {{ $player->characterTwo->height }}<br/>
                             <center><br/>
-                                <p>
-                                    <button data-toggle="collapse" href="#charTwoBackstory" role="button"
-                                            aria-expanded="false"
-                                            aria-control="#charTwoBackstory"
-                                            type="button" class="btn btn-secondary btn-sm">Read Back Story
-                                        <span class="glyphicon glyphicon-triangle-bottom"
-                                              aria-hidden="true"></span></button>
+                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                        <span
+                                            class="glyphicon glyphicon-list-alt"
+                                            aria-hidden="true"></span></button>
                             </center>
                             </p>
                         </div>
                     </div>
-                </div>
+                @else
+                    <button class="btn btn-secondary btn-lg btn-block">No Second Character</button> @endif
             </div>
-            <div class="col-sm-4">
-                <!--!This is character three!!!!! -->
-                <!--If $player->characterThree is Found Display this button to show the character card. -->
-                <button data-toggle="collapse" href="#charThree" role="button" aria-expanded="false"
-                        aria-controls="charTwolastname }"
-                        type="button"
-                        class="btn btn-primary btn-lg btn-block">{ $player->characterThree->firstname }<br/>
-                    { $player->characterThree->lastname }<br/><span class="glyphicon glyphicon-triangle-bottom"
-                                                                    aria-hidden="true"></span>
-                </button>
-                <!-- End the button block of code-->
-                <!-- Otherwise show this button to say "No Third character found" -->
-                <button class="btn btn-secondary btn-lg btn-block">No Third Character</button>
-                <!---You can ignore this block of code for now --->
-                <div class="collapse" id="charThree">
-                    <div class="card">
+            <!--End Character Card for characterTwo -->
+            <!-- Character Card for characterThree --->
+            <div class="col-sm-3">
+                @if (!is_null($player->characterThree))
+                    <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
+                        {{ $player->characterThree->firstname }} {{ $player->characterThree->lastname }}
+                        <br/><span class="glyphicon glyphicon glyphicon-user"
+                                   aria-hidden="true"></span>
+                    </button>
+                    <div class="card mb-3" style="max-width: 540px;">
                         <div class="card-body">
-                            <div align="right">
-                                <button data-toggle="collapse" href="#charThree" type="button"
-                                        class="btn btn-outline-secondary btn-sm m-2">Close Window
-                                </button>
-                            </div>
-                            <h5 class="card-title">{ $player->characterThree->firstname } { $player->characterThree->lastname} </h5>
-                            <span class="card-text">DOB: { $player->characterThree->dob } Sex: [ $player->characterThree->gender }</span><br/>
-                            <span class="card-text">Age: [ $player->characterThree->age } HGT: [ $player->characterThree->height }</span><br/>
+                            DOB: {{ $player->characterThree->dob }}<br/>
+                            Sex: {{ $player->characterThree->gender }}<br/>
+                            Height: {{ $player->characterThree->height }}<br/>
                             <center><br/>
-                                <p>
-                                    <button data-toggle="collapse" href="#charThreeBackstory" role="button"
-                                            aria-expanded="false"
-                                            aria-control="charThreeBackstory"
-                                            type="button" class="btn btn-secondary btn-sm">Read Back Story
-                                        <span class="glyphicon glyphicon-triangle-bottom"
-                                              aria-hidden="true"></span></button>
+                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                        <span
+                                            class="glyphicon glyphicon-list-alt"
+                                            aria-hidden="true"></span></button>
                             </center>
                             </p>
                         </div>
                     </div>
-                </div>
+                @else
+                    <button class="btn btn-secondary btn-lg btn-block">No Third Character</button> @endif
             </div>
+            <!--End Character Card for characterThree -->
+            <!-- Character Card for characterFour --->
+            <div class="col-sm-3">
+                @if (!is_null($player->characterFour))
+                    <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
+                        {{ $player->characterFour->firstname }} {{ $player->characterFour->lastname }}
+                        <br/><span class="glyphicon glyphicon-triangle-bottom"
+                                   aria-hidden="true"></span>
+                    </button>
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="card-body">
+                            <span class="card-text">DOB: {{ $player->characterFour->dob }}</span><br/>
+                            <span class="card-text">Sex: {{ $player->characterFour->gender }}</span><br/>
+                            <span class="card-text">Height: {{ $player->characterFour->height }}</span><br/>
+                            <center><br/>
+                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                        <span
+                                            class="glyphicon glyphicon-list-alt"
+                                            aria-hidden="true"></span></button>
+                            </center>
+                            </p>
+                        </div>
+                    </div>
+                @else
+                    <button class="btn btn-secondary btn-lg btn-block">No Fourth Character</button> @endif
+            </div>
+            <!--End Character Card for characterFour -->
             <div class="col-sm-12 py-3">
                 <div class="collapse" id="charOneBackstory">
                     <div class="bg-light rounded-lg py-3 pl-3">
                         <div align="right">
-                            <button data-toggle="collapse" href="#charOneBackstory" type="button"
-                                    class="btn btn-outline-secondary btn-sm m-2">Close Window
+                            <button data-toggle="collapse" href="#charOneBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
                         <h5>The Backstory of {{ $player->characterOne->firstname }} {{$player->characterOne->lastname }}</h5>
@@ -471,12 +280,11 @@
                 <div class="collapse" id="charTwoBackstory">
                     <div class="bg-light rounded-lg py-3 pl-3">
                         <div align="right">
-                            <button data-toggle="collapse" href="#charTwoBackstory" type="button"
-                                    class="btn btn-outline-secondary btn-sm m-2">Close Window
+                            <button data-toggle="collapse" href="#charTwoBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
-                        <h5>The Backstory of { $player->characterTwo->firstname } { $player->characterTwo->lastname
-                            }</h5>
+                        <h5>The Backstory of { $player->characterTwo->firstname } { $player->characterTwo->lastname }
+                        </h5>
                         <p>{ $player->characterTwo->story }</p>
                         <!---If the steam account logged in owns the characters - then allow them to edit the backstories. -->
                         <div align="right">
@@ -491,11 +299,11 @@
                 <div class="collapse" id="charThreeBackstory">
                     <div class="bg-light rounded-lg py-3 pl-3">
                         <div align="right">
-                            <button data-toggle="collapse" href="#charThreeBackstory" type="button"
-                                    class="btn btn-outline-secondary btn-sm m-2">Close Window
+                            <button data-toggle="collapse" href="#charThreeBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
                             </button>
                         </div>
-                        <h5>The Backstory of { $player->characterThree->firstname } { $player->characterThree->lastname }</h5>
+                        <h5>The Backstory of { $player->characterThree->firstname } { $player->characterThree->lastname }
+                        </h5>
                         <p>{ $player->characterThree->story }</p>
                         <!---If the steam account logged in owns the characters - then allow them to edit the backstories. -->
                         <div align="right">
