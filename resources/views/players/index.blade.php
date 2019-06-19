@@ -30,7 +30,7 @@
                 <div class="col-sm-12">
                     @forelse ($players as $player)
                         <div class="alert alert-warning" role="alert">
-                            {{ $player->name }}
+                            <a href="{{route('players.show', ['player' => $player])}}">{{ $player->name }} | {{ $player->id }}</a>
                         </div>
                     @empty
                         <h4>No players found! Try a different name or identifier.</h4>

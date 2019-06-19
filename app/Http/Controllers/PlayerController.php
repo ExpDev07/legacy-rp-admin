@@ -56,7 +56,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
-        //
+        return view('players.show', [ 'player' => $player ]);
     }
 
     /**

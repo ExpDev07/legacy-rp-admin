@@ -9,7 +9,7 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
 <head>
     <style type="text/css">
         <!-- body {
-            background: url("img/<?= $selectedBg; ?>") center fixed;
+            background: url("/img/<?= $selectedBg; ?>") center fixed;
             font-family: 'Roboto Condensed',
             sans-serif;
         }
@@ -30,7 +30,8 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
-    <link href="https://bootswatch.com/4/materia/bootstrap.css" rel="stylesheet">
+    <link href="https://bootswatch.com/4/cyborg/bootstrap.css" rel="stylesheet">
+    <link rel='stylesheet' href='{{ asset('/css/bootstrap.min.css') }}' />
 </head>
 
 <body>
@@ -39,7 +40,7 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-sm-2 py-3"><a href="/"><img src="./img/logo.png" style="max-height:120px;" class="img-fluid mw-100" alt="Legacy RP"></a></div>
+                <div class="col-sm-2 py-3"><a href="/"><img src="/img/logo.png" style="max-height:120px;" class="img-fluid mw-100" alt="Legacy RP"></a></div>
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
