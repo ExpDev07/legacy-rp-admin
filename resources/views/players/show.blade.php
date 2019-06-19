@@ -22,8 +22,8 @@
             </div>
             <!--Truckster I need you to code a global boolean for $isStaff so we can make this Staff section conditional for staff members only. -->
             <div class="col-sm-8">
-                <div class="alert alert-info" role="alert" ?>
-                    <h5>Staff Section</h5>
+                <div class="alert card card-body mb-3 border-info" role="alert" ?>
+                    <h5 class="display-4 "><strong>Staff Control Panel</strong></h5>
                     <H4>Hello</H4>
                     <h5>{{ Auth::user()->username }}</h5>
                     <ul>
