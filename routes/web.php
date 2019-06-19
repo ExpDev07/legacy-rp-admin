@@ -46,5 +46,9 @@ Route::get('logout', 'Auth\SteamLoginController@logout')->name('logout');
 // Steam authentication
 SteamLogin::routes(['controller' => SteamLoginController::class]);
 
-// Resource controllers
+// Player resource: https://laracasts.com/discuss/channels/laravel/nested-resources-controllers-structure
 Route::resource('players', 'PlayerController');
+Route::resource('players.warnings', 'Player\WarningController');
+
+// Warning resource:
+Route::resource('warnings', 'WarningController');

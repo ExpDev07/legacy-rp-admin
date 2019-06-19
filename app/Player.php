@@ -73,4 +73,14 @@ class Player extends Model
         return $this->hasOne(Character::class, 'cid', 'cid4');
     }
 
+    /**
+     * Gets the warnings that this person has received.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function warnings()
+    {
+        return $this->hasMany(Warning::class);
+    }
+
 }

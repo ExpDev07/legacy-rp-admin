@@ -43,12 +43,12 @@ class SteamLoginController extends AbstractSteamLoginController
         // If the user doesn't exist, create them.
         if (!$user) {
             // Retrieve and set user info pulled from steam.
-            $info = $steamUser->getUserInfo();
+            $steamUser->getUserInfo();
 
             $user = User::create([
                 'identifier' => $id,
-                'avatar' => $info->avatar,
-                'username' => $info->name,
+                'avatar' => $steamUser->avatar,
+                'username' => $steamUser->name,
             ]);
         }
 

@@ -30,11 +30,24 @@ class UsersTableSeeder extends Seeder
             $ipAddress = $faker->ipv4;
 
             // Create a player for this user.
-            $user->player()->create([
+            $player = $user->player()->create([
                 'name' => $user->username,
                 'identifiers' => json_encode([ $user->identifier, $ipAddress ]),
                 'playtime' => $faker->numberBetween(0, 10000),
                 'seen' => Carbon::now(),
+            ]);
+
+            // Give the player some warnings and self as issuer.
+            $player->warnings()->createMany([
+                [
+                    'message' => $faker->text
+                ],
+                [
+                    'message' => $faker->text
+                ],
+                [
+                    'message' => $faker->text
+                ]
             ]);
         }
     }

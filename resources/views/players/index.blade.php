@@ -35,8 +35,8 @@
                     @empty
                         <h4>No players found! Try a different name or identifier.</h4>
                     @endforelse
+                    {{ $players->links() }}
                 </div>
-                {{ $players->links() }}
             </div>
         </div>
     </div>

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Player;
+use App\Warning;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
-class PlayerController extends Controller
+class WarningController extends Controller
 {
 
     public function __construct()
@@ -17,21 +17,11 @@ class PlayerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        // Get the query user is trying to search with.
-        $query = Input::get('query');
-
-        // Try and find the player by name or FiveM identifier.
-        $players = Player
-            ::where('identifier', 'LIKE', "%{$query}%")
-            ->orWhere('name', 'LIKE', "%{$query}%")
-            ->paginate(15);
-
-        // Return the view.
-        return view('players.index', [ 'players' => $players ]);
+        //
     }
 
     /**
@@ -57,12 +47,13 @@ class PlayerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Player $player
+     * @param Warning $warning
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Player $player)
+    public function show(Warning $warning)
     {
-        return view('players.show', [ 'player' => $player ]);
+        // Render the view and display the warning there.
+        return view('warnings.show', [ 'warning' => $warning ]);
     }
 
     /**
