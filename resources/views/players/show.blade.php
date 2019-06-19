@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-sm-3">
                             <!--Submit Commendation Button -->
-                            <a href="./comments/">
+                            <a href="./comments/" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-success btn-block">Submit
                                     Commendation
                                 </button>
@@ -51,7 +51,7 @@
                         </div>
                         <!--Submit Warning Button -->
                         <div class="col-sm-3">
-                            <a href="./warnings/">
+                            <a href="./warnings/" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-warning btn-block">Submit
                                     Warning
                                 </button>
@@ -59,7 +59,7 @@
                         </div>
                         <!--Submit Ban Button -->
                         <div class="col-sm-3">
-                            <a href="./bans/">
+                            <a href="./bans/" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-danger btn-block">Submit
                                     Ban
                                 </button>
@@ -67,7 +67,7 @@
                         </div>
                         <!--Submit Comment Button -->
                         <div class="col-sm-3">
-                            <a href="./comments/">
+                            <a href="./comments/" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-secondary btn-block muted">
                                     Submit Comment
                                 </button>
@@ -77,8 +77,8 @@
                         <div class="col-sm-3"></div>
                         <!--Submit Appeal Button -->
                         <div class="col-sm-3 pt-3">
-                            <a href="./appeals/">
-                                <button type="button" class="btn btn-outline-info btn-block a.staffpanel">
+                            <a href="./appeals/" style="text-decoration: none;">
+                                <button type="button" class="btn btn-outline-info btn-block">
                                     Submit Appeal
                                 </button>
                             </a>
