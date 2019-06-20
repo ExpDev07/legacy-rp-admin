@@ -13,7 +13,7 @@ body {
 }
 
 .content-box {
-    background-color: rgba(40, 40, 40, .8);
+    background-color: rgba(40, 40, 40, .1);
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
@@ -91,3 +91,18 @@ hr {
     color:white;
     font-size: 20px;
 }
+
+.frontPage_images {
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px #000;
+}
+
+.frontPage_text {
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
