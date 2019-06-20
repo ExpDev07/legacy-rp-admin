@@ -6,12 +6,12 @@
         <div class="content-box">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="alert alert-warning" role="alert">
-                        <h5>
+                    <div class="alert alert-primary" role="alert">
+                        <span class="lead">
                             <center>
                                 Look up players by their <b>name</b> or <b>identifier</b>. Be as specific as possible to limit the results.
                             </center>
-                        </h5>
+                        </>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     @forelse ($players as $player)
-                        <div class="alert alert-warning" role="alert">
+                        <div class="alert alert-secondary" role="alert">
                             <a href="{{route('players.show', ['player' => $player])}}">{{ $player->name }} | {{ $player->id }}</a>
                         </div>
                     @empty
