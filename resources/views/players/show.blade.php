@@ -26,43 +26,45 @@
                     <div class="row">
                         <!--Lookup Commendation Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#commendationLookup" type="button" class="btn btn-success btn-block">Lookup Commendations</button>
+                            <a href="#" style="text-decoration: none">
+                                <button type="button" class="btn btn-success btn-block">Lookup Commendations</button>
+                            </a>
                         </div>
                         <!--Lookup Warnings Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#warningLookup" type="button " class="btn btn-warning btn-block">Lookup Warnings</button>
+                            <a href="{{ route('players.warnings.index', [ 'player' => $player]) }}" style="text-decoration: none">
+                                <button type="button" class="btn btn-warning btn-block">Lookup Warnings</button>
+                            </a>
                         </div>
                         <!--Lookup Bans and Appeals Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#banLookup" type="button " class="btn btn-danger btn-block">Lookup Previous Bans and Appeals</button>
+                            <a href="#" style="text-decoration: none">
+                                <button type="button" class="btn btn-danger btn-block mb-3">Lookup Previous Bans and Appeals</button>
+                            </a>
                         </div>
                         <!--Lookup Staff Comments Button -->
                         <div class="col-sm-3">
-                            <button data-toggle="collapse" href="#commentLookup" type="button " class="btn btn-secondary btn-block">Lookup Comment</button>
+                            <a href="#" style="text-decoration: none">
+                                <button type="button" class="btn btn-secondary btn-block">Lookup Comment</button>
+                            </a>
                         </div>
-                        <!--Lookup Everything Button -->
-                        <div class="col-sm-12 p-3">
-                            <button data-toggle="collapse" href="#allLookup" type="button " class="btn btn-success btn-block">Lookup Everything</button>
-                        </div>
+                        <!--Submit Commendation Button -->
                         <div class="col-sm-3">
-                            <!--Submit Commendation Button -->
-                            <a href="./comments/" style="text-decoration: none;">
-                                <button type="button" class="btn btn-outline-success btn-block">Submit
-                                    Commendation
+                            <a href="#" style="text-decoration: none;">
+                                <button type="button" class="btn btn-outline-success btn-block">Submit Commendation
                                 </button>
                             </a>
                         </div>
                         <!--Submit Warning Button -->
                         <div class="col-sm-3">
-                            <a href="./warnings/" style="text-decoration: none;">
-                                <button type="button" class="btn btn-outline-warning btn-block">Submit
-                                    Warning
+                            <a href="#" style="text-decoration: none;">
+                                <button type="button" class="btn btn-outline-warning btn-block">Submit Warning
                                 </button>
                             </a>
                         </div>
                         <!--Submit Ban Button -->
                         <div class="col-sm-3">
-                            <a href="./bans/" style="text-decoration: none;">
+                            <a href="#" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-danger btn-block">Submit
                                     Ban
                                 </button>
@@ -70,7 +72,7 @@
                         </div>
                         <!--Submit Comment Button -->
                         <div class="col-sm-3">
-                            <a href="./comments/" style="text-decoration: none;">
+                            <a href="#" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-secondary btn-block muted">
                                     Submit Comment
                                 </button>
@@ -80,76 +82,13 @@
                         <div class="col-sm-3"></div>
                         <!--Submit Appeal Button -->
                         <div class="col-sm-3 pt-3">
-                            <a href="./appeals/" style="text-decoration: none;">
+                            <a href="#" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-info btn-block">
                                     Submit Appeal
                                 </button>
                             </a>
                         </div>
                         <div class="col-sm-3"></div>
-                    </div>
-                </div>
-                <div class="collapse" id="commendationLookup">
-                    <div class="alert alert-light" role="alert">
-                        <div align="right">
-                            <button data-toggle="collapse" href="#commendationLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
-                            </button>
-                        </div>
-                        <ul>
-                            <span class="text-success"><li><strong>COMMENDATION | 03/05/2019 | by jackmcjack |</strong> for helping new players</li></span>
-                        </ul>
-                    </div>
-                </div>
-                <div class="collapse" id="warningLookup">
-                    <div class="alert alert-light" role="alert">
-                        <div align="right">
-                            <button data-toggle="collapse" href="#warningLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
-                            </button>
-                        </div>
-                        <ul>
-                            <span class="text-warning"><li><strong>WARNING | 02/04/2019 | by Blanket |</strong> for fear rp </li></span>
-                        </ul>
-                    </div>
-                </div>
-                <div class="collapse" id="banLookup">
-                    <div class="alert alert-light" role="alert">
-                        <div align="right">
-                            <button data-toggle="collapse" href="#banLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
-                            </button>
-                        </div>
-                        <ul>
-                            <span class="text-danger"><li><strong>BAN | 03/10/2019 | by Emily Kate |</strong> for mass RDM with a vehicle</li></span>
-                            <span class="text-info"><li><strong>APPEAL| 03/15/2019 | by EMILY KATE | it was an accident, he simply lost control of the car, he had video footage.</strong></li></span>
-                        </ul>
-                    </div>
-                </div>
-                <div class="collapse" id="commentLookup">
-                    <div class="alert alert-light" role="alert">
-                        <div align="right">
-                            <button data-toggle="collapse" href="#commentLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
-                            </button>
-                        </div>
-                        <ul>
-                            <span class="text-secondary"><li><strong>COMMENT | 04/20/2019 | by Emily Kate |</strong> Post ban appeal comment - has been role playing well and been well received by the community</li></span>
-                        </ul>
-                    </div>
-                </div>
-                <div class="collapse" id="allLookup">
-                    <div class="alert alert-light" role="alert">
-                        <div align="right">
-                            <button data-toggle="collapse" href="#allLookup" type="button" class="btn btn-outline-secondary btn-sm mb-3">close window
-                            </button>
-                        </div>
-                        <li><span class="text-success"><strong>COMMENDATION | 03/05/2019 | by jackmcjack |</strong> for helping new players</span>
-                        </li>
-                        <li><span class="text-warning"><strong>WARNING | 02/04/2019 | by Blanket |</strong> for fearrp</span>
-                        </li>
-                        <li><span class="text-danger"><strong>BAN | 03/10/2019 | by Emily Kate |</strong> for mass rdm with a vehicle</span>
-                        </li>
-                        <li><span class="text-info"><strong>APPEAL| 03/15/2019 | by EMILY KATE | it was an accident, he simply lost control of the car, he had video footage.</strong></span>
-                        </li>
-                        <li><span class="text-secondary"><strong>COMMENT | 04/20/2019 | by Emily Kate |</strong> Post ban appeal comment - has been role playing well and been well received by the community</span>
-                        </li>
                     </div>
                 </div>
             </div>
