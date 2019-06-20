@@ -107,7 +107,7 @@
                         <div class="card-body card-text">
                             DOB: {{ $player->characterOne->dob }}<br/> Sex: {{ $player->characterOne->gender }}<br/> Height: {{ $player->characterOne->height }}<br/>
                             <center><br/>
-                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" type="button" class="btn btn-secondary btn-sm">Read Back Story
                                         <span
                                             class="glyphicon glyphicon-list-alt"
                                             aria-hidden="true"></span></button>
@@ -131,7 +131,7 @@
                         <div class="card-body">
                             DOB: {{ $player->characterTwo->dob }}<br/> Sex: {{ $player->characterTwo->gender }}<br/> Height: {{ $player->characterTwo->height }}<br/>
                             <center><br/>
-                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                <p> <button data-toggle="collapse" href="#charTwoBackstory" role="button" aria-expanded="false" type="button" class="btn btn-secondary btn-sm">Read Back Story
                                         <span
                                             class="glyphicon glyphicon-list-alt"
                                             aria-hidden="true"></span></button>
@@ -156,7 +156,7 @@
                         <div class="card-body">
                             DOB: {{ $player->characterThree->dob }}<br/> Sex: {{ $player->characterThree->gender }}<br/> Height: {{ $player->characterThree->height }}<br/>
                             <center><br/>
-                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                <p> <button data-toggle="collapse" href="#charThreeBackstory" role="button" aria-expanded="false" type="button" class="btn btn-secondary btn-sm">Read Back Story
                                         <span
                                             class="glyphicon glyphicon-list-alt"
                                             aria-hidden="true"></span></button>
@@ -183,7 +183,7 @@
                             <span class="card-text">Sex: {{ $player->characterFour->gender }}</span><br/>
                             <span class="card-text">Height: {{ $player->characterFour->height }}</span><br/>
                             <center><br/>
-                                <p> <button data-toggle="collapse" href="#charOneBackstory" role="button" aria-expanded="false" aria-control="charOnebackstory" type="button" class="btn btn-secondary btn-sm">Read Back Story
+                                <p> <button data-toggle="collapse" href="#charFourBackstory" role="button" aria-expanded="false" type="button" class="btn btn-secondary btn-sm">Read Back Story
                                         <span
                                             class="glyphicon glyphicon-list-alt"
                                             aria-hidden="true"></span></button>
@@ -207,9 +207,7 @@
                         <h5>The Backstory of {{ $player->characterOne->firstname }} {{$player->characterOne->lastname }}</h5>
                         <p>{{ $player->characterOne->story }}</p>
                         <div align="right">
-                            <!---This button here is important if the steam owner is logged and owns these characters, then how about a wysiwyg form to allow them to edit in great detail their backstories? --->
                             <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                            <!--- ^^^^^^^ This Button ^^^^^^^^  it is available in all three profiles ---->
                             <br/>
                             <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                         </div>
@@ -219,18 +217,16 @@
             @endif
             @if (!is_null($player->characterTwo))
                 <div class="col-sm-12 py-3">
-                    <div class="collapse" id="charOneBackstory">
+                    <div class="collapse" id="charTwoBackstory">
                         <div class="bg-light rounded-lg py-3 pl-3">
                             <div align="right">
-                                <button data-toggle="collapse" href="#charOneBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
+                                <button data-toggle="collapse" href="#charTwoBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
                                 </button>
                             </div>
                             <h5>The Backstory of {{ $player->characterTwo->firstname }} {{$player->characterTwo->lastname }}</h5>
                             <p>{{ $player->characterTwo->story }}</p>
                             <div align="right">
-                                <!---This button here is important if the steam owner is logged and owns these characters, then how about a wysiwyg form to allow them to edit in great detail their backstories? --->
                                 <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <!--- ^^^^^^^ This Button ^^^^^^^^  it is available in all three profiles ---->
                                 <br/>
                                 <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                             </div>
@@ -240,18 +236,16 @@
             @endif
             @if (!is_null($player->characterThree))
                 <div class="col-sm-12 py-3">
-                    <div class="collapse" id="charOneBackstory">
+                    <div class="collapse" id="charThreeBackstory">
                         <div class="bg-light rounded-lg py-3 pl-3">
                             <div align="right">
-                                <button data-toggle="collapse" href="#charOneBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
+                                <button data-toggle="collapse" href="#charThreeBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
                                 </button>
                             </div>
                             <h5>The Backstory of {{ $player->characterThree->firstname }} {{$player->characterThree->lastname }}</h5>
                             <p>{{ $player->characterThree->story }}</p>
                             <div align="right">
-                                <!---This button here is important if the steam owner is logged and owns these characters, then how about a wysiwyg form to allow them to edit in great detail their backstories? --->
                                 <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <!--- ^^^^^^^ This Button ^^^^^^^^  it is available in all three profiles ---->
                                 <br/>
                                 <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                             </div>
@@ -261,18 +255,16 @@
             @endif
             @if (!is_null($player->characterFour))
                 <div class="col-sm-12 py-3">
-                    <div class="collapse" id="charOneBackstory">
+                    <div class="collapse" id="charFourBackstory">
                         <div class="bg-light rounded-lg py-3 pl-3">
                             <div align="right">
-                                <button data-toggle="collapse" href="#charOneBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
+                                <button data-toggle="collapse" href="#charThreeBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
                                 </button>
                             </div>
                             <h5>The Backstory of {{ $player->characterFour->firstname }} {{$player->characterFour->lastname }}</h5>
                             <p>{{ $player->characterFour->story }}</p>
                             <div align="right">
-                                <!---This button here is important if the steam owner is logged and owns these characters, then how about a wysiwyg form to allow them to edit in great detail their backstories? --->
                                 <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <!--- ^^^^^^^ This Button ^^^^^^^^  it is available in all three profiles ---->
                                 <br/>
                                 <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                             </div>
