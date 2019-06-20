@@ -22,9 +22,8 @@
                     </div>
                 @empty
                     <div class="card border-warning mb-3">
-                        <div class="card-header">{{ $warning->player->name }}</div>
                         <div class="card-body">
-                            <h4>This play has no warnings. They're doing great!</h4>
+                            <span class="lead">This play has no warnings. They're doing great!</span>
                         </div>
                     </div>
                 @endforelse
