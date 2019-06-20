@@ -13,7 +13,7 @@ class Warning extends Model
      * @var array
      */
     protected $fillable = [
-        'message'
+        'issuer_id', 'message'
     ];
 
     /**
@@ -27,13 +27,13 @@ class Warning extends Model
     }
 
     /**
-     * Gets the person that issued this warning.
+     * Gets the player that issued this warning.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function issuer()
     {
-        //return $this->belongsTo(Player::class);
+        return $this->belongsTo(Player::class);
     }
 
 }

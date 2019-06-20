@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Player;
 use App\Warning;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WarningController extends Controller
 {
@@ -26,28 +27,39 @@ class WarningController extends Controller
         // Display the player's warnings in the view. test
         return view('players.warnings.index', [
             'player' => $player,
-            'warnings' => $player->warnings()->paginate(10)
+            'warnings' => $player->warnings()->latest()->paginate(10)
         ]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Player $player
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Player $player)
     {
-        //
+        // Render view for creating a new warning.
+        return view('players.warnings.create', [ 'player' => $player ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
+     * @param Player $player
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function store(Request $request)
+    public function store(Request $request, Player $player)
     {
-        //
+        // Create the warning and persist it to the database.
+        $warning = $player->warnings()->create([
+            'issuer_id' => Auth::user()->player->id,
+            'message' => $request->get('message')
+        ]);
+
+        // Redirect user to their created warning.
+        return view('warnings.show', [ 'warning' => $warning ]);
     }
 
 }
