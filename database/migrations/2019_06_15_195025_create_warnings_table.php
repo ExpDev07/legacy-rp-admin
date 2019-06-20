@@ -16,7 +16,7 @@ class CreateWarningsTable extends Migration
         Schema::create('warnings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('player_id');
-            $table->unsignedBigInteger('issuer_id')->nullable();
+            $table->unsignedBigInteger('issuer_id');
             $table->text('message');
             $table->timestamps();
         });

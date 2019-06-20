@@ -1,12 +1,19 @@
 <?php
 
 use App\User;
+use App\Warning;
 use Carbon\Carbon;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
+
+    /**
+     * @var string
+     */
+    private static $AVATAR_URL = 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ee/eed2d38393036c9fce576737521e2ba35f6ca4ae_full.jpg';
+
     /**
      * Run the database seeds.
      *
@@ -23,7 +30,7 @@ class UsersTableSeeder extends Seeder
             $user = User::create([
                 'identifier' => 'steam:' . $faker->word . $faker->word . $faker->numberBetween(0, 10000000),
                 'username' => $faker->name,
-                'avatar' => 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ee/eed2d38393036c9fce576737521e2ba35f6ca4ae_full.jpg'
+                'avatar' => self::$AVATAR_URL
             ]);
 
             // An IP address.
@@ -34,20 +41,14 @@ class UsersTableSeeder extends Seeder
                 'name' => $user->username,
                 'identifiers' => json_encode([ $user->identifier, $ipAddress ]),
                 'playtime' => $faker->numberBetween(0, 10000),
-                'seen' => Carbon::now(),
+                'seen' => Carbon::now()
             ]);
 
             // Give the player some warnings and self as issuer.
             $player->warnings()->createMany([
-                [
-                    'message' => $faker->text
-                ],
-                [
-                    'message' => $faker->text
-                ],
-                [
-                    'message' => $faker->text
-                ]
+                [ 'issuer_id' => $player->id, 'message' => $faker->text ],
+                [ 'issuer_id' => $player->id, 'message' => $faker->text ],
+                [ 'issuer_id' => $player->id, 'message' => $faker->text ]
             ]);
         }
     }

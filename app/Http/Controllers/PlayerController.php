@@ -17,18 +17,19 @@ class PlayerController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Get the query user is trying to search with.
-        $query = Input::get('query');
+        // Get the query which the user is trying to give.
+        $query = $request->query('query');
 
         // Try and find the player by name or FiveM identifier.
         $players = Player
             ::where('identifier', 'LIKE', "%{$query}%")
             ->orWhere('name', 'LIKE', "%{$query}%")
-            ->paginate(15);
+            ->simplePaginate(15);
 
         // Return the view.
         return view('players.index', [ 'players' => $players ]);

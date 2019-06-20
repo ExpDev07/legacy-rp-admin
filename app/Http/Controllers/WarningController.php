@@ -15,36 +15,6 @@ class WarningController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param Request $request
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param Warning $warning
@@ -59,20 +29,22 @@ class WarningController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Player $player
+     * @param Warning $warning
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit(Player $player)
+    public function edit(Warning $warning)
     {
-        //
+        // Show view which has the form to edit the warning.
+        return view('warnings.edit', [ 'warning' => $warning ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param Player $player
+     * @param Warning $warning
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, Warning $warning)
     {
         //
     }
@@ -80,9 +52,9 @@ class WarningController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Player $player
+     * @param Warning $warning
      */
-    public function destroy(Player $player)
+    public function destroy(Warning $warning)
     {
         //
     }
