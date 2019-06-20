@@ -15,7 +15,6 @@
                 </div>
             </div>
         </div>
-        <!--Truckster I need you to code a global boolean for $isStaff so we can make this Staff section conditional for staff members only. -->
         <!--Staff Control Panel -->
         <div class="row">
             <div class="col-sm-12">
@@ -57,7 +56,7 @@
                         </div>
                         <!--Submit Warning Button -->
                         <div class="col-sm-3">
-                            <a href="#" style="text-decoration: none;">
+                            <a href="{{ route('players.warnings.create', [ 'player' => $player ]) }}" style="text-decoration: none;">
                                 <button type="button" class="btn btn-outline-warning btn-block">Submit Warning
                                 </button>
                             </a>
