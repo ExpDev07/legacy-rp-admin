@@ -50,10 +50,10 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
                             <a href="https://legacyroleplay.online/server-rules" class="nav-main d-none d-sm-block"><span class="glyphicon glyphicon-education"></span> Rules<div class="nav-desc">Learn the city rules and how to play on our community</div></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="/how-to-play" class="nav-main"><span class="glyphicon glyphicon-console"></span> How to Play<div class="nav-desc d-none d-sm-block">Learn about commands, job and get a printable cheat sheet</div></a>
+                            <a href="#" class="nav-main"><span class="glyphicon glyphicon-console"></span> How to Play<div class="nav-desc d-none d-sm-block">Learn about commands, job and get a printable cheat sheet</div></a>
                         </div>
                         <div class="col-sm-2">
-                            <a href="#" class="nav-main"><span class="glyphicon glyphicon-list-alt"></span> Forums<div class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</div></a>
+                            <a href="https://legacyroleplay.online/categories" class="nav-main"><span class="glyphicon glyphicon-list-alt"></span> Forums<div class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</div></a>
                         </div>
                         <div class="col-sm-2">
                             <a href="/players" class="nav-main"><span class="glyphicon glyphicon-user"></span> Player Profiles<div class="nav-desc d-none d-sm-block">See detailed player and character profiles</div></a>
@@ -62,11 +62,9 @@ $selectedBg = $bg[$i]; // set variable equal to which random filename was chosen
                         <div class="col-sm-2">
                             @if (Auth::check())
                                 <!-- Display some basic user information -->
-                                <a href="#" class="nav-main">{{ Auth::user()->username }}<br/>
-                                        <img class="img-fluid rounded pl-2" style="max-width:50px;" src="{{ Auth::user()->avatar }}"></a><br/>
-
+                                <a href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}" class="nav-main"><span class="glyphicon glyphicon-link"></span> {{ Auth::user()->username }}<br/>
                                 <!-- Display a logout button -->
-                                <a href="{{route('logout')}}" class="nav-main pl-2">Logout</a>
+                                <a href="{{route('logout')}}" class="nav-main">Logout</a>
                             @else
                                 <!-- Display a login with steam button -->
                                 <a href="{{route('login.steam')}}" class="nav-main">Login<div class="nav-desc">Login with Steam</div></a>
