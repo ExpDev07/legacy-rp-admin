@@ -34,6 +34,15 @@ class Player extends Model
     ];
 
     /**
+     * Gets the amount of time this player has spent on the server in a nice readable string.
+     *
+     * @return int
+     */
+    function play_time() {
+        return self::seconds_to_human($this->playtime);
+    }
+
+    /**
      * Gets the player's character number one.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -81,6 +90,23 @@ class Player extends Model
     public function warnings()
     {
         return $this->hasMany(Warning::class);
+    }
+
+    /**
+     * Converts the given seconds to a human readable string.
+     * https://snippetsofcode.wordpress.com/2012/08/25/php-function-to-convert-seconds-into-human-readable-format-months-days-hours-minutes/
+     *
+     * @param $ss
+     * @return string
+     */
+    static function seconds_to_human($ss) {
+        $s = $ss % 60;
+        $m = floor(($ss % 3600) / 60);
+        $h = floor(($ss % 86400) / 3600);
+        $d = floor(($ss % 2592000) / 86400);
+        $M = floor($ss / 2592000);
+
+        return "$M months, $d days, $h hours, $m minutes, $s seconds";
     }
 
 }

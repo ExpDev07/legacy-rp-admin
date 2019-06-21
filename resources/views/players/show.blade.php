@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <div class="alert alert-primary" role="alert">
+                <div class="alert alert-primary">
                     <span class="lead">{{ $player->name }}</span> <br/>
-                    <span class="lead">{{ $player->playtime }} minutes played on LegacyRP</span>
+                    Time spent on Legacy Roleplay: {{ $player->play_time() }}
                 </div>
             </div>
             <div class="col-sm-12">
@@ -18,80 +18,25 @@
         <!--Staff Control Panel -->
         <div class="row">
             <div class="col-sm-12">
-                <div class="alert card card-body mb-3 border-info" role="alert">
-                    <h5><strong>Staff Control Panel</strong></h5>
-                    <span class="lead"><span class="text-primary">{{ Auth::user()->username }}</span> you are currently administrating the user <span class="glyphicon glyphicon-chevron-down"></span></span>
-                    <span class="lead text-success pb-2">{{ $player->name }} | {{ $player->identifier }}</span>
+                <div class="alert card card-body border-info" role="alert">
+                    <!-- Title -->
+                    <h5><strong>Staff Actions</strong></h5>
+                    <p>
+                        Perform staff actions related to this player.
+                    </p>
+
                     <div class="row">
-                        <!--Lookup Commendation Button -->
-                        <div class="col-sm-3">
-                            <a href="#" style="text-decoration: none">
-                                <button type="button" class="btn btn-success btn-block">Lookup Commendations</button>
-                            </a>
-                        </div>
-                        <!--Lookup Warnings Button -->
+                        <!-- Warnings -->
                         <div class="col-sm-3">
                             <a href="{{ route('players.warnings.index', [ 'player' => $player]) }}" style="text-decoration: none">
-                                <button type="button" class="btn btn-warning btn-block">Lookup Warnings</button>
+                                <button type="button" class="btn btn-warning btn-block">Warnings</button>
                             </a>
                         </div>
-                        <!--Lookup Bans and Appeals Button -->
-                        <div class="col-sm-3">
-                            <a href="#" style="text-decoration: none">
-                                <button type="button" class="btn btn-danger btn-block mb-3">Lookup Previous Bans and Appeals</button>
-                            </a>
-                        </div>
-                        <!--Lookup Staff Comments Button -->
-                        <div class="col-sm-3">
-                            <a href="#" style="text-decoration: none">
-                                <button type="button" class="btn btn-secondary btn-block">Lookup Comment</button>
-                            </a>
-                        </div>
-                        <!--Submit Commendation Button -->
-                        <div class="col-sm-3">
-                            <a href="#" style="text-decoration: none;">
-                                <button type="button" class="btn btn-outline-success btn-block">Submit Commendation
-                                </button>
-                            </a>
-                        </div>
-                        <!--Submit Warning Button -->
-                        <div class="col-sm-3">
-                            <a href="{{ route('players.warnings.create', [ 'player' => $player ]) }}" style="text-decoration: none;">
-                                <button type="button" class="btn btn-outline-warning btn-block">Submit Warning
-                                </button>
-                            </a>
-                        </div>
-                        <!--Submit Ban Button -->
-                        <div class="col-sm-3">
-                            <a href="#" style="text-decoration: none;">
-                                <button type="button" class="btn btn-outline-danger btn-block">Submit
-                                    Ban
-                                </button>
-                            </a>
-                        </div>
-                        <!--Submit Comment Button -->
-                        <div class="col-sm-3">
-                            <a href="#" style="text-decoration: none;">
-                                <button type="button" class="btn btn-outline-secondary btn-block muted">
-                                    Submit Comment
-                                </button>
-                            </a>
-                        </div>
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-3"></div>
-                        <!--Submit Appeal Button -->
-                        <div class="col-sm-3 pt-3">
-                            <a href="#" style="text-decoration: none;">
-                                <button type="button" class="btn btn-outline-info btn-block">
-                                    Submit Appeal
-                                </button>
-                            </a>
-                        </div>
-                        <div class="col-sm-3"></div>
                     </div>
                 </div>
             </div>
         </div>
+
         <!---END STAFF ONLY SECTION!!!! ------->
         <div class="row">
             <!-- Character Card for characterOne --->

@@ -7,13 +7,17 @@ body {
     font-weight: 600;
 }
 
+a {
+
+}
+
 .box-round {
     border-radius: 15px;
     padding: 15px;
 }
 
 .content-box {
-    background-color: rgba(40, 40, 40, .1);
+    background-color: #0b1423;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 15px;
