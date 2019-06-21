@@ -7,14 +7,50 @@ use Illuminate\Database\Eloquent\Model;
 class Ban extends Model
 {
 
-    public function issuer()
+    /**
+     * Column name for when the model was created.
+     */
+    const CREATED_AT = 'timestamp';
+
+    /**
+     * Column name for when the model was last updated.
+     */
+    const UPDATED_AT = 'timestamp';
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'user_bans';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'ban-id', 'banner-id', 'identifier', 'reason'
+    ];
+
+    /**
+     * Gets the player that received this ban.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function player()
     {
-        return $this->belongsTo(Player::class);
+        return $this->belongsTo(Player::class, 'identifier', 'identifier');
     }
 
-    public function target()
+    /**
+     * Gets the player that issued this ban.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function issuer()
     {
-        return $this->belongsTo(Player::class);
+        return $this->belongsTo(Player::class, 'banner-id', 'staff');
     }
 
 }

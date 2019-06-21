@@ -8,6 +8,14 @@ class Player extends Model
 {
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+
+    /**
      * Whether to use timestamps.
      *
      * @var bool
@@ -20,7 +28,7 @@ class Player extends Model
      * @var array
      */
     protected $fillable = [
-        'identifier', 'name', 'identifiers', 'playtime', 'seen'
+        'identifier', 'name', 'identifiers', 'playtime', 'seen', 'staff'
     ];
 
     /**
@@ -90,6 +98,16 @@ class Player extends Model
     public function warnings()
     {
         return $this->hasMany(Warning::class);
+    }
+
+    /**
+     * Gets the ban if player is banned, otherwise null.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function ban()
+    {
+        return $this->hasOne(Ban::class, 'identifier', 'identifier');
     }
 
     /**

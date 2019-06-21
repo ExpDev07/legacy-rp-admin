@@ -6,6 +6,12 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCharactersTable extends Migration
 {
+
+    /**
+     * Main table associated with this migration.
+     */
+    const TABLE = 'characters';
+
     /**
      * Run the migrations.
      *
@@ -13,7 +19,7 @@ class CreateCharactersTable extends Migration
      */
     public function up()
     {
-        Schema::create('characters', function (Blueprint $table) {
+        Schema::create(self::TABLE, function (Blueprint $table) {
             $table->bigIncrements('cid');
             $table->string('identifier');
             $table->integer('slot');
@@ -26,6 +32,8 @@ class CreateCharactersTable extends Migration
             $table->integer('cash');
             $table->integer('bank');
             $table->string('job')->nullable();
+
+            // Json values.
             $table->json('basicneeds');
             $table->json('licenses');
             $table->json('model');
@@ -42,6 +50,6 @@ class CreateCharactersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('characters');
+        Schema::dropIfExists(self::TABLE);
     }
 }

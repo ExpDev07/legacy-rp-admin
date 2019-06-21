@@ -5332,7 +5332,7 @@ a.badge-dark.focus {
 
 .alert-primary {
   color: #1b4b72;
-  background-color: #d6e9f8;
+  background-color: #13729F;
   border-color: #c6e0f5;
 }
 
@@ -5346,7 +5346,7 @@ a.badge-dark.focus {
 
 .alert-secondary {
   color: #383d41;
-  background-color: #e2e3e5;
+  background-color: #282828;
   border-color: #d6d8db;
 }
 
@@ -5402,7 +5402,7 @@ a.badge-dark.focus {
 
 .alert-danger {
   color: #761b18;
-  background-color: #f9d6d5;
+  background-color: #A81515;
   border-color: #f7c6c5;
 }
 

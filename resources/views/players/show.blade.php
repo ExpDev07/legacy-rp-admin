@@ -6,14 +6,17 @@
             <div class="col-sm-12">
                 <div class="alert alert-primary">
                     <span class="lead">{{ $player->name }}</span> <br/>
-                    Time spent on Legacy Roleplay: {{ $player->play_time() }}
+                    <strong>Time spent on Legacy Roleplay:</strong> {{ $player->play_time() }}
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="alert alert-danger" role="alert">
-                    <span class="lead">This player is banned for RDM</span>
+
+            @if (!is_null($player->ban))
+                <div class="col-sm-12">
+                    <div class="alert alert-danger" role="alert">
+                        <span class="lead">This player is banned for: {{ $player->ban->reason }}</span>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
         <!--Staff Control Panel -->
         <div class="row">

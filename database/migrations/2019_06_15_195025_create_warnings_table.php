@@ -6,6 +6,12 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateWarningsTable extends Migration
 {
+
+    /**
+     * Main table associated with this migration.
+     */
+    const TABLE = 'warnings';
+
     /**
      * Run the migrations.
      *
@@ -13,7 +19,7 @@ class CreateWarningsTable extends Migration
      */
     public function up()
     {
-        Schema::create('warnings', function (Blueprint $table) {
+        Schema::create(self::TABLE, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('player_id');
             $table->unsignedBigInteger('issuer_id');
@@ -29,6 +35,6 @@ class CreateWarningsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warnings');
+        Schema::dropIfExists(self::TABLE);
     }
 }

@@ -6,6 +6,12 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCommentsTable extends Migration
 {
+
+    /**
+     * Main table associated with this migration.
+     */
+    const TABLE = 'comments';
+
     /**
      * Run the migrations.
      *
@@ -13,7 +19,7 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create(self::TABLE, function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +32,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists(self::TABLE);
     }
 }

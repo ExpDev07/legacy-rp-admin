@@ -6,6 +6,12 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePlayersTable extends Migration
 {
+
+    /**
+     * Main table associated with this migration.
+     */
+    const TABLE = 'users';
+
     /**
      * Run the migrations.
      *
@@ -13,7 +19,8 @@ class CreatePlayersTable extends Migration
      */
     public function up()
     {
-        Schema::create('players', function (Blueprint $table) {
+        Schema::create(self::TABLE, function (Blueprint $table) {
+            // User related.
             $table->bigIncrements('id');
             $table->string('identifier');
             $table->string('name');
@@ -21,11 +28,14 @@ class CreatePlayersTable extends Migration
             $table->integer('playtime');
             $table->timestamp('seen');
 
-            // Characters
+            // Characters.
             $table->integer('cid1')->nullable();
             $table->integer('cid2')->nullable();
             $table->integer('cid3')->nullable();
             $table->integer('cid4')->nullable();
+
+            // Staff related.
+            $table->string('staff')->nullable(); // staff id
 
             // Keys
             // $table->foreign('identifier')->references('identifier')->on('characters');
@@ -39,6 +49,6 @@ class CreatePlayersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('players');
+        Schema::dropIfExists(self::TABLE);
     }
 }

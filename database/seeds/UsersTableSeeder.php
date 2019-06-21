@@ -46,10 +46,11 @@ class UsersTableSeeder extends Seeder
 
             // Give the player some warnings and self as issuer.
             $player->warnings()->createMany([
-                [ 'issuer_id' => $player->id, 'message' => $faker->text ],
-                [ 'issuer_id' => $player->id, 'message' => $faker->text ],
-                [ 'issuer_id' => $player->id, 'message' => $faker->text ]
+                [ 'issuer_id' => $player->id, 'message' => $faker->sentence ],
+                [ 'issuer_id' => $player->id, 'message' => $faker->sentence ],
+                [ 'issuer_id' => $player->id, 'message' => $faker->sentence ]
             ]);
+
         }
     }
 }

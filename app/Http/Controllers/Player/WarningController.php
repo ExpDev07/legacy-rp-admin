@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Player;
 
 use App\Http\Controllers\Controller;
 use App\Player;
-use App\Warning;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,8 +53,8 @@ class WarningController extends Controller
     {
         // Create the warning and persist it to the database.
         $warning = $player->warnings()->create([
-            'issuer_id' => Auth::user()->player->id,
-            'message' => $request->get('message')
+            'message' => $request->get('message'),
+            'issuer_id' => Auth::user()->player->id
         ]);
 
         // Redirect user to the created warning.
