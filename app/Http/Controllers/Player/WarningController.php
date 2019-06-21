@@ -58,8 +58,8 @@ class WarningController extends Controller
             'message' => $request->get('message')
         ]);
 
-        // Redirect user to their created warning.
-        return view('warnings.show', [ 'warning' => $warning ]);
+        // Redirect user to the player's index.
+        return $this->index($player);
     }
 
 }
