@@ -34,7 +34,7 @@
         </form>
 
         @forelse ($warnings as $warning)
-            <div class="card border-warning">
+            <div class="card border-warning mb-3">
                 <div class="card-body">
                     <p class="card-text">{{ $warning->message }}</p>
                     <p class="text-right">posted at <strong>{{ $warning->created_at }}</strong><br/> by
