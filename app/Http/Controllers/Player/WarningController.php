@@ -31,18 +31,6 @@ class WarningController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @param Player $player
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Player $player)
-    {
-        // Render view for creating a new warning.
-        return view('players.warnings.create', [ 'player' => $player ]);
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
