@@ -14,9 +14,8 @@
                             strictly enforced rule sets, a competent staff team, but most importantly an <span
                                 class="font-weight-bold">incredible player base.</span>
                         </p>
-                        <div class="lead frontPage_text text-center">(<a href="https://discordapp.com/invite/6j2uEjj">Click
-                                Here</a> to join the <a href="https://discordapp.com/invite/6j2uEjj">LegacyRP
-                                Discord</a>)
+                        <div class="lead frontPage_text text-center">
+                            <a href="https://discordapp.com/invite/6j2uEjj">Click here to join our discord server</a>
                         </div>
                     </div>
                 </div>
@@ -31,8 +30,7 @@
                 <div class="d-flex alert alert-light"><span class="frontPage_text text-primary">Organizing before a raid on the cartel headquarters on <strong>June/18/2019.</strong> <span
                             class="text-danger">The Cartel Won.</span></span></div>
             </div>
-            <div class="row">
-                <div class="col-sm-4 frontPage_text">
+                <div class="frontPage_text">
                     <div class="content-box">
                         <span class="text-center"><h5>Here is what you can expect from LegacyRP</h5></span>
                         <p>
@@ -42,15 +40,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-sm-4 frontPage_text">
-                    <div class="content-box">
-                        <span class="text-center"><h5>A Large Ruleset (Working Title)</h5></span>
-                        <p>
-                            We have a large set of rules that we strictly adhere to. Fill this in.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-4 frontPage_text">
+                <div class="frontPage_text">
                     <div class="content-box">
                         <span class="text-center"><h5>We Have a Large Staff Team</h5></span>
                         <p>
@@ -63,6 +53,4 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 @endsection

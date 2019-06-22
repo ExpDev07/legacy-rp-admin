@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Player;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 
 class PlayerController extends Controller
 {
@@ -12,6 +11,7 @@ class PlayerController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('staff');
     }
 
     /**
@@ -22,14 +22,9 @@ class PlayerController extends Controller
      */
     public function index(Request $request)
     {
-        // Get the query which the user is trying to give.
-        $query = $request->query('query');
-
-        // Try and find the player by name or FiveM identifier.
-        $players = Player
-            ::where('identifier', 'LIKE', "%{$query}%")
-            ->orWhere('name', 'LIKE', "%{$query}%")
-            ->simplePaginate(15);
+        // Get the query which the user is trying to give and then find players matching that query.
+        $query = $request->input('query', '');
+        $players = Player::where('identifier', 'LIKE', "%{$query}%")->orWhere('name', 'LIKE', "%{$query}%")->simplePaginate(15);
 
         // Return the view.
         return view('players.index', [ 'players' => $players ]);
@@ -63,6 +58,7 @@ class PlayerController extends Controller
      */
     public function show(Player $player)
     {
+        // Return the view to show the provided player.
         return view('players.show', [ 'player' => $player ]);
     }
 

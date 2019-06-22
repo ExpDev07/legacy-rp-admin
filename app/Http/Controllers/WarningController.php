@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Player;
 use App\Warning;
 use Illuminate\Http\Request;
 
@@ -12,6 +11,7 @@ class WarningController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('staff');
     }
 
     /**

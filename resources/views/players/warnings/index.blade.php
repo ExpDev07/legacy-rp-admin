@@ -1,13 +1,16 @@
-@extends('layouts.app') @section('content')
+@extends('layouts.app')
+
+@section('content')
     <div class="container">
         <div class="warnings-header alert alert-light">
             <center>
                 <span class="text-dark">Viewing warnings for </span>
-                <a href="{{ route('players.show', [ 'player' => $player ])  }}">
+                <a href="{{ route('players.show', [ 'player' => $player ]) }}">
                     <span class="text-success">{{ $player->name }}</span>
                 </a>
             </center>
         </div>
+
         <div class="alert alert-secondary">
             <span class="lead">
                 Total warnings: <span class="text-warning">{{ $warnings->total() }}</span>
@@ -19,7 +22,7 @@
                 @csrf
 
                 <h5>Create a new warning</h5>
-                <input class="form-control mb-2" name="message" placeholder="Truckster | steam:0a1b2e3d4e5f6789">
+                <textarea class="form-control mb-2" style="height: 13vw" name="message" placeholder="Reason, explanation, and available evidence."></textarea>
                 <button class="btn btn-success" style="width: 100%">Create Warning</button>
             </div>
         </form>
@@ -32,7 +35,8 @@
                         <strong>{{ $warning->issuer->name  }}</strong></p>
                     <div class="row">
                         <div class="col-sm-3">
-                            <strong><a href="{{ route('warnings.show', ['warning' => $warning]) }}">View this warning.</a></strong></div>
+                            <strong><a href="{{ route('warnings.show', ['warning' => $warning]) }}">View this warning</a></strong>
+                        </div>
                         <div class="col-sm-3"></div>
                         <div class="col-lg-3"></div>
                         <div class="col-lg-3"></div>

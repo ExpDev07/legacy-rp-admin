@@ -10,7 +10,6 @@
                 Viewing warning for
                 <a href="{{ route('players.show', [ 'player' => $warning->player ])  }}">
                     <span class="text-success">{{ $warning->player->name }}</span>
-                    (<span class="text-success">{{ $warning->player->identifier }}</span>)
                 </a>
                 |
                 Issued by <span class="text-success">{{ $warning->issuer->name }}</span>

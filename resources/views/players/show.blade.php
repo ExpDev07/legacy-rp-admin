@@ -4,18 +4,35 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
+                <!-- Name and playtime card -->
                 <div class="alert alert-primary">
                     <span class="lead">{{ $player->name }} ({{ $player->identifier  }})</span> <br/>
                     <strong>Time spent on Legacy Roleplay:</strong> {{ $player->play_time() }}
                 </div>
             </div>
-            @if (!is_null($player->ban))
-                <div class="col-sm-12">
+            <div class="col-sm-12">
+                <!-- Check if player is banned -->
+                @if (!is_null($player->ban))
                     <div class="alert alert-danger" role="alert">
-                        <span class="lead">This player is banned for: {{ $player->ban->reason }}</span>
+                        <span class="lead">
+                            <!-- Display the ban id (can be given to Ben) -->
+                            [{{ $player->ban->{'ban-id'} }}]
+
+                            <!-- Create the rest of ban information -->
+                            This player is banned by
+                            @if (is_null($player->ban->issuer))
+                                <!-- Use the banner-id as we didn't find any player associated with it -->
+                                {{ $player->ban->{'banner-id'} }}
+                            @else
+                                <!-- Use the name of the issuer -->
+                                {{ $player->ban->issuer->name }}
+                            @endif
+                            <!-- Give the reason -->
+                            for: {{ $player->ban->reason }}
+                        </span>
                     </div>
-                </div>
-            @endif
+                @endif
+            </div>
         </div>
         <!--Staff Control Panel -->
         <div class="row">
@@ -30,9 +47,25 @@
                     <div class="row">
                         <!-- Warnings -->
                         <div class="col-sm-3">
-                            <a href="{{ route('players.warnings.index', [ 'player' => $player]) }}" style="text-decoration: none">
+                            <a href="{{ route('players.warnings.index', [ 'player' => $player ]) }}" style="text-decoration: none">
                                 <button type="button" class="btn btn-warning btn-block">Warnings</button>
                             </a>
+                        </div>
+                        <!-- Ban -->
+                        <div class="col-sm-3">
+                            <!-- Check if player is banned -->
+                            @if (is_null($player->ban))
+                                <!-- They're not, display a link to ban them -->
+                                <a href="{{ route('players.ban.create', [ 'player' => $player ]) }}" style="text-decoration: none">
+                                    <button type="button" class="btn btn-danger btn-block">Ban</button>
+                                </a>
+                            @else
+                                <!-- They are, display the form to unban them -->
+                                <form method="POST" action="{{ route('bans.destroy', [ 'ban' => $player->ban ]) }}">
+                                    @csrf @method('DELETE')
+                                    <button class="btn btn-success btn-block">Unban</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -142,82 +175,6 @@
                 @endif
             </div>
             <!--End Character Card for characterFour -->
-            @if (!is_null($player->characterOne))
-            <div class="col-sm-12 py-3">
-                <div class="collapse" id="charOneBackstory">
-                    <div class="bg-light rounded-lg py-3 pl-3">
-                        <div align="right">
-                            <button data-toggle="collapse" href="#charOneBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
-                            </button>
-                        </div>
-                        <h5>The Backstory of {{ $player->characterOne->firstname }} {{$player->characterOne->lastname }}</h5>
-                        <p>{{ $player->characterOne->story }}</p>
-                        <div align="right">
-                            <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                            <br/>
-                            <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-            @if (!is_null($player->characterTwo))
-                <div class="col-sm-12 py-3">
-                    <div class="collapse" id="charTwoBackstory">
-                        <div class="bg-light rounded-lg py-3 pl-3">
-                            <div align="right">
-                                <button data-toggle="collapse" href="#charTwoBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
-                                </button>
-                            </div>
-                            <h5>The Backstory of {{ $player->characterTwo->firstname }} {{$player->characterTwo->lastname }}</h5>
-                            <p>{{ $player->characterTwo->story }}</p>
-                            <div align="right">
-                                <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <br/>
-                                <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-            @if (!is_null($player->characterThree))
-                <div class="col-sm-12 py-3">
-                    <div class="collapse" id="charThreeBackstory">
-                        <div class="bg-light rounded-lg py-3 pl-3">
-                            <div align="right">
-                                <button data-toggle="collapse" href="#charThreeBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
-                                </button>
-                            </div>
-                            <h5>The Backstory of {{ $player->characterThree->firstname }} {{$player->characterThree->lastname }}</h5>
-                            <p>{{ $player->characterThree->story }}</p>
-                            <div align="right">
-                                <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <br/>
-                                <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
-            @if (!is_null($player->characterFour))
-                <div class="col-sm-12 py-3">
-                    <div class="collapse" id="charFourBackstory">
-                        <div class="bg-light rounded-lg py-3 pl-3">
-                            <div align="right">
-                                <button data-toggle="collapse" href="#charThreeBackstory" type="button" class="btn btn-outline-secondary btn-sm m-2">Close Window
-                                </button>
-                            </div>
-                            <h5>The Backstory of {{ $player->characterFour->firstname }} {{$player->characterFour->lastname }}</h5>
-                            <p>{{ $player->characterFour->story }}</p>
-                            <div align="right">
-                                <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <br/>
-                                <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endif
         </div>
     </div>
 @endsection

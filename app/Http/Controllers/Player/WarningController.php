@@ -13,6 +13,7 @@ class WarningController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('staff');
     }
 
     /**
@@ -23,10 +24,10 @@ class WarningController extends Controller
      */
     public function index(Player $player)
     {
-        // Display the player's warnings in the view. test
+        // Display the player's warnings in the view. Show only 8 results per page.
         return view('players.warnings.index', [
             'player' => $player,
-            'warnings' => $player->warnings()->latest()->paginate(10)
+            'warnings' => $player->warnings()->latest()->paginate(8)
         ]);
     }
 
