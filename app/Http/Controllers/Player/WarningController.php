@@ -40,13 +40,13 @@ class WarningController extends Controller
     public function store(Request $request, Player $player)
     {
         // Create the warning and persist it to the database.
-        $warning = $player->warnings()->create([
+        $player->warnings()->create([
             'message' => $request->get('message'),
             'issuer_id' => Auth::user()->player->id
         ]);
 
-        // Redirect user to the created warning.
-        return redirect()->route('warnings.show', [ 'warning' => $warning ]);
+        // Redirect user to the index page for player's warnings.
+        return redirect()->route('players.warnings.index', [ 'player' => $player ]);
     }
 
 }

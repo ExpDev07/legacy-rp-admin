@@ -5,11 +5,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="alert alert-primary">
-                    <span class="lead">{{ $player->name }}</span> <br/>
+                    <span class="lead">{{ $player->name }} ({{ $player->identifier  }})</span> <br/>
                     <strong>Time spent on Legacy Roleplay:</strong> {{ $player->play_time() }}
                 </div>
             </div>
-
             @if (!is_null($player->ban))
                 <div class="col-sm-12">
                     <div class="alert alert-danger" role="alert">

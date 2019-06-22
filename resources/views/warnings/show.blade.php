@@ -7,7 +7,7 @@
         </div>
         <div class="card border-warning mb-3">
             <div class="card-header lead">
-                Viewing Warning for
+                Viewing warning for
                 <a href="{{ route('players.show', [ 'player' => $warning->player ])  }}">
                     <span class="text-success">{{ $warning->player->name }}</span>
                     (<span class="text-success">{{ $warning->player->identifier }}</span>)

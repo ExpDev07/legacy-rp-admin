@@ -5,8 +5,6 @@
                 <span class="text-dark">Viewing warnings for </span>
                 <a href="{{ route('players.show', [ 'player' => $player ])  }}">
                     <span class="text-success">{{ $player->name }}</span>
-                    <span class="text-muted">|</span>
-                    <span class="text-success">{{$player->identifier }}</span>
                 </a>
             </center>
         </div>
@@ -21,15 +19,8 @@
                 @csrf
 
                 <h5>Create a new warning</h5>
-                <div class="col-sm-10 input-group pb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><b>Message</b></span>
-                    </div>
-                    <input class="form-control" name="message" placeholder="Combat logging: Player was being chased and then logged out.">
-                </div>
-                <div class="col-sm-2 pb-3">
-                    <button class="btn btn-success btn-block">Create</button>
-                </div>
+                <input class="form-control mb-2" name="message" placeholder="Truckster | steam:0a1b2e3d4e5f6789">
+                <button class="btn btn-success" style="width: 100%">Create Warning</button>
             </div>
         </form>
 
