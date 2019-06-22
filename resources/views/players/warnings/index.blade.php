@@ -46,7 +46,7 @@
         @empty
             <div class="card border-warning">
                 <div class="card-body">
-                    <span class="lead">This play has no warnings. They're doing great!</span>
+                    <span class="lead">This player has no warnings. They're doing great!</span>
                 </div>
             </div>
         @endforelse {{ $warnings->links() }}
