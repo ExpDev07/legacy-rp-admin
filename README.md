@@ -17,7 +17,7 @@ help with bringing in external dependencies to make development easier.
 Now you are ready to build and run the application. Follow these steps:
 1. Clone this repository to get the files locally on your computer.
 2. Navigate to the project folder and type ``npm install`` & ``composer install`` to bring in the project's external
-dependencies.
+dependencies (remember to have the **gmp** extension enabled in your php.ini).
 3. Copy the ``/.env.example`` file and rename it to ``.env``. Then change values such as the database configuration to
 your own.
 4. Migrate to the latest database version. Laravel comes with PHP and Artisan, so all you have to do is run ``php artisan migrate``.
