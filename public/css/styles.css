@@ -5,6 +5,7 @@ html, body, #app {
 body {
     color: white;
     font-weight: 600;
+    background-color: #191919 !important;
 }
 
 a {

@@ -5415,7 +5415,7 @@ a.badge-dark.focus {
 }
 
 .alert-light {
-  color: #818182;
+  color: #f4f4f4 !important;
   background-color: #fefefe;
   border-color: #fdfdfe;
 }
@@ -5430,7 +5430,7 @@ a.badge-dark.focus {
 
 .alert-dark {
   color: #1b1e21;
-  background-color: #d6d8d9;
+  background-color: #191919;
   border-color: #c6c8ca;
 }
 

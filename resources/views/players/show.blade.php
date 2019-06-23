@@ -51,6 +51,12 @@
                                 <button type="button" class="btn btn-warning btn-block">Warnings</button>
                             </a>
                         </div>
+                        <!-- Logs -->
+                        <div class="col-sm-3">
+                            <a href="{{ route('players.logs.index', [ 'player' => $player ]) }}" style="text-decoration: none">
+                                <button type="button" class="btn btn-info btn-block">View Logs</button>
+                            </a>
+                        </div>
                         <!-- Ban -->
                         <div class="col-sm-3">
                             <!-- Check if player is banned -->

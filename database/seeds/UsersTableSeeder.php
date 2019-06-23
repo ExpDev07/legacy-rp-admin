@@ -51,6 +51,14 @@ class UsersTableSeeder extends Seeder
                 [ 'issuer_id' => $player->id, 'message' => $faker->sentence ]
             ]);
 
+            // Log one action for this player.
+            $player->logs()->create([
+                'identifier' => $player->identifier,
+                'action' => strtoupper($faker->word),
+                'details' => $faker->sentence,
+                'metadata' => json_encode([ 'serverId' => 0 ])
+            ]);
+
         }
     }
 }

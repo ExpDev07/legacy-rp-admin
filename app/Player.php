@@ -111,6 +111,16 @@ class Player extends Model
     }
 
     /**
+     * Gets all the actions which has been logged for this player.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function logs()
+    {
+        return $this->hasMany(Log::class, 'identifier', 'identifier');
+    }
+
+    /**
      * Converts the given seconds to a human readable string.
      * https://snippetsofcode.wordpress.com/2012/08/25/php-function-to-convert-seconds-into-human-readable-format-months-days-hours-minutes/
      *

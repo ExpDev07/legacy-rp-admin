@@ -17,7 +17,6 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         <link href="https://bootswatch.com/4/cyborg/bootstrap.css" rel="stylesheet">
-        <link rel='stylesheet' href='{{ asset('/css/bootstrap.min.css') }}' />
     </head>
 
     <body>

@@ -2,10 +2,10 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Comment;
+use App\Log;
 use Faker\Generator as Faker;
 
-$factory->define(Comment::class, function (Faker $faker) {
+$factory->define(Log::class, function (Faker $faker) {
     return [
         //
     ];

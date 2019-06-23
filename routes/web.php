@@ -50,6 +50,7 @@ SteamLogin::routes(['controller' => SteamLoginController::class]);
 Route::resource('players', 'PlayerController');
 Route::resource('players.warnings', 'Player\WarningController');
 Route::resource('players.ban', 'Player\BanController');
+Route::resource('players.logs', 'Player\LogController');
 
 // Warnings resource
 Route::resource('warnings', 'WarningController');
