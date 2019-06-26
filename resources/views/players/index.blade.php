@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+        <div content="row">
+            {{ Breadcrumbs::render('players') }}
+        </div>
         <!--This section is for looking up a person-->
         <div class="content-box">
             <div class="row">

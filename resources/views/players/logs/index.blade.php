@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+        <div content="row">
+            {{ Breadcrumbs::render('player-view-logs', $player) }}
+        </div>
         <div class="warnings-header alert alert-light">
             <center>
                 <span class="text-dark">Viewing logs for </span>

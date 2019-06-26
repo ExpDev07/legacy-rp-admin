@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+        <div content="row">
+            {{ Breadcrumbs::render('player-create-ban', $player) }}
+        </div>
         <div class="warnings-header alert alert-light">
             <center>
                 <span class="text-dark">Banning </span>
@@ -20,7 +23,7 @@
             </span>
         </div>
 
-        <form class="card border-warning mb-3" method="POST" action="{{ route('players.ban.store', [ 'player' => $player ]) }}">
+        <form class="card border-danger mb-3" method="POST" action="{{ route('players.ban.store', [ 'player' => $player ]) }}">
             <div class="card-body">
                 @csrf
 
@@ -30,7 +33,7 @@
                     above to sign off on it. All bans are logged automatically.
                 </p>
                 <input class="form-control mb-2" name="reason" placeholder="Reason. Keep it brief...">
-                <button class="btn btn-danger" style="width: 100%">Ban Player</button>
+                <button class="btn btn-danger" style="width: 100%"><i class="fas fa-camera"></i>Ban Player</button>
             </div>
         </form>
     </div>

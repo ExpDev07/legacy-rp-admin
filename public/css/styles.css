@@ -5,7 +5,10 @@ html, body, #app {
 body {
     color: white;
     font-weight: 600;
-    background-color: #191919 !important;
+    background-color: #0f1238 !important;
+    background-image:url("/img/bgblue.png");
+    background-repeat: repeat-x;
+    background-attachment: scroll;
 }
 
 a {

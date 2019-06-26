@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+        <div content="row">
+            {{ Breadcrumbs::render('player', $player) }}
+        </div>
         <div class="row">
             <div class="col-sm-12">
                 <!-- Name and playtime card -->
@@ -63,7 +66,7 @@
                             @if (is_null($player->ban))
                                 <!-- They're not, display a link to ban them -->
                                 <a href="{{ route('players.ban.create', [ 'player' => $player ]) }}" style="text-decoration: none">
-                                    <button type="button" class="btn btn-danger btn-block">Ban</button>
+                                    <button type="button" class="btn btn-danger btn-block"><i class="fas fa-legal"></i> Ban</button>
                                 </a>
                             @else
                                 <!-- They are, display the form to unban them -->

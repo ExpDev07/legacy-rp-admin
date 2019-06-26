@@ -23,22 +23,22 @@ Route::get('', function () {
 // Render the staff page for "/staff",
 Route::get('staff', function () {
     return view('staff');
-});
+})->name('staff');
 
 // Render the about page for "/about",
 Route::get('about', function () {
     return view('about');
-});
+})->name('about');
 
 // Render the "how to play" page for "/how-to-play",
 Route::get('how-to-play', function () {
     return view('how-to-play');
-});
+})->name('how-to-play');
 
 // Render the discord page for "/discord",
 Route::get('discord', function () {
     return view('discord');
-});
+})->name('discord');
 
 // Logging out
 Route::get('logout', 'Auth\SteamLoginController@logout')->name('logout');

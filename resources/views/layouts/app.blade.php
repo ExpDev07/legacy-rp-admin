@@ -16,7 +16,9 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/all.css') }}" rel="stylesheet">
         <link href="https://bootswatch.com/4/cyborg/bootstrap.css" rel="stylesheet">
+
     </head>
 
     <body>
@@ -30,7 +32,7 @@
                             <div class="row">
                                 <div class="col-sm-2">
                                     <a href="/" class="nav-main">
-                                        <span class="glyphicon glyphicon-eye-open"></span> About<div class="nav-desc d-none d-sm-block">More information about LegacyRP and our community</div>
+                                        <i class="far fa-eye"></i> About<div class="nav-desc d-none d-sm-block">More information about LegacyRP and our community</div>
                                     </a>
                                 </div>
                                 <div class="col-sm-2">

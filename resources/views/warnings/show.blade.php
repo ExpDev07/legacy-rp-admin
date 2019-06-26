@@ -2,10 +2,8 @@
 
 @section('content')
     <div class="container">
-        <div class="alert alert-secondary lead">
-            <a href="{{ route('players.warnings.index', [ 'player' => $warning->player]) }}"><strong>Return to warnings</strong></a>
-        </div>
-        <div class="card border-warning mb-3">
+        {{ Breadcrumbs::render('player-view-warning', $warning) }}
+        <div class="card border-warning mb-3 ">
             <div class="card-header lead">
                 Viewing warning for
                 <a href="{{ route('players.show', [ 'player' => $warning->player ])  }}">
