@@ -212,9 +212,6 @@
                             <h5>The Backstory of {{ $player->characterTwo->firstname }} {{$player->characterTwo->lastname }}</h5>
                             <p>{{ $player->characterTwo->story }}</p>
                             <div align="right">
-                                <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <br/>
-                                <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                             </div>
                         </div>
                     </div>
@@ -231,9 +228,6 @@
                             <h5>The Backstory of {{ $player->characterThree->firstname }} {{$player->characterThree->lastname }}</h5>
                             <p>{{ $player->characterThree->story }}</p>
                             <div align="right">
-                                <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <br/>
-                                <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                             </div>
                         </div>
                     </div>
@@ -250,9 +244,6 @@
                             <h5>The Backstory of {{ $player->characterFour->firstname }} {{$player->characterFour->lastname }}</h5>
                             <p>{{ $player->characterFour->story }}</p>
                             <div align="right">
-                                <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <br/>
-                                <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                             </div>
                         </div>
                     </div>
