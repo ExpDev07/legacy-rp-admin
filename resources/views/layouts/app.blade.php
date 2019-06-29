@@ -37,22 +37,22 @@
                                     </a>
                                 </div>
                                 <div class="col-sm-2">
-                                    <a href="https://legacyroleplay.online/server-rules" class="nav-main d-none d-sm-block"><span class="glyphicon glyphicon-education"></span> Rules<div class="nav-desc">Learn the city rules and how to play on our community</div></a>
+                                    <a href="https://legacyroleplay.online/server-rules" class="nav-main d-none d-sm-block"><i class="fas fa-user-graduate"></i> Rules<div class="nav-desc">Learn the city rules and how to play on our community</div></a>
                                 </div>
                                 <div class="col-sm-2">
-                                    <a href="#" class="nav-main"><span class="glyphicon glyphicon-console"></span> How to Play<div class="nav-desc d-none d-sm-block">Learn about commands, job and get a printable cheat sheet</div></a>
+                                    <a href="#" class="nav-main"><i class="fas fa-terminal"></i> How to Play<div class="nav-desc d-none d-sm-block">Learn about commands, job and get a printable cheat sheet</div></a>
                                 </div>
                                 <div class="col-sm-2">
-                                    <a href="https://legacyroleplay.online/categories" class="nav-main"><span class="glyphicon glyphicon-list-alt"></span> Forums<div class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</div></a>
+                                    <a href="https://legacyroleplay.online/categories" class="nav-main"><i class="fas fa-list-alt"></i> Forums<div class="nav-desc d-none d-sm-block">Get help and make suggestions in our city forums</div></a>
                                 </div>
                                 <div class="col-sm-2">
-                                    <a href="/players" class="nav-main"><span class="glyphicon glyphicon-user"></span> Player Profiles<div class="nav-desc d-none d-sm-block">See detailed player and character profiles</div></a>
+                                    <a href="/players" class="nav-main"><i class="fas fa-users"></i> Player Profiles<div class="nav-desc d-none d-sm-block">See detailed player and character profiles</div></a>
                                 </div>
                                 <!-- Display information based on if user is authenticated or not -->
                                 <div class="col-sm-2">
                                     @if (Auth::check())
                                         <!-- Display some basic user information -->
-                                        <a href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}" class="nav-main"><span class="glyphicon glyphicon-link"></span> {{ Auth::user()->username }}<br/>
+                                        <a href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}" class="nav-main"><i class="fas fa-link"></i> {{ Auth::user()->username }}<br/>
                                         <!-- Display a logout button -->
                                         <a href="{{route('logout')}}" class="nav-main">Logout</a>
                                     @else

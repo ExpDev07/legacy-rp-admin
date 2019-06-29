@@ -33,7 +33,7 @@
                     above to sign off on it. All bans are logged automatically.
                 </p>
                 <input class="form-control mb-2" name="reason" placeholder="Reason. Keep it brief...">
-                <button class="btn btn-danger" style="width: 100%"><i class="fas fa-camera"></i>Ban Player</button>
+                <button class="btn btn-danger" style="width: 100%"><i class="fas fa-gavel"></i> Ban Player</button>
             </div>
         </form>
     </div>
