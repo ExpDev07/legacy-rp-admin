@@ -20,15 +20,13 @@ Route::get('', function () {
     return view('index');
 })->name('index');
 
-// Render the staff page for "/staff",
-Route::get('staff', function () {
-    return view('staff');
-})->name('staff');
-
 // Render the about page for "/about",
 Route::get('about', function () {
     return view('about');
 })->name('about');
+
+// Render the about page for "/staff",
+Route::resource('staff', 'StaffController');
 
 // Render the "how to play" page for "/how-to-play",
 Route::get('how-to-play', function () {

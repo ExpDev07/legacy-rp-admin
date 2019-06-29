@@ -37,7 +37,7 @@
                 @endif
             </div>
         </div>
-        <!--Staff Control Panel -->
+        <!--StaffController Control Panel -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="alert card card-body border-info" role="alert">
