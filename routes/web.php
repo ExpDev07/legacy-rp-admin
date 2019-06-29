@@ -55,3 +55,6 @@ Route::resource('warnings', 'WarningController');
 
 // Bans resource
 Route::resource('bans', 'BanController');
+
+// Render the about page for "/staff",
+Route::resource('admin', 'adminController');
