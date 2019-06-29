@@ -8,7 +8,7 @@
         <div class="warnings-header alert alert-light">
             <center>
                 <span class="text-dark">Viewing warnings for </span>
-                <a href="{{ route('players.show', [ 'player' => $player ]) }}">
+                <a href="{{ route('players.show', [ 'player' => $player ]) }}" data-toggle="tooltip" title="Back to Player Profile" data-placement="bottom">
                     <span class="text-success">{{ $player->name }}</span>
                 </a>
             </center>
@@ -26,7 +26,7 @@
 
                 <h5>Create a new warning</h5>
                 <textarea class="form-control mb-2" style="height: 13vw" name="message" placeholder="Reason, explanation, and available evidence."></textarea>
-                <button class="btn btn-success" style="width: 100%">Create Warning</button>
+                <button class="btn btn-success" style="width: 100%" data-toggle="tooltip" title="Finish and Confirm Warning (were you detailed enough?)" data-placement="bottom">Create Warning</button>
             </div>
         </form>
 

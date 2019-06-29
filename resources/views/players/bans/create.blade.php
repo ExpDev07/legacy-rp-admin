@@ -8,7 +8,7 @@
         <div class="warnings-header alert alert-light">
             <center>
                 <span class="text-dark">Banning </span>
-                <a href="{{ route('players.show', [ 'player' => $player ]) }}">
+                <a href="{{ route('players.show', [ 'player' => $player ]) }}" data-toggle="tooltip" title="Back to Player Profile" data-placement="bottom">
                     <span class="text-success">{{ $player->name }}</span>
                 </a>
             </center>
@@ -17,7 +17,7 @@
         <div class="alert alert-secondary">
             <span class="lead">
                 This person has a total of
-                <a href="{{ route('players.warnings.index', [ 'player' => $player ]) }}">
+                <a href="{{ route('players.warnings.index', [ 'player' => $player ]) }}" data-toggle="tooltip" title="Back to Player Warnings" data-placement="bottom">
                     <span class="text-warning">{{ $player->warnings()->count() }}</span> warnings
                 </a>
             </span>
@@ -33,7 +33,7 @@
                     above to sign off on it. All bans are logged automatically.
                 </p>
                 <input class="form-control mb-2" name="reason" placeholder="Reason. Keep it brief...">
-                <button class="btn btn-danger" style="width: 100%"><i class="fas fa-gavel"></i> Ban Player</button>
+                <button class="btn btn-danger" style="width: 100%"  data-toggle="tooltip" title="Finish and Confirm Ban (Were you detailed enough?)" data-placement="bottom"><i class="fas fa-gavel"></i> Ban Player</button>
             </div>
         </form>
     </div>

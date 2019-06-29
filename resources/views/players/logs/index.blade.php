@@ -8,7 +8,7 @@
         <div class="warnings-header alert alert-light">
             <center>
                 <span class="text-dark">Viewing logs for </span>
-                <a href="{{ route('players.show', [ 'player' => $player ]) }}">
+                <a href="{{ route('players.show', [ 'player' => $player ]) }}" data-toggle="tooltip" title="Back to Player Profile" data-placement="bottom">
                     <span class="text-success">{{ $player->name }}</span>
                 </a>
             </center>

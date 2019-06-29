@@ -51,13 +51,13 @@
                         <!-- Warnings -->
                         <div class="col-sm-3">
                             <a href="{{ route('players.warnings.index', [ 'player' => $player ]) }}" style="text-decoration: none">
-                                <button type="button" class="btn btn-warning btn-block"><i class="fas fa-exclamation-triangle"></i> Warnings</button>
+                                <button type="button" class="btn btn-warning btn-block" data-toggle="tooltip" title="View/Edit/Add Warnings to This Player" data-placement="bottom"><i class="fas fa-exclamation-triangle"></i> Warnings</button>
                             </a>
                         </div>
                         <!-- Logs -->
                         <div class="col-sm-3">
                             <a href="{{ route('players.logs.index', [ 'player' => $player ]) }}" style="text-decoration: none">
-                                <button type="button" class="btn btn-info btn-block"><i class="fas fa-clipboard-list"></i> View Logs</button>
+                                <button type="button" class="btn btn-info btn-block" data-toggle="tooltip" title="View This Player's Logs" data-placement="bottom"><i class="fas fa-clipboard-list"></i> View Logs</button>
                             </a>
                         </div>
                         <!-- Ban -->
@@ -66,7 +66,7 @@
                             @if (is_null($player->ban))
                                 <!-- They're not, display a link to ban them -->
                                 <a href="{{ route('players.ban.create', [ 'player' => $player ]) }}" style="text-decoration: none">
-                                    <button type="button" class="btn btn-danger btn-block"><i class="fas fa-user-slash"></i> Ban</button>
+                                    <button type="button" class="btn btn-danger btn-block" data-toggle="tooltip" title="Ban a Player (Reason Required)" data-placement="bottom"><i class="fas fa-user-slash"></i> Ban</button>
                                 </a>
                             @else
                                 <!-- They are, display the form to unban them -->
@@ -193,9 +193,6 @@
                             <h5>The Backstory of {{ $player->characterOne->firstname }} {{$player->characterOne->lastname }}</h5>
                             <p>{{ $player->characterOne->story }}</p>
                             <div align="right">
-                                <button type="button" class="btn btn-primary my-3 mr-2">Edit Backstory</button>
-                                <br/>
-                                <span class="text-success pr-2">It looks like you own this account, you can edit this character backstory.</span>
                             </div>
                         </div>
                     </div>
