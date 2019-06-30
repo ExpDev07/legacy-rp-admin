@@ -3,12 +3,6 @@ html, body, #app {
 }
 
 body {
-    color: white;
-    font-weight: 600;
-    background-color: #0f1238 !important;
-    background-image:url("/img/bgblue.png");
-    background-repeat: repeat-x;
-    background-attachment: scroll;
 }
 
 a {
@@ -111,5 +105,15 @@ hr {
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+}
+
+.characterCard {
+    border-width:1px;
+    border-color:#202940;
+}
+
+.breadcrumb {
+    background: none;
+    font-size: 13px;
 }
 

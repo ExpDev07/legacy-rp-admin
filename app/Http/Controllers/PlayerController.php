@@ -24,7 +24,7 @@ class PlayerController extends Controller
     {
         // Get the query which the user is trying to give and then find players matching that query.
         $query = $request->input('query', '');
-        $players = Player::where('identifier', 'LIKE', "%{$query}%")->orWhere('name', 'LIKE', "%{$query}%")->simplePaginate(15);
+        $players = Player::where('identifier', 'LIKE', "%{$query}%")->orWhere('name', 'LIKE', "%{$query}%")->simplePaginate(4);
 
         // Return the view.
         return view('players.index', [ 'players' => $players ]);
