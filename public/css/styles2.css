@@ -1,0 +1,122 @@
+html, body, #app {
+    height: 100%;
+}
+
+body {
+    background-image:url("/img/bgblue.png");
+    background-repeat: repeat-x;
+    background-color:#0f1238;
+}
+
+a {
+
+}
+
+.box-round {
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.content-box {
+    background-color: #0b1423;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+.content-box a {
+    color: white;
+    font-weight: 700;
+}
+
+.content-box a:hover {
+    text-decoration: underline;
+}
+
+.rules {
+    font-size: 13px;
+}
+
+.rules-button {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.rules-box-outer {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: black;
+    font-weight: 500;
+}
+
+.rules-box-inner {
+    background-color: white;
+}
+
+.player-strike {
+    color: darkred;
+    font-weight: 700;
+}
+
+.player-commendation {
+    color: darkgreen;
+    font-weight: 700;
+}
+
+a.nav-main {
+    font-weight: 700;
+    color: white;
+    width: 100%;
+    margin: auto;
+}
+
+.nav-desc {
+    font-weight: 500;
+    color: white;
+    font-size: 11px;
+    max-width: 120px;
+    text-decoration: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid darkgray;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.accountOwner-CharacterBackstory {
+    font-size:9px;
+}
+
+.warnings-header {
+    color:white;
+    font-size: 20px;
+}
+
+.frontPage_images {
+    border: 2px solid black;
+}
+
+.frontPage_text {
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.characterCard {
+    border-width:1px;
+    border-color:#202940;
+}
+
+.breadcrumb {
+    background: none;
+    font-size: 13px;
+}
+
