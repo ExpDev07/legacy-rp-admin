@@ -61,9 +61,8 @@
                                         <a class="nav-main" href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}"><i class="fas fa-link"></i> {{ Auth::user()->username }}</a> | <a href="{{route('logout')}}" class="nav-main"><i class="fas fa-sign-out-alt"></i> Logout</a>
                                     @else
                                     <!-- Display a login with steam button -->
-                                        <a href="{{route('login.steam')}}" class="nav-main">
+                                        <a href="{{route('login.steam')}}" class="nav-main" data-tooltip="Login With Steam" data-toggle="toolip" data-placement="bottom">
                                             Login
-                                            <div class="nav-desc">Login with Steam</div>
                                         </a>
                                     @endif
                                 </li>
