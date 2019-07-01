@@ -66,7 +66,7 @@
                     <div class="col-sm-6">
                         @if (!is_null($player->characterOne))
                             <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
-                                <i class="fas fa-user-circle"></i> {{ $player->characterOne->firstname }} {{ $player->characterOne->lastname }}
+                                <i class="fas fa-user-circle"></i> {{ $player->characterOne->firstname }}<br/>{{ $player->characterOne->lastname }}
                             </button>
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="card-body card-text">
@@ -78,13 +78,13 @@
                             </div>
                         @else
                             <button class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-alt-slash"></i> No
-                                First Character
+                                First<br/>Character
                             </button> @endif
                     </div>
                     <div class="col-sm-6">
                         @if (!is_null($player->characterTwo))
                             <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
-                                {{ $player->characterTwo->firstname }} {{ $player->characterTwo->lastname }}
+                                {{ $player->characterTwo->firstname }}<br/>{{ $player->characterTwo->lastname }}
                                 <br/></span>
                             </button>
                             <div class="card mb-3" style="max-width: 540px;">
@@ -97,15 +97,14 @@
                             </div>
                         @else
                             <button class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-alt-slash"></i> No
-                                Second
-                                Character
+                                Second<br/>Character
                             </button>
                         @endif
                     </div>
                     <div class="col-sm-6">
                         @if (!is_null($player->characterThree))
                             <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
-                                {{ $player->characterThree->firstname }} {{ $player->characterThree->lastname }}
+                                {{ $player->characterThree->firstname }}<br/>{{ $player->characterThree->lastname }}
                                 <br/>/span>
                             </button>
                             <div class="card mb-3" style="max-width: 540px;">
@@ -119,8 +118,7 @@
                             </div>
                         @else
                             <button class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-alt-slash"></i> No
-                                Third
-                                Character
+                                Third<br/>Character
                             </button>
                         @endif
                     </div>
@@ -128,7 +126,7 @@
                     <div class="col-sm-6">
                         @if (!is_null($player->characterFour))
                             <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
-                                {{ $player->characterFour->firstname }} {{ $player->characterFour->lastname }}
+                                {{ $player->characterFour->firstname }}<br/>{{ $player->characterFour->lastname }}
                                 <br/><span class="glyphicon glyphicon-triangle-bottom"
                                            aria-hidden="true"></span>
                             </button>
@@ -142,8 +140,7 @@
                             </div>
                         @else
                             <button class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-alt-slash"></i> No
-                                Fourth
-                                Character
+                                Fourth<br/>Character
                             </button>
                         @endif
                     </div>

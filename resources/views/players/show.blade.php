@@ -99,7 +99,7 @@
                     <div class="col-sm-3">
                         @if (!is_null($player->characterOne))
                             <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
-                                <i class="fas fa-user-circle"></i> {{ $player->characterOne->firstname }} {{ $player->characterOne->lastname }}
+                                <i class="fas fa-user-circle"></i> {{ $player->characterOne->firstname }}<br/>{{ $player->characterOne->lastname }}
                             </button>
                             <div class="characerCard mb-3" style="max-width: 540px;">
                                 <div class="card-body card-text">
@@ -109,14 +109,14 @@
                                 </div>
                             </div>
                         @else
-                            <button class="btn btn-secondary btn-lg btn-block">No First Character</button> @endif
+                            <button class="btn btn-secondary btn-lg btn-block">No First<br/>Character</button> @endif
                     </div>
                     <!--End Character Card for characterOne -->
                     <!-- Character Card for characterTwo --->
                     <div class="col-sm-3">
                         @if (!is_null($player->characterTwo))
                             <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
-                                {{ $player->characterTwo->firstname }} {{ $player->characterTwo->lastname }}
+                                {{ $player->characterTwo->firstname }}<br/>{{ $player->characterTwo->lastname }}
                                 <br/></span>
                             </button>
                             <div class="card mb-3" style="max-width: 540px;">
@@ -128,8 +128,7 @@
                             </div>
                         @else
                             <button class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-alt-slash"></i> No
-                                Second
-                                Character
+                                Second<br/>Character
                             </button>
                         @endif
                     </div>
@@ -138,7 +137,7 @@
                     <div class="col-sm-3">
                         @if (!is_null($player->characterThree))
                             <div class="alert alert-primary btn-lg btn-block">
-                                {{ $player->characterThree->firstname }} {{ $player->characterThree->lastname }}
+                                {{ $player->characterThree->firstname }}<br/>{{ $player->characterThree->lastname }}
                             </div>
                             <div class="card mb-3" style="max-width: 540px;">
                                 <div class="card-body">
@@ -150,8 +149,7 @@
                             </div>
                         @else
                             <button class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-alt-slash"></i> No
-                                Third
-                                Character
+                                Third<br/>Character
                             </button>
                         @endif
                     </div>
@@ -160,7 +158,7 @@
                     <div class="col-sm-3">
                         @if (!is_null($player->characterFour))
                             <button role="button" type="button" class="btn btn-primary btn-lg btn-block">
-                                {{ $player->characterFour->firstname }} {{ $player->characterFour->lastname }}
+                                {{ $player->characterFour->firstname }}<br/>{{ $player->characterFour->lastname }}
                                 <br/>
                             </button>
                             <div class="card mb-3" style="max-width: 540px;">
@@ -173,8 +171,7 @@
                             </div>
                         @else
                             <button class="btn btn-secondary btn-lg btn-block"><i class="fas fa-user-alt-slash"></i> No
-                                Fourth
-                                Character
+                                Fourth<br/>Character
                             </button>
                         @endif
                     </div>
