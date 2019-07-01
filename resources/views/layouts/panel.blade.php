@@ -39,14 +39,14 @@
             </div>
             <div class="sidebar-wrapper">
                 <ul class="nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/players">
+                    <li class="nav-item {{ (request()->is('players')) ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('players.index', [ 'player' => $player ]) }}">
                             <i class="fas fa-chart-network"></i>
                             <p><i class="fas fa-address-book"></i>
                                 <small>PLAYER INDEX</small></p>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{ (request()->is([ 'players/', Auth::user()->player ])) ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}">
                             <i class="fas fa-chart-network"></i>
                             <p><i class="fas fa-user-circle"></i>
@@ -59,21 +59,21 @@
                             <small>Staff Section for <br/> Player: <strong>{{ $player->name }}</strong></small>
                         </a>
                     </div>
-                        <li class="nav-item">
+                        <li class="nav-item {{ (request()->is('players/**/warnings**')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('players.warnings.index', [ 'player' => $player ]) }}">
                                 <i class="fas fa-chart-network"></i>
                                 <p><i class="fas fa-exclamation-triangle"></i></i>
                                     <small>PLAYER WARNINGS</small></p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ (request()->is('players/**/logs**')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('players.logs.index', [ 'player' => $player ]) }}">
                                 <i class="fas fa-chart-network"></i>
                                 <p><i class="fas fa-clipboard-list"></i>
                                     <small>VIEW LOGS</small></p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ (request()->is('players/**/ban/**')) ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('players.ban.create', [ 'player' => $player ]) }}">
                                 <i class="fas fa-chart-network"></i>
                                 <p><i class="fas fa-user-slash"></i>

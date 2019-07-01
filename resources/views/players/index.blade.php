@@ -6,7 +6,7 @@
         </div>
     <!--This section is for looking up a person-->
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <div class="card card-chart">
                 <div class="row">
                     <div class="col-sm-12">
@@ -56,7 +56,7 @@
         </div>
         <!---Character Cards --->
         @if (!is_null($player->characterOne))
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="alert alert-info lead"><i class="fas fa-address-card mr-1" style="color:white;"></i>

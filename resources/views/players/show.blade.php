@@ -5,7 +5,7 @@
         {{ Breadcrumbs::render('player', $player) }}
         </div>
     <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-12">
             <div class="col-sm-12">
                 <!-- Check if player is banned -->
                 @if (!is_null($player->ban))
