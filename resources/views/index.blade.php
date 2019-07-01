@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="/frontpage/css/theme.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/frontpage/css/custom.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
 
 </head>
@@ -21,7 +20,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-3 col-md-2">
-                        <a href="index.html"> <img class="logo logo-light" alt="logo" src="/frontpage/img/logo.png">
+                        <a href="index.html"> <img class="logo logo-light" alt="logo" src="/img/logo.png">
                         </a>
                     </div>
                     <div class="col-9 col-md-10 text-right">
@@ -36,7 +35,7 @@
                 <div class="row">
                     <div class="col-lg-1 col-md-2 hidden-xs">
                         <div class="bar__module">
-                            <a href="index.html"> <img class="logo logo-light" alt="logo" src="/frontpage/img/logo.png">
+                            <a href="index.html"> <img class="logo logo-light" alt="logo" src="/img/logo.png">
                             </a>
                         </div>
                     </div>
@@ -189,7 +188,7 @@
         </div>
     </footer>
 </div>
-<script src="/frontpage/js/jquery-3.1.1.min.js"></script>
+<script src="{{asset ('assets/js/core/jquery.min.js')}}"></script>
 <script src="/frontpage/js/parallax.js"></script>
 <script src="/frontpage/js/smooth-scroll.min.js"></script>
 <script src="/frontpage/js/scripts.js"></script>
