@@ -41,7 +41,6 @@ class BanController extends Controller
         $player->ban()->firstOrCreate(['identifier' => $player->identifier], [
             'ban-id' => self::makeBanId(),
             'banner-id' => Auth::user()->player->staff,
-            'identifier' => $player->identifier,
             'reason' => $request->get('reason')
         ]);
 

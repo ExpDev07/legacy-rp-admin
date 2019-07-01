@@ -28,8 +28,9 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-sm-2 py-3"><a href="/"><img src="/img/logo.png" style="max-height:120px;"
-                                                            class="img-fluid mw-100" alt="Legacy RP"></a></div>
+                <div class="col-sm-2 py-3"><a href="/">
+                        <img src="/img/logo.png" style="max-height:120px;" class="img-fluid mw-100" alt="Legacy RP"></a>
+                </div>
                 <div class="col-sm-10 py-3">
                     <div class="row">
                         <div class="col-sm-2">
@@ -86,17 +87,20 @@
                         </div>
                         <!-- Display information based on if user is authenticated or not -->
                         <div class="col-sm-2">
-                        @if (Auth::check())
-                            <!-- Display some basic user information -->
-                                <a href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}"
-                                   class="nav-main"><i class="fas fa-link"></i> {{ Auth::user()->username }}<br/>
+                            @if (Auth::check())
+                                <!-- Display some basic user information -->
+                                    <a class="nav-main" href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}">
+                                        <i class="fas fa-link"></i> {{ Auth::user()->username }}
+                                    </a>
+                                    <br/>
                                     <!-- Display a logout button -->
                                     <a href="{{route('logout')}}" class="nav-main">Logout</a>
-                                @else
-                                    <!-- Display a login with steam button -->
-                                        <a href="{{route('login.steam')}}" class="nav-main">Login
-                                            <div class="nav-desc">Login with Steam</div>
-                                        </a>
+                            @else
+                                <!-- Display a login with steam button -->
+                                <a href="{{route('login.steam')}}" class="nav-main">
+                                    Login
+                                    <div class="nav-desc">Login with Steam</div>
+                                </a>
                             @endif
                         </div>
                     </div>

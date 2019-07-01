@@ -1,32 +1,29 @@
 @extends('layouts.panel')
 
 @section('content')
-    <div class="row">
-        <div class="col-sm-12">
-            <div content="row">
-                {{ Breadcrumbs::render('player-view-logs', $player) }}
-            </div>
-            <div class="card card-chart">
-                <div class="alert alert-primary card-header-success">
-                    <center>
-                <span class="lead">Viewing logs for <a href="{{ route('players.show', [ 'player' => $player ]) }}"
-                                                       data-toggle="tooltip" title="Back to Player Profile"
-                                                       data-placement="bottom">{{ $player->name }}</span>
-                        </a></span>
-                    </center>
-                </div>
-                <div class="card-category">
-                    @forelse ($logs as $log)
-                        <div class=" mb-2">
-                            <div class="card-body">
-                                [{{ $log->timestamp }}] [ {{ $log->action }} ]: {{ $log->details }}
-                            </div>
-                        </div>
-                    @empty
+    <div content="row">
+        {{ Breadcrumbs::render('player-view-logs', $player) }}
+    </div>
 
-                    @endforelse
-                    {{ $logs->links() }}
-                </div>
+    <div class="row">
+        <div class="card card-chart">
+            <div class="alert alert-primary card-header-success">
+                <span class="lead">
+                    Viewing all logged actions related to this player
+                </span>
+            </div>
+            <div class="card-category">
+                @forelse ($logs as $log)
+                    <div class="card-body">
+                        [{{ $log->timestamp }}] [{{ $log->action }}]: {{ $log->details }}
+                    </div>
+                @empty
+                    <div class="card-body">
+                        We couldn't find any logs for this person. Maybe they haven't performed any actions on the server yet? If you believe this is an error,
+                        please contact a developer right away to address this issue.
+                    </div>
+                @endforelse
+                {{ $logs->links() }}
             </div>
         </div>
     </div>
