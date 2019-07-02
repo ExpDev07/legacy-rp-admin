@@ -40,6 +40,3 @@ Route::resource('players.logs', 'Player\LogController');
 
 // Warnings resource
 Route::resource('warnings', 'WarningController');
-
-// Bans resource
-Route::resource('bans', 'BanController');

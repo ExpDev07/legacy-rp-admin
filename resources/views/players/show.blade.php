@@ -7,24 +7,24 @@
 
     <div class="row">
         <!-- Check if player is banned -->
-        @if (!is_null($player->ban))
+        @if ($player->bans()->count() > 0)
             <div class="card card-chart">
                 <div class="alert alert-danger mb-0" role="alert">
                     <span class="lead">
                         <!-- Display the ban id (can be given to Ben) -->
-                        [{{ $player->ban->{'ban-id'} }}]
+                        [{{ $player->bans()->first()->{'ban-id'} }}]
 
                         <!-- Create the rest of ban information -->
                         This player is currently banned by
-                        @if (is_null($player->ban->issuer))
+                        @if (is_null($player->bans()->first()->issuer))
                         <!-- Use the banner-id as we didn't find any player associated with it -->
-                            {{ $player->ban->{'banner-id'} }}
+                            {{ $player->bans()->first()->{'banner-id'} }}
                         @else
                         <!-- Use the name of the issuer -->
-                            {{ $player->ban->issuer->name }}
+                            {{ $player->bans()->first()->issuer->name }}
                         @endif
-                    <!-- Give the reason -->
-                        for: {{ $player->ban->reason }}
+                        <!-- Give the reason -->
+                        for: {{ $player->bans()->first()->reason }}
                     </span>
                 </div>
             </div>
@@ -70,21 +70,21 @@
                     <!-- Ban -->
                     <div class="col-sm-3">
                         <!-- Check if player is banned -->
-                    @if (is_null($player->ban))
-                        <!-- They're not, display a link to ban them -->
-                            <a href="{{ route('players.ban.create', [ 'player' => $player ]) }}"
-                               style="text-decoration: none">
-                                <button type="button" class="btn btn-danger btn-block" data-toggle="tooltip"
-                                        title="Ban a Player (Reason Required)" data-placement="bottom"><i
-                                        class="fas fa-user-slash"></i> Ban
+                        @if ($player->bans()->count() > 0)
+                            <!-- They are, display the form to unban them -->
+                            <form method="POST" action="{{ route('players.ban.destroy', [ 'player' => $player, 'ban' => 0 ]) }}">
+                                @csrf @method('DELETE')
+                                <button class="btn btn-success btn-block">
+                                    <i class="fas fa-minus-circle"></i> Unban
+                                </button>
+                            </form>
+                        @else
+                            <!-- They're not, display a link to ban them -->
+                            <a href="{{ route('players.ban.create', [ 'player' => $player ]) }}" style="text-decoration: none">
+                                <button type="button" class="btn btn-danger btn-block" data-toggle="tooltip" title="Ban a Player (Reason Required)" data-placement="bottom">
+                                    <i class="fas fa-user-slash"></i> Ban
                                 </button>
                             </a>
-                    @else
-                        <!-- They are, display the form to unban them -->
-                            <form method="POST" action="{{ route('bans.destroy', [ 'ban' => $player->ban ]) }}">
-                                @csrf @method('DELETE')
-                                <button class="btn btn-success btn-block">Unban</button>
-                            </form>
                         @endif
                     </div>
                 </div>

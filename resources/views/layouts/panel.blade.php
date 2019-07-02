@@ -24,7 +24,7 @@
 <body class="dark-edition">
     <div id="app">
         <div class="wrapper ">
-            <div class="sidebar" data-color="purple" data-background-color="black" data-image="{{asset('/assets/img/sidebar-2.jpg')}}">
+            <div class="sidebar" data-color="purple" data-background-color="black" data-image="{{ asset('/assets/img/sidebar-2.jpg') }}">
                 <!--
                 Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -89,7 +89,7 @@
                 <!-- Footer -->
                 <footer class="footer">
                     <div class="container-fluid">
-                        <i class="far fa-copyright"></i> LegacyRP
+                        <i class="far fa-copyright"></i> Legacy Roleplay - <a href="https://github.com/ExpDev07/legacy-rp-admin">https://github.com/ExpDev07/legacy-rp-admin</a>
                     </div>
                 </footer>
             </div>

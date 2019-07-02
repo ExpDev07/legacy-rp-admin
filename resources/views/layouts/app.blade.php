@@ -65,8 +65,7 @@
                         <div class="col-sm-2">
                             @if (Auth::check())
                                 <a href="/players" class="nav-main"><i class="fas fa-users"></i> Player Profiles
-                                    <div class="nav-desc d-none d-sm-block">See detailed player
-                                        and character profiles
+                                    <div class="nav-desc d-none d-sm-block">See detailed player and character profiles
                                     </div>
                                 </a>
                             @else

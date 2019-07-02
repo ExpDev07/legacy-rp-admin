@@ -37,7 +37,7 @@ class Player extends Model
      * @var array
      */
     protected $casts = [
-        'data' => 'array',
+        'identifiers' => 'array',
         'seen' => 'datetime',
     ];
 
@@ -101,13 +101,20 @@ class Player extends Model
     }
 
     /**
-     * Gets the ban if player is banned, otherwise null.
+     * Gets the bans if player is banned, otherwise null. In practise, one player will have more than
+     * one identifier banned.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function ban()
+    public function bans()
     {
-        return $this->hasOne(Ban::class, 'identifier', 'identifier');
+        // Due to how banning works, there might exist a ban record for each of the player's identifier (steam, ip address
+        // rockstar license, etc), and it's important to get all.
+        // TODO 2/07/2019 4:14 AM - needs to be fixed
+        // TODO - https://laracasts.com/discuss/channels/eloquent/eloquent-hasmany-wherein
+        // TODO - https://stackoverflow.com/questions/56844284/using-eloquents-hasmany-relationship-with-wherein
+        // return $this->hasMany(Ban::class)->whereIn('identifier', $this->identifiers);
+        return $this->hasMany(Ban::class, 'identifier', 'identifier');
     }
 
     /**
@@ -122,6 +129,7 @@ class Player extends Model
 
     /**
      * Converts the given seconds to a human readable string.
+
      * https://snippetsofcode.wordpress.com/2012/08/25/php-function-to-convert-seconds-into-human-readable-format-months-days-hours-minutes/
      *
      * @param $ss
@@ -134,6 +142,7 @@ class Player extends Model
         $d = floor(($ss % 2592000) / 86400);
         $M = floor($ss / 2592000);
 
+        // Return a friendly string that humans can easily read.
         return "$M months, $d days, $h hours, $m minutes, $s seconds";
     }
 

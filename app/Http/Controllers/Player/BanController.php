@@ -33,18 +33,35 @@ class BanController extends Controller
      *
      * @param Request $request
      * @param Player $player
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request, Player $player)
     {
-        // Find the ban matching the player's identifier or create otherwise.
-        $player->ban()->firstOrCreate(['identifier' => $player->identifier], [
-            'ban-id' => self::makeBanId(),
-            'banner-id' => Auth::user()->player->staff,
-            'reason' => $request->get('reason')
-        ]);
+        // Go through the player's identifiers and create a ban record for each of them.
+        foreach ($player->identifiers as $identifier) {
+            $player->bans()->updateOrCreate(['identifier' => $identifier], [
+                'ban-id' => self::makeBanId(),
+                'banner-id' => Auth::user()->player->staff,
+                'reason' => $request->get('reason')
+            ]);
+        }
 
         // Redirect user to the player's show profile.
+        return redirect()->route('players.show', [ 'player' => $player ]);
+    }
+
+    /**
+     * Destroys all of the user's bans.
+     *
+     * @param Player $player
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Player $player)
+    {
+        // Delete all of of the user's bans.
+        $player->bans()->forceDelete();
+
+        // Redirect to the player's show profile.
         return redirect()->route('players.show', [ 'player' => $player ]);
     }
 
@@ -55,7 +72,7 @@ class BanController extends Controller
      */
     protected static function makeBanId()
     {
-        // Just do some magic with md5.
+        // Just do some magic with substringing and md5.
         return substr(md5(mt_rand()), 0, 7);
     }
 }
