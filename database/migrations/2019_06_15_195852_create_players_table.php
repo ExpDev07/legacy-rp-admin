@@ -26,6 +26,7 @@ class CreatePlayersTable extends Migration
             $table->string('name');
             $table->json('identifiers');
             $table->integer('playtime');
+            $table->integer('height');
             $table->timestamp('seen');
 
             // Characters.

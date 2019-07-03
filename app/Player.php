@@ -14,7 +14,6 @@ class Player extends Model
      */
     protected $table = 'users';
 
-
     /**
      * Whether to use timestamps.
      *
@@ -28,7 +27,7 @@ class Player extends Model
      * @var array
      */
     protected $fillable = [
-        'identifier', 'name', 'identifiers', 'playtime', 'seen', 'staff'
+        'identifier', 'name', 'identifiers', 'playtime', 'seen', 'staff', 'height'
     ];
 
     /**
@@ -46,7 +45,9 @@ class Player extends Model
      *
      * @return int
      */
-    function play_time() {
+    function play_time()
+    {
+        // Return a human-friendly readable string instead of the raw playtime.
         return self::seconds_to_human($this->playtime);
     }
 
@@ -55,7 +56,7 @@ class Player extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function characterOne()
+    public function character_one()
     {
         return $this->hasOne(Character::class, 'cid', 'cid1');
     }
@@ -65,7 +66,7 @@ class Player extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function characterTwo()
+    public function character_two()
     {
         return $this->hasOne(Character::class, 'cid', 'cid2');
     }
@@ -75,7 +76,7 @@ class Player extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function characterThree()
+    public function character_three()
     {
         return $this->hasOne(Character::class, 'cid', 'cid3');
     }
@@ -85,7 +86,7 @@ class Player extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function characterFour()
+    public function character_four()
     {
         return $this->hasOne(Character::class, 'cid', 'cid4');
     }
@@ -101,20 +102,16 @@ class Player extends Model
     }
 
     /**
-     * Gets the bans if player is banned, otherwise null. In practise, one player will have more than
-     * one identifier banned.
+     * Gets all of the user's bans. Due to how banning works, a ban might exist for multiple of the user's identifiers
+     * such as ip address, steam, etc.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return mixed
      */
     public function bans()
     {
         // Due to how banning works, there might exist a ban record for each of the player's identifier (steam, ip address
         // rockstar license, etc), and it's important to get all.
-        // TODO 2/07/2019 4:14 AM - needs to be fixed
-        // TODO - https://laracasts.com/discuss/channels/eloquent/eloquent-hasmany-wherein
-        // TODO - https://stackoverflow.com/questions/56844284/using-eloquents-hasmany-relationship-with-wherein
-        // return $this->hasMany(Ban::class)->whereIn('identifier', $this->identifiers);
-        return $this->hasMany(Ban::class, 'identifier', 'identifier');
+        return Ban::whereIn('identifier', $this->identifiers);
     }
 
     /**
@@ -128,6 +125,24 @@ class Player extends Model
     }
 
     /**
+     * Gets the link to steam profile or null if none found.
+     *
+     * @return string|null
+     */
+    function steam_profile()
+    {
+        // Get steam hex from user's identifier without the "steam:" prefix.
+        $parts = explode('steam:', $this->identifier);
+
+        // Check if the prefix was found.
+        if (count($parts) > 1) {
+            // Return the link by turning the steam hex (steam16) back into decimal (steam64).
+            return 'http://steamcommunity.com/profiles/' . hexdec($parts[1]);
+        }
+        return null;
+    }
+
+    /**
      * Converts the given seconds to a human readable string.
 
      * https://snippetsofcode.wordpress.com/2012/08/25/php-function-to-convert-seconds-into-human-readable-format-months-days-hours-minutes/
@@ -135,7 +150,8 @@ class Player extends Model
      * @param $ss
      * @return string
      */
-    static function seconds_to_human($ss) {
+    protected static function seconds_to_human($ss)
+    {
         $s = $ss % 60;
         $m = floor(($ss % 3600) / 60);
         $h = floor(($ss % 86400) / 3600);

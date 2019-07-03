@@ -64,8 +64,6 @@ class PlayerController extends Controller
     public function show(Player $player)
     {
         // Return the view to show the provided player.
-        //dd($player->bans()->count());
-        //dd($player->identifiers);
         return view('players.show', [ 'player' => $player ]);
     }
 
