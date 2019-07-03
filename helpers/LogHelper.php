@@ -23,6 +23,13 @@ class LogHelper
             case 'player died':        return 'danger';
             case 'player killed':      return 'danger';
             case 'possible injection': return 'danger';
+            case 'chat message':       return 'secondary';
+            case 'player connected':   return 'secondary';
+            case 'player dropped':     return 'secondary';
+            case 'character loaded':   return 'info';
+            case 'character unloaded': return 'info';
+            case 'character created':  return 'danger';
+            case 'character deleted':  return 'danger';
         }
         // Default is just "primary".
         return 'primary';
