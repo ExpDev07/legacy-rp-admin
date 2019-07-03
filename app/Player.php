@@ -27,7 +27,7 @@ class Player extends Model
      * @var array
      */
     protected $fillable = [
-        'identifier', 'name', 'identifiers', 'playtime', 'seen', 'staff', 'height'
+        'identifier', 'name', 'identifiers', 'playtime', 'seen', 'staff'
     ];
 
     /**
