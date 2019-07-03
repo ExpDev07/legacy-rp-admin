@@ -24,7 +24,7 @@ class LogHelper
             case 'player killed':      return 'danger';
             case 'possible injection': return 'danger';
         }
-        // Default is just "info".
+        // Default is just "primary".
         return 'primary';
     }
 
