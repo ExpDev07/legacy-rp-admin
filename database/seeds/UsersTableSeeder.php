@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
             // Create a player for this user.
             $player = $user->player()->create([
                 'name' => $user->username,
-                'identifiers' => json_encode([ $user->identifier, $ipAddress ]),
+                'identifiers' => [ $user->identifier, $ipAddress ],
                 'playtime' => $faker->numberBetween(0, 10000),
                 'seen' => Carbon::now()
             ]);
@@ -55,7 +55,7 @@ class UsersTableSeeder extends Seeder
             $player->logs()->create([
                 'action' => strtoupper($faker->word),
                 'details' => $faker->sentence,
-                'metadata' => json_encode([ 'serverId' => 0 ])
+                'metadata' => [ 'serverId' => 0 ]
             ]);
 
         }

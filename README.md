@@ -27,3 +27,4 @@ your own.
 Some notable contributors are:
 - ExpDev07 (https://github.com/ExpDev07; maintainer).
 - Sammikins (https://github.com/sammikinsrox/; maintainer).
+- Steve Steve (maintainer).
