@@ -174,7 +174,7 @@
                 <!--End Character Card for character_three -->
                 <!-- Character Card for character_four --->
                 <div class="col-sm-3">
-                    @if (!is_null($player->character_three))
+                    @if (!is_null($player->character_four))
                         <div class="alert alert-primary btn-lg btn-block">
                             <i class="fas fa-user-circle"></i>
                             {{ $player->character_four->firstname }} <br/> {{ $player->character_four->lastname }}

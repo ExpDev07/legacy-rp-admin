@@ -10,7 +10,7 @@ class LogHelper
 {
 
     /**
-     * Get the type a logged action can be (e.g kill is warning).
+     * Get the type a logged action can be (e.g kill is danger).
      *
      * @param Log $log
      * @return string
@@ -25,7 +25,7 @@ class LogHelper
             case 'possible injection': return 'danger';
         }
         // Default is just "info".
-        return 'info';
+        return 'primary';
     }
 
 }

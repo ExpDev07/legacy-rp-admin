@@ -23,7 +23,7 @@
                     <p>
                         You are now creating a ban for {{ $player->name }}. If you are currently trialing for staff, make sure to contact a moderator or
                         above to sign off on it. All bans are logged automatically. If the offense is minor, we recommend using the warning system instead
-                        and/or review any warnings that the person may have received before. The decision is yours, though.
+                        and/or to review any warnings that the person may have received before. The decision is yours, though.
                     </p>
                     <input class="form-control mb-2" name="reason" placeholder="Reason. Keep it brief...">
                     <button class="btn btn-danger" style="width: 100%">
