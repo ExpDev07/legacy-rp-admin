@@ -1,4 +1,4 @@
-@extends('layouts.adminpanel')
+@extends('layouts.panel')
 
 @section('navigation')
     <ul class="nav">
