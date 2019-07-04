@@ -26,17 +26,16 @@ class BanController extends Controller
     public function create(Player $player)
     {
         // Render view for creating a new warning.
-        return view('players.bans.create', [ 'player' => $player ]);
+        return view('players.bans.create', compact('player'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
      * @param Player $player
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request, Player $player)
+    public function store(Player $player)
     {
         // Make an id which will represent this batch of bans.
         $ban_id = self::makeBanId();
@@ -49,12 +48,12 @@ class BanController extends Controller
                 'identifier' => $identifier,
                 'ban-id' => $ban_id,
                 'banner-id' => Auth::user()->player->staff,
-                'reason' => $request->get('reason')
+                'reason' => request('reason')
             ]);
         }
 
         // Redirect user to the player's show profile.
-        return redirect()->route('players.show', [ 'player' => $player ]);
+        return redirect()->route('players.show', compact('player'));
     }
 
     /**
@@ -69,7 +68,7 @@ class BanController extends Controller
         $player->bans()->forceDelete();
 
         // Redirect to the player's show profile.
-        return redirect()->route('players.show', [ 'player' => $player ]);
+        return redirect()->route('players.show', compact('player'));
     }
 
     /**

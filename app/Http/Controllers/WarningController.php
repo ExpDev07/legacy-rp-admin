@@ -23,7 +23,7 @@ class WarningController extends Controller
     public function show(Warning $warning)
     {
         // Render the view and display the warning there.
-        return view('warnings.show', [ 'warning' => $warning ]);
+        return view('warnings.show', compact('warning'));
     }
 
     /**
@@ -35,7 +35,7 @@ class WarningController extends Controller
     public function edit(Warning $warning)
     {
         // Show view which has the form to edit the warning.
-        return view('warnings.edit', [ 'warning' => $warning ]);
+        return view('warnings.edit', compact('warning'));
     }
 
     /**

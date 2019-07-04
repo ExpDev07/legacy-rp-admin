@@ -34,20 +34,20 @@ class WarningController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
      * @param Player $player
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function store(Request $request, Player $player)
+    public function store(Player $player)
     {
         // Create the warning and persist it to the database.
         $player->warnings()->create([
-            'message' => $request->get('message'),
+            'message' => request('message'),
             'issuer_id' => Auth::user()->player->id
         ]);
 
         // Redirect user to the index page for player's warnings.
-        return redirect()->route('players.warnings.index', [ 'player' => $player ]);
+        return back();
+        //return redirect()->route('players.warnings.index', compact('player'));
     }
 
 }

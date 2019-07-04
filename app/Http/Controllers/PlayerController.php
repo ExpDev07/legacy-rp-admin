@@ -17,13 +17,12 @@ class PlayerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         // Get the query which the user is trying to give and then find players matching that query.
-        $query = strtolower($request->input('query', ''));
+        $query = strtolower(request('query', ''));
 
         // Find players where identifier or name is similar to the provided query.
         $players = Player
@@ -32,7 +31,7 @@ class PlayerController extends Controller
             ->simplePaginate(10);
 
         // Return the view.
-        return view('players.index', [ 'players' => $players ]);
+        return view('players.index', compact('players'));
     }
 
     /**
@@ -64,7 +63,7 @@ class PlayerController extends Controller
     public function show(Player $player)
     {
         // Return the view to show the provided player.
-        return view('players.show', [ 'player' => $player ]);
+        return view('players.show', compact('player'));
     }
 
     /**

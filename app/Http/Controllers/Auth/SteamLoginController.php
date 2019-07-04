@@ -35,7 +35,7 @@ class SteamLoginController extends AbstractSteamLoginController
     public function authenticated(Request $request, SteamUser $steamUser)
     {
         // Convert the steam64 to a steam identifier used in FiveM.
-        $id = $this->getSteamIdentifier($steamUser->steamId);
+        $id = $this->make_steam_identifier($steamUser->steamId);
 
         // Find the user by their steam identifier in the database.
         $user = User::where('identifier', $id)->first();
@@ -63,7 +63,7 @@ class SteamLoginController extends AbstractSteamLoginController
      * @param $steam64
      * @return string
      */
-    private function getSteamIdentifier($steam64)
+    private function make_steam_identifier($steam64)
     {
         // Convert decimal to hexadecimal and prepend a steam prefix.
         return 'steam' . ':' . dechex($steam64);
