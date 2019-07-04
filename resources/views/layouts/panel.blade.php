@@ -31,28 +31,14 @@
                 Tip 2: you can also add an image using data-image tag
                 -->
 
-                <div class="logo d-flex justify-content-center">
+                <div class="d-flex justify-content-center m-4">
                     <a href="/players" class="simple-text logo-normal">
                         <img src="/img/logo.png" style="max-width:115px; opacity: .50;  filter: alpha(opacity=50);"/>
                     </a>
                 </div>
+                <hr class="style-two mt-4 mb-2">
                 <div class="sidebar-wrapper">
-                    <ul class="nav">
-                        <li class="nav-item {{ (request()->is('players')) ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('players.index') }}">
-                                <i class="fas fa-chart-network"></i>
-                                <p><i class="fas fa-address-book"></i>
-                                    <small>PLAYER INDEX</small></p>
-                            </a>
-                        </li>
-                        <li class="nav-item {{ (request()->is([ 'players/', Auth::user()->player ])) ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('players.show', [ 'player' => Auth::user()->player ]) }}">
-                                <i class="fas fa-chart-network"></i>
-                                <p><i class="fas fa-user-circle"></i>
-                                    <small>MY PLAYER DASHBOARD</small></p>
-                            </a>
-                        </li>
-                    </ul>
+                    @yield('navigation')
                 </div>
             </div>
             <div class="main-panel">

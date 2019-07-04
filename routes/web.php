@@ -32,6 +32,9 @@ Route::resource('staff', 'StaffController');
 // Render the about page for "/admin",
 Route::resource('admin', 'AdminController');
 
+//Render the permissions page
+Route::resource('admin.permissions', 'PermissionsController');
+
 // Players resource: https://laracasts.com/discuss/channels/laravel/nested-resources-controllers-structure
 Route::resource('players', 'PlayerController');
 Route::resource('players.warnings', 'Player\WarningController');
