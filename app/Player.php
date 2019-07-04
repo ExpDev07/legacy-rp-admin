@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * A player.
+ *
+ * @package App
+ */
 class Player extends Model
 {
 
@@ -52,6 +57,39 @@ class Player extends Model
     }
 
     /**
+     * Gets the warnings that this person has received.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function warnings()
+    {
+        return $this->hasMany(Warning::class);
+    }
+
+    /**
+     * Gets all the actions which has been logged for this player.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function logs()
+    {
+        return $this->hasMany(Log::class, 'identifier', 'identifier');
+    }
+
+    /**
+     * Gets all of the user's bans. Due to how banning works, a ban might exist for multiple of the user's identifiers
+     * such as ip address, steam, etc.
+     *
+     * @return mixed
+     */
+    public function bans()
+    {
+        // Due to how banning works, there might exist a ban record for each of the player's identifier (steam, ip address
+        // rockstar license, etc), and it's important to get all.
+        return Ban::whereIn('identifier', $this->identifiers);
+    }
+
+    /**
      * Gets the player's character number one.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -92,54 +130,14 @@ class Player extends Model
     }
 
     /**
-     * Gets the warnings that this person has received.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function warnings()
-    {
-        return $this->hasMany(Warning::class);
-    }
-
-    /**
-     * Gets all of the user's bans. Due to how banning works, a ban might exist for multiple of the user's identifiers
-     * such as ip address, steam, etc.
-     *
-     * @return mixed
-     */
-    public function bans()
-    {
-        // Due to how banning works, there might exist a ban record for each of the player's identifier (steam, ip address
-        // rockstar license, etc), and it's important to get all.
-        return Ban::whereIn('identifier', $this->identifiers);
-    }
-
-    /**
-     * Gets all the actions which has been logged for this player.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function logs()
-    {
-        return $this->hasMany(Log::class, 'identifier', 'identifier');
-    }
-
-    /**
      * Gets the link to steam profile or null if none found.
      *
      * @return string|null
      */
     function steam_profile()
     {
-        // Get steam hex from user's identifier without the "steam:" prefix.
-        $parts = explode('steam:', $this->identifier);
-
-        // Check if the prefix was found.
-        if (count($parts) > 1) {
-            // Return the link by turning the steam hex (steam16) back into decimal (steam64).
-            return 'http://steamcommunity.com/profiles/' . hexdec($parts[1]);
-        }
-        return null;
+        // Attempt to resolve the steam profile using player's identifier.
+        return self::resolve_steam_profile($this->identifier);
     }
 
     /**
@@ -160,6 +158,26 @@ class Player extends Model
 
         // Return a friendly string that humans can easily read.
         return "$M months, $d days, $h hours, $m minutes, $s seconds";
+    }
+
+    /**
+     * Takes the given identifier and tries to resolve it into a steam profile link. Gives null if the resolving
+     * fails.
+     *
+     * @param $identifier
+     * @return string|null
+     */
+    protected static function resolve_steam_profile($identifier)
+    {
+        // Get rid of any prefix.
+        $parts = explode('steam:', $identifier);
+
+        // Check if the prefix was found.
+        if (count($parts) > 1) {
+            // Return the link by turning the steam hex (steam16) back into decimal (steam64).
+            return 'http://steamcommunity.com/profiles/' . hexdec($parts[1]);
+        }
+        return null;
     }
 
 }

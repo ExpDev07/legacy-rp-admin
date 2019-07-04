@@ -33,7 +33,7 @@ class CreateCharactersTable extends Migration
             $table->integer('bank');
             $table->string('job')->nullable();
 
-            // Json values.
+            // Json data values.
             $table->json('basicneeds');
             $table->json('licenses');
             $table->json('model');

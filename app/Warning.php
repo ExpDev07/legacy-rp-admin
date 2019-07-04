@@ -4,6 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * A warning which can be given to players.
+ *
+ * @package App
+ */
 class Warning extends Model
 {
 

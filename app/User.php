@@ -5,6 +5,11 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * An user of the panel.
+ *
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -44,6 +49,16 @@ class User extends Authenticatable
         // return $this->hasOne('App\Phone', 'foreign_key', 'local_key');
         // return $this->hasOne('Player::class', 'identifier', 'identifier');
         return $this->hasOne(Player::class, 'identifier', 'identifier');
+    }
+
+    /**
+     * Gets the role assigned to this user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 
 }

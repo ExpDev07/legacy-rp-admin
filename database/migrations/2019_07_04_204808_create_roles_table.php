@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateRolesTable extends Migration
 {
 
     /**
      * Main table associated with this migration.
      */
-    const TABLE = 'webpanel_users';
+    const TABLE = 'roles';
 
     /**
      * Run the migrations.
@@ -21,20 +21,8 @@ class CreateUsersTable extends Migration
     {
         Schema::create(self::TABLE, function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('identifier');
-            $table->string('username');
-            $table->string('avatar'); // an avatar (profile picture)
-
-            // Roles and permission.
-            $table->boolean('superadmin'); // whether they're a superadmin
-            $table->unsignedInteger('role_id')->nullable();
-
-            // Tokens and timestamps.
-            $table->rememberToken();
+            $table->string('name'); // friendly name for role
             $table->timestamps();
-
-            // Keys
-            // $table->foreign('identifier')->references('identifier')->on('players');
         });
     }
 
