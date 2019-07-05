@@ -50,6 +50,23 @@ class User extends Authenticatable
     }
 
     /**
+     * Checks if the user has permission to perform the provided action.
+     *
+     * @param string $action
+     * @return bool 
+     */
+    public function can(string $action)
+    {
+        // User can do anything if marked as a super admin.
+        if ($this->is_super_admin()) {
+            return true;
+        }
+        // Check if a role has been set and whether it has got the permission to perform the given action. If
+        // not, the user isn't permitted (return false).
+        return $this->role()->exists() && $this->role->permissions()->where('action', $action)->exists();
+    }
+
+    /**
      * Gets the player associated with this user account.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
