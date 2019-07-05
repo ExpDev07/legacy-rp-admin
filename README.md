@@ -28,3 +28,9 @@ Some notable contributors are:
 - ExpDev07 (https://github.com/ExpDev07; maintainer).
 - Sammikins (https://github.com/sammikinsrox/; maintainer).
 - Steve Steve (maintainer).
+
+
+### Photos
+![Players Index](https://i.imgur.com/jvTXnxZ.png)
+
+![Players Show](https://i.imgur.com/K9OYJrt.png)

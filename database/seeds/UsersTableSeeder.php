@@ -30,7 +30,8 @@ class UsersTableSeeder extends Seeder
             $user = User::create([
                 'identifier' => 'steam:' . $faker->word . $faker->word . $faker->numberBetween(0, 10000000),
                 'username' => $faker->name,
-                'avatar' => self::$AVATAR_URL
+                'avatar' => self::$AVATAR_URL,
+                'super_admin' => false
             ]);
 
             // An IP address.
