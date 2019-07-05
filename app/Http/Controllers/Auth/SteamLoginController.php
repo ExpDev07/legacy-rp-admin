@@ -49,6 +49,7 @@ class SteamLoginController extends AbstractSteamLoginController
                 'identifier' => $id,
                 'avatar' => $steamUser->avatar,
                 'username' => $steamUser->name,
+                'super_admin' => false
             ]);
         }
 

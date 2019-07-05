@@ -27,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'identifier', 'username', 'avatar',
+        'identifier', 'username', 'avatar', 'super_admin'
     ];
 
     /**
@@ -38,6 +38,16 @@ class User extends Authenticatable
     protected $hidden = [
         'remember_token',
     ];
+
+    /**
+     * Checks if the user is a super administrator.
+     *
+     * @return boolean
+     */
+    public function is_super_admin()
+    {
+        return $this->super_admin;
+    }
 
     /**
      * Gets the player associated with this user account.
@@ -59,6 +69,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function permissions()
+    {
+
     }
 
 }

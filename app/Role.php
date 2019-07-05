@@ -34,11 +34,11 @@ class Role extends Model
     /**
      * Gets all of the permissions that this role has.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function permissions()
     {
-        return $this->hasMany(Permission::class );
+        return $this->belongsToMany(Permission::class);
     }
 
 }

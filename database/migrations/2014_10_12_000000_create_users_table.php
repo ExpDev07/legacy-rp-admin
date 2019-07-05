@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar'); // an avatar (profile picture)
 
             // Roles and permission.
-            $table->boolean('superadmin'); // whether they're a superadmin
+            $table->boolean('super_admin'); // whether they're a superadmin
             $table->unsignedInteger('role_id')->nullable();
 
             // Tokens and timestamps.
