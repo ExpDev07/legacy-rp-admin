@@ -55,7 +55,7 @@ class User extends Authenticatable
      * @param string $action
      * @return bool 
      */
-    public function can(string $action)
+    public function hasPermission(string $action)
     {
         // User can do anything if marked as a super admin.
         if ($this->is_super_admin()) {
