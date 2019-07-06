@@ -25,6 +25,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::before(function ($user, $ability) {
+            // Grant all abilities to users who are marked as a super-admin and also do a
+            // permission-check to allow for permissions to be provided as abilities.
+            if ($user->is_super_admin() || $user->has_permission($ability)) {
+                return true;
+            }
+        });
+
     }
 }

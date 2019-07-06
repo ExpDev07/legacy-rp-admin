@@ -46,13 +46,13 @@ class Player extends Model
     ];
 
     /**
-     * Checks if the user is currently set to banned.
+     * Checks whether this player is a staff member.
      *
      * @return bool
      */
-    function is_banned()
+    function is_staff()
     {
-        return $this->bans()->exists();
+        return !is_null($this->staff);
     }
 
     /**
@@ -64,6 +64,16 @@ class Player extends Model
     {
         // Return a human-friendly readable string instead of the raw playtime.
         return self::seconds_to_human($this->playtime);
+    }
+
+    /**
+     * Checks if the player is currently set to banned.
+     *
+     * @return bool
+     */
+    function is_banned()
+    {
+        return $this->bans()->exists();
     }
 
     /**

@@ -50,19 +50,6 @@ class User extends Authenticatable
     }
 
     /**
-     * Determine if the entity has a given ability.
-     *
-     * @param string $ability
-     * @param array|mixed $arguments
-     * @return bool
-     */
-    public function can($ability, $arguments = [])
-    {
-        // Call underlying logic in parent or check if user has permission.
-        return parent::can($ability, $arguments) || $this->has_permission($ability);
-    }
-
-    /**
      * Checks if the user has permission to perform the provided action.
      *
      * @param string $action
