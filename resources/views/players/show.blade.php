@@ -23,10 +23,9 @@
     <div content="row">
         {{ Breadcrumbs::render('player', $player) }}
     </div>
-
     <div class="row">
         <!-- Check if player is banned -->
-        @if ($player->bans()->count() > 0)
+        @if ($player->is_banned())
             <div class="card card-chart">
                 <div class="alert alert-danger mb-0" role="alert">
                     <span class="lead">

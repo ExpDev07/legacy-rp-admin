@@ -46,6 +46,16 @@ class Player extends Model
     ];
 
     /**
+     * Checks whether this player is a staff member.
+     *
+     * @return bool
+     */
+    function is_staff()
+    {
+        return !is_null($this->staff);
+    }
+
+    /**
      * Gets the amount of time this player has spent on the server in a nice readable string.
      *
      * @return int
@@ -54,6 +64,16 @@ class Player extends Model
     {
         // Return a human-friendly readable string instead of the raw playtime.
         return self::seconds_to_human($this->playtime);
+    }
+
+    /**
+     * Checks if the player is currently set to banned.
+     *
+     * @return bool
+     */
+    function is_banned()
+    {
+        return $this->bans()->exists();
     }
 
     /**
@@ -80,7 +100,7 @@ class Player extends Model
      * Gets all of the user's bans. Due to how banning works, a ban might exist for multiple of the user's identifiers
      * such as ip address, steam, etc.
      *
-     * @return mixed
+     * @return \Illuminate\Database\Query\Builder
      */
     public function bans()
     {
