@@ -50,20 +50,34 @@ class User extends Authenticatable
     }
 
     /**
+     * Determine if the entity has a given ability.
+     *
+     * @param string $ability
+     * @param array|mixed $arguments
+     * @return bool
+     */
+    public function can($ability, $arguments = [])
+    {
+        // Call underlying logic in parent or check if user has permission.
+        return parent::can($ability, $arguments) || $this->has_permission($ability);
+    }
+
+    /**
      * Checks if the user has permission to perform the provided action.
      *
      * @param string $action
      * @return bool 
      */
-    public function hasPermission(string $action)
+    public function has_permission(string $action)
     {
-        // User can do anything if marked as a super admin.
+        // User has all permissions as default when set to super admin.
         if ($this->is_super_admin()) {
             return true;
         }
-        // Check if a role has been set and whether it has got the permission to perform the given action. If
-        // not, the user isn't permitted (return false).
-        return $this->role()->exists() && $this->role->permissions()->where('action', $action)->exists();
+
+        // Make sure the user have a role and that it has the permission to perform the
+        // provided action.
+        return $this->role()->exists() && $this->role->hasPermission($action);
     }
 
     /**
@@ -79,18 +93,13 @@ class User extends Authenticatable
     }
 
     /**
-     * Gets the role assigned to this user.
+     * Gets the user's assigned role.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function role()
     {
         return $this->belongsTo(Role::class);
-    }
-
-    public function permissions()
-    {
-
     }
 
 }

@@ -22,6 +22,18 @@ class Role extends Model
     ];
 
     /**
+     * Checks if the role has permission to perform the provided action.
+     *
+     * @param string $action
+     * @return bool
+     */
+    public function hasPermission(string $action)
+    {
+        // Check if the role has a permission where the action is set to the provided one.
+        return $this->permissions()->where('action', $action)->exists();
+    }
+
+    /**
      * Gets all of the users that has this role assigned to them.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -37,8 +49,8 @@ class Role extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function permissions()
-    {
-        return $this->belongsToMany(Permission::class);
-    }
+{
+    return $this->belongsToMany(Permission::class);
+}
 
 }
