@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Player;
 use App\Ban;
 use App\Http\Controllers\Controller;
 use App\Player;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class BanController extends Controller
 {
@@ -40,14 +38,13 @@ class BanController extends Controller
         // Make an id which will represent this batch of bans.
         $ban_id = self::makeBanId();
 
-        // Go through the player's identifiers and create a ban record for each of them.
+        // Go through the player's identifiers and create a ban record for each of them. Make sure there's only
+        // one ban per identifier by updating if one already exists.
         foreach ($player->identifiers as $identifier) {
-            // Make sure there's only one ban per identifier by updating if one already
-            // exists.
             Ban::updateOrCreate(['identifier' => $identifier], [
                 'identifier' => $identifier,
                 'ban-id' => $ban_id,
-                'banner-id' => Auth::user()->player->staff,
+                'banner-id' => auth()->user()->player->staff,
                 'reason' => request('reason')
             ]);
         }
