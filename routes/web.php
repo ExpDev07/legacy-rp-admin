@@ -43,3 +43,6 @@ Route::resource('players.logs', 'Player\LogController');
 
 // Warnings resource
 Route::resource('warnings', 'WarningController');
+
+// Roles resource
+Route::resource('roles', 'RoleController');
