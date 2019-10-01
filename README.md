@@ -1,3 +1,8 @@
+# DISCONTINUED
+This project is continued as https://github.com/ExpDev07/legacy-rp-admin-v3. Direct all questions there.
+
+---
+
 # legacy-rp-admin
 A web interface written in PHP using Laravel (https://laravel.com/) to help with administrative duties at 
 the FiveM server: Legacy Roleplay.
